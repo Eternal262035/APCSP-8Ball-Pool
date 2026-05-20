@@ -1,12 +1,12 @@
 {
-  "dependencies": {
-    "typescript": "^6.0.3"
-  },
   "scripts": {
     "build": "npx tsc",
     "dev-http": "cd http-dev-server && node serve.cjs"
   },
   "devDependencies": {
     "@types/node": "^25.9.1"
+  },
+  "dependencies": {
+    "typescript": "^6.0.3"
   }
 }
