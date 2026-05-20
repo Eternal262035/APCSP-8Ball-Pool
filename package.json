@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "typescript": "^6.0.3"
+  },
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1"
+  }
+}
