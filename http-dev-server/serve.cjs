@@ -21,7 +21,7 @@ const readFile = require("fs/promises");
 // ROOT/
 const rootDir = path.join(__dirname, "..");
 
-// Basic MIME map
+// basic mime type map 
 const mimeTypes = {
     ".html": "text/html",
     ".js": "text/javascript",
@@ -63,7 +63,8 @@ const httpServer = http.createServer(
     }
 );
 
-const PORT = 3067;
+const PORT = 3001; // six seven
+
 httpServer.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`[HTTP] Now serving requests on ${PORT}`);
 });
