@@ -1,29 +1,24 @@
-import Renderable from "./Renderable.js";
-
 /** container that holds all the renderable entities.
- * there can be more than one RenderableContainer in existence. 
+ * there can be more than one RenderableContainer in existence.
  */
 export default class RenderableContainer {
-    public children: Map<number, Renderable>;
-
+    children;
     constructor() {
         this.children = new Map();
     }
-
-    public addChild(id: number, child: Renderable):void {
+    addChild(id, child) {
         this.children.set(id, child);
     }
-
-    public removeChild(id:number):void {
+    removeChild(id) {
         this.children.delete(id);
     }
-
-    
-
+    drawAll(ctx) {
+        for (const child of this.children.values()) {
+            child.draw(ctx);
+        }
+    }
 }
-
-
-export const containers: RenderableContainer[] = [];
+export const containers = [];
 export function initRenderableContainers() {
     containers.push(new RenderableContainer()); //[0]
 }

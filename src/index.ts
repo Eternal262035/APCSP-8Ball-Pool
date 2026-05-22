@@ -1,6 +1,7 @@
-import initCanvas from "./Render/InitCanvas.js";
-import { containers, initRenderableContainers } from "./Render/Manager.js";
-import Circle from "./Render/Sprites/CircleTest.js";
+import initCanvas, { ctx } from "./Render/InitCanvas.js";
+import renderFrameLoop from "./Render/Main.js";
+import { containers, initRenderableContainers } from "./Render/RenderableContainer.js";
+import Circle from "./Render/Sprites/Circle.js";
 
 // alert("Load index");
 
@@ -8,5 +9,9 @@ import Circle from "./Render/Sprites/CircleTest.js";
 
 initCanvas();
 initRenderableContainers();
+renderFrameLoop(ctx);
+
+
 
 new Circle(containers[0], {x:67, y:67}, 15);
+

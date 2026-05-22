@@ -1,4 +1,4 @@
-import RenderableContainer from "./Manager.js";
+import RenderableContainer from "./RenderableContainer.js";
 
 /** the position of the sprite (screen coords for now ig) */
 export interface PositionData { // using interface and not type cuz we dont need type unions and all that

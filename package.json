@@ -1,6 +1,7 @@
 {
   "scripts": {
     "build": "npx tsc",
+    "buildw": "npx tsc -w",
     "dev-http": "cd http-dev-server && node serve.cjs"
   },
   "devDependencies": {
