@@ -2,6 +2,10 @@ const c = document.getElementById("mainCanvas"); // type assertion because by de
 export var ctx;
 export default function initCanvas() {
     ctx = c.getContext("2d");
-    c.height = screen.height;
-    c.width = screen.width;
+    c.height = window.innerHeight;
+    c.width = window.innerWidth;
+    window.addEventListener("resize", () => {
+        c.height = window.innerHeight;
+        c.width = window.innerWidth;
+    });
 }

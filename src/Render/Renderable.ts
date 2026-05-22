@@ -1,3 +1,5 @@
+import RenderableContainer from "./Manager.js";
+
 /** the position of the sprite (screen coords for now ig) */
 export interface PositionData { // using interface and not type cuz we dont need type unions and all that
     x: number,
@@ -9,16 +11,25 @@ export interface PositionData { // using interface and not type cuz we dont need
 
 // }
 
+/** the id that is assigned to each Renderable instance */
+export var renderableId = 0;
+
 /** the basic class that exists for a renderable object. 
  * All sprites extend off of this.
  * children classes like Circle and Rectangle and such all 
 */
 export default class Renderable {
-    positionData: PositionData;
+    public positionData: PositionData;
+    public container: RenderableContainer;
     public paths: Path2D[] = [];
+    private id: number;
 
-    constructor(position: PositionData) {
+    constructor(container: RenderableContainer, position: PositionData) {
+        this.container = container;
         this.positionData = position;
+        this.id = renderableId;
+        renderableId++;
+        this.container.addChild(this.id, this);
     }
 
     /** add a path to the array of paths */
@@ -30,7 +41,7 @@ export default class Renderable {
     public draw(ctx: CanvasRenderingContext2D) {
         for (const path of this.paths) {
             // iterate through each path
-            ctx.stroke(path);
+            ctx.stroke(path); // this is a default. 
         }
     }
 }

@@ -6,19 +6,21 @@
         <script defer src="../build/index.js" type="module" onerror="alert('script load error')"></script>
     </head>
     <body>
-        <p>PAGE TOP</p>
+        <!-- <p>PAGE TOP</p> -->
         <canvas id="mainCanvas"></canvas>
     </body>
     <style>
         body {
             padding: 0px;
             margin: 0px;
-            overflow: hidden;
+            /* overflow: hidden; */
         }
         #mainCanvas {
+            display: block;
             width: 100dvw;
-            height: 90dvh;
-            border: 1px solid black;
+            height: 100dvh;
+            /* border: 6.7px solid rgb(0, 255, 0); */
+            box-sizing: border-box;
         }
     </style>
 </html>
