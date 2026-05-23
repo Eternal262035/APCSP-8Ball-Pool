@@ -15,6 +15,7 @@ export default class RenderableContainer {
     drawAll(ctx) {
         for (const child of this.children.values()) {
             child.draw(ctx);
+            console.log(child.positionData);
         }
     }
 }

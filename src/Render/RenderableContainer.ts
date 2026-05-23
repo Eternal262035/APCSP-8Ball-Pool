@@ -21,6 +21,7 @@ export default class RenderableContainer {
     public drawAll(ctx: CanvasRenderingContext2D) {
         for (const child of this.children.values()) {
             child.draw(ctx);
+            console.log(child.positionData);
         }
     }
     

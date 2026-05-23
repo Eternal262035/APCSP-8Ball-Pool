@@ -11,10 +11,5 @@ initCanvas();
 initRenderableContainers();
 renderFrameLoop(ctx);
 
-const test = new Circle(containers[0], {x:67, y:67}, 15);
-setInterval(()=>{
-    test.positionData.x+=10;
-    console.log(test.positionData);
-}, 2000);
-
+new Circle(containers[0], {x:67, y:67}, 15);
 

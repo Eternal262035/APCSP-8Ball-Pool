@@ -26,7 +26,10 @@ export default class Renderable {
     /** draws each Path2D given a ctx */
     draw(ctx) {
         for (const path of this.paths) {
-            ctx.stroke(path); // this is a default. 
+            ctx.save();
+            ctx.translate(1 * this.positionData.x, 1 * this.positionData.y);
+            ctx.stroke(path); // this is a default.
+            ctx.restore();
         }
     }
 }
