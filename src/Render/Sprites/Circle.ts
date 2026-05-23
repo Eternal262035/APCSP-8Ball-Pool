@@ -1,5 +1,4 @@
 import { PI2 } from "../../Const/Constants.js";
-import { ctx } from "../InitCanvas.js";
 import RenderableContainer from "../RenderableContainer.js";
 import Renderable, { PositionData } from "../Renderable.js";
 
@@ -20,7 +19,6 @@ export default class Circle extends Renderable {
 
     public draw(thisCtx: CanvasRenderingContext2D) {
         super.draw(thisCtx);
-        this.positionData.x++;
         // console.log(this.positionData);
     }
 }

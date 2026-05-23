@@ -6,4 +6,8 @@ import Circle from "./Render/Sprites/Circle.js";
 initCanvas();
 initRenderableContainers();
 renderFrameLoop(ctx);
-new Circle(containers[0], { x: 67, y: 67 }, 15);
+const test = new Circle(containers[0], { x: 67, y: 67 }, 15);
+setInterval(() => {
+    test.positionData.x += 10;
+    console.log(test.positionData);
+}, 2000);

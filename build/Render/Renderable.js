@@ -26,7 +26,6 @@ export default class Renderable {
     /** draws each Path2D given a ctx */
     draw(ctx) {
         for (const path of this.paths) {
-            // iterate through each path
             ctx.stroke(path); // this is a default. 
         }
     }

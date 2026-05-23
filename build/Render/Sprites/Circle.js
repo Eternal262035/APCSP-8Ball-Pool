@@ -15,7 +15,6 @@ export default class Circle extends Renderable {
     }
     draw(thisCtx) {
         super.draw(thisCtx);
-        this.positionData.x++;
         // console.log(this.positionData);
     }
 }

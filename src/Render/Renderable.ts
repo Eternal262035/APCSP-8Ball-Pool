@@ -40,7 +40,6 @@ export default class Renderable {
     /** draws each Path2D given a ctx */
     public draw(ctx: CanvasRenderingContext2D) {
         for (const path of this.paths) {
-            // iterate through each path
             ctx.stroke(path); // this is a default. 
         }
     }
