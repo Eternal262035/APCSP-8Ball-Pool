@@ -14,7 +14,7 @@ export function checkForCollisions() {
                 // console.log(`${firstEntity.id} <--> ${secondEntity.id}`);
                 // firstEntity.physicsData.velocity.add(Vector.fromPolar(dr, Vector.direction({x: firstEntity.positionData.x-secondEntity.positionData.x, y: firstEntity.positionData.y-secondEntity.positionData.y})));
                 const correctionVector = new Vector(firstEntity.positionData.x - secondEntity.positionData.x, firstEntity.positionData.y - secondEntity.positionData.y);
-                correctionVector.scale(0.2);
+                correctionVector.scale(0.03);
                 firstEntity.physicsData.velocity.add(correctionVector);
             }
         }

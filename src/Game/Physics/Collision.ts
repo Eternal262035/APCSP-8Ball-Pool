@@ -17,7 +17,7 @@ export function checkForCollisions() {
                     firstEntity.positionData.x-secondEntity.positionData.x, 
                     firstEntity.positionData.y-secondEntity.positionData.y, 
                 );
-                correctionVector.scale(0.2);
+                correctionVector.scale(0.03);
                 firstEntity.physicsData.velocity.add(correctionVector)
             }
         }
