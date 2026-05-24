@@ -34,7 +34,7 @@ export default class Renderable {
             ctx.save();
             ctx.translate(1*this.positionData.x, 1*this.positionData.y);
             ctx.stroke(path); // this is a default.
-            ctx.restore(); 
+            ctx.restore();
         }
     }
 }
