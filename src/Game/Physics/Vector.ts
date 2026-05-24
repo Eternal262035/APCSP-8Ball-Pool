@@ -52,9 +52,10 @@ export default class Vector /* implements VectorAbstract */ {
     }
 
     /** scale up or down a vector by a factor */
-    public scale(v:number):void {
+    public scale(v:number): Vector {
         this.x*=v;
         this.y*=v;
+        return this;
     }
 
     /** getter method for angle vector angle */

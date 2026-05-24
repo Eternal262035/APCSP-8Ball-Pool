@@ -41,6 +41,7 @@ export default class Vector /* implements VectorAbstract */ {
     scale(v) {
         this.x *= v;
         this.y *= v;
+        return this;
     }
     /** getter method for angle vector angle */
     get angle() {

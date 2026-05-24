@@ -17,18 +17,23 @@ export default class Entity {
         this.sprite = new SpriteBall(containers[0], this.positionData, this.hitboxData.size);
         entityManager.addNewEntity(this);
     }
+    destroy() {
+        entityManager.removeEntity(this);
+        // need to remove the sprite too
+        return this;
+    }
     applyPhysics() {
         if (this.positionData.x + this.physicsData.velocity.x >= 600) {
-            this.physicsData.velocity.x = 0;
+            this.physicsData.velocity.x *= -0.4;
         }
         if (this.positionData.x + this.physicsData.velocity.x <= 100) {
-            this.physicsData.velocity.x = 0;
+            this.physicsData.velocity.x *= -0.4;
         }
         if (this.positionData.y + this.physicsData.velocity.y >= 600) {
-            this.physicsData.velocity.y = 0;
+            this.physicsData.velocity.y *= -0.4;
         }
         if (this.positionData.y + this.physicsData.velocity.y <= 100) {
-            this.physicsData.velocity.y = 0;
+            this.physicsData.velocity.y *= -0.4;
         }
         // if (Math.abs(this.positionData.x+this.physicsData.velocity.x) > 100) {
         //     this.physicsData.velocity.x = 0;
@@ -38,6 +43,19 @@ export default class Entity {
         // }
         this.positionData.x += this.physicsData.velocity.x;
         this.positionData.y += this.physicsData.velocity.y;
-        this.physicsData.velocity.scale(0.9);
+        if (this.positionData.x >= 600 || this.positionData.x <= 100 || this.positionData.y >= 600 || this.positionData.y <= 100) {
+            // this.destroy();
+        }
+        this.physicsData.velocity.scale(0.99);
+        this.sprite.paths[1] = new Path2D;
+        this.sprite.paths[1].moveTo(0, 0);
+        this.sprite.paths[1].lineTo(1.75 * this.hitboxData.size * Math.cos(this.physicsData.velocity.angle), 1.75 * this.hitboxData.size * Math.sin(this.physicsData.velocity.angle));
+        this.sprite.paths[2] = new Path2D;
+        this.sprite.paths[2].moveTo(1.75 * this.hitboxData.size * Math.cos(this.physicsData.velocity.angle), 1.75 * this.hitboxData.size * Math.sin(this.physicsData.velocity.angle));
+        this.sprite.paths[2].lineTo(1.5 * this.hitboxData.size * Math.cos(this.physicsData.velocity.angle - 0.24), 1.5 * this.hitboxData.size * Math.sin(this.physicsData.velocity.angle - 0.24));
+        this.sprite.paths[3] = new Path2D;
+        this.sprite.paths[3].moveTo(1.75 * this.hitboxData.size * Math.cos(this.physicsData.velocity.angle), 1.75 * this.hitboxData.size * Math.sin(this.physicsData.velocity.angle));
+        this.sprite.paths[3].lineTo(1.5 * this.hitboxData.size * Math.cos(this.physicsData.velocity.angle + 0.24), 1.5 * this.hitboxData.size * Math.sin(this.physicsData.velocity.angle + 0.24));
+        // this.sprite.paths[4]
     }
 }

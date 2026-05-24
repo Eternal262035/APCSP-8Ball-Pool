@@ -14,6 +14,10 @@ class EntityManager {
         this.entities.set(e.id, e);
     }
 
+    public removeEntity(e: Entity): void {
+        this.entities.delete(e.id);
+    }
+
     public applyAllEntityPhysics(): void {
         for (const e of this.entities.values()) {
             e.applyPhysics();

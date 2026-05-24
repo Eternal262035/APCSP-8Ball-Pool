@@ -21,3 +21,5 @@ export default function renderFrameLoop(ctx: CanvasRenderingContext2D) {
         }
     }
 }
+
+

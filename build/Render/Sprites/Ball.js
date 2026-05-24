@@ -12,11 +12,18 @@ export default class SpriteBall extends Renderable {
         path2.rect(-7, 10, 17, 4);
         // const path3 = new Path2D;
         // path3.arc(0,0, radius*0.5, PI2, PI2);
+        const directionArrow = new Path2D;
+        directionArrow.moveTo(0, 0);
+        directionArrow.lineTo(radius * 1.75, 0);
         this.addPath(path1);
-        this.addPath(path2);
-        // this.addPath(path3);     
+        this.addPath(directionArrow);
+        this.addPath(new Path2D); // arrow
+        this.addPath(new Path2D); // arrow
+        // this.addPath(new Path2D); // momentum ig
     }
     draw(thisCtx) {
         super.draw(thisCtx);
+    }
+    updateAngleArrow() {
     }
 }

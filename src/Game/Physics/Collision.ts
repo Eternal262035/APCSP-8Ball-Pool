@@ -16,13 +16,22 @@ export function checkForCollisions() {
             if (dr < firstEntity.hitboxData.size + secondEntity.hitboxData.size) {
                 // console.log(`${firstEntity.id} <--> ${secondEntity.id}`);
                 // firstEntity.physicsData.velocity.add(Vector.fromPolar(dr, Vector.direction({x: firstEntity.positionData.x-secondEntity.positionData.x, y: firstEntity.positionData.y-secondEntity.positionData.y})));
+                const mom1 = firstEntity.physicsData.velocity.magnitude * firstEntity.physicsData.mass;
+                const mom2 = secondEntity.physicsData.velocity.magnitude * secondEntity.physicsData.mass;
+                
+                const angle = Math.atan2(
+                    firstEntity.positionData.y-secondEntity.positionData.y,
+                    firstEntity.positionData.x-secondEntity.positionData.x
+                );
+                const scale = Math.cos(angle);
+
+
                 const correctionVector = new Vector(
                     firstEntity.positionData.x-secondEntity.positionData.x, 
                     firstEntity.positionData.y-secondEntity.positionData.y, 
-                );
-                correctionVector.scale(0.1);
-                firstEntity.physicsData.velocity.add(correctionVector)
-                secondEntity.physicsData.velocity.subtract(correctionVector)
+                ).scale(0.02)
+                firstEntity.physicsData.velocity.add(correctionVector);
+                secondEntity.physicsData.velocity.subtract(correctionVector);
             }
         }
     }
