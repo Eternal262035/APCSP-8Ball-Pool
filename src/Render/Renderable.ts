@@ -1,15 +1,6 @@
+import { PositionData } from "../Game/Datagroups/PositionData.js";
 import RenderableContainer from "./RenderableContainer.js";
 
-/** the position of the sprite (screen coords for now ig) */
-export interface PositionData { // using interface and not type cuz we dont need type unions and all that
-    x: number,
-    y: number
-}
-
-// /** basically a glorified Path2D that has instructions on whether to fill,  */
-// export interface RenderableComponent {
-
-// }
 
 /** the id that is assigned to each Renderable instance */
 export var renderableId = 0;

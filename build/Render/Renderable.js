@@ -1,6 +1,3 @@
-// /** basically a glorified Path2D that has instructions on whether to fill,  */
-// export interface RenderableComponent {
-// }
 /** the id that is assigned to each Renderable instance */
 export var renderableId = 0;
 /** the basic class that exists for a renderable object.

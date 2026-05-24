@@ -1,3 +1,4 @@
+import Entity from "./Game/Entity/Entity.js";
 import initCanvas, { ctx } from "./Render/InitCanvas.js";
 import renderFrameLoop from "./Render/Main.js";
 import { containers, initRenderableContainers } from "./Render/RenderableContainer.js";
@@ -11,5 +12,6 @@ initCanvas();
 initRenderableContainers();
 renderFrameLoop(ctx);
 
-new Circle(containers[0], {x:67, y:67}, 15);
+// new Circle(containers[0], {x:67, y:67}, 15);
+new Entity(0,0,15);
 

@@ -1,0 +1,1 @@
+export const mspt:number = 40;
