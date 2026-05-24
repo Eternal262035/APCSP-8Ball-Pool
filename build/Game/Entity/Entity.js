@@ -24,16 +24,20 @@ export default class Entity {
     }
     applyPhysics() {
         if (this.positionData.x + this.physicsData.velocity.x >= 600) {
-            this.physicsData.velocity.x *= -0.4;
+            // this.physicsData.velocity.x *= -0.4;
+            this.physicsData.velocity.x *= -1;
         }
         if (this.positionData.x + this.physicsData.velocity.x <= 100) {
-            this.physicsData.velocity.x *= -0.4;
+            // this.physicsData.velocity.x *= -0.4;
+            this.physicsData.velocity.x *= -1;
         }
         if (this.positionData.y + this.physicsData.velocity.y >= 600) {
-            this.physicsData.velocity.y *= -0.4;
+            // this.physicsData.velocity.y *= -0.4;
+            this.physicsData.velocity.y *= -1;
         }
         if (this.positionData.y + this.physicsData.velocity.y <= 100) {
-            this.physicsData.velocity.y *= -0.4;
+            // this.physicsData.velocity.y *= -0.4;
+            this.physicsData.velocity.y *= -1;
         }
         // if (Math.abs(this.positionData.x+this.physicsData.velocity.x) > 100) {
         //     this.physicsData.velocity.x = 0;
@@ -46,7 +50,7 @@ export default class Entity {
         if (this.positionData.x >= 600 || this.positionData.x <= 100 || this.positionData.y >= 600 || this.positionData.y <= 100) {
             // this.destroy();
         }
-        this.physicsData.velocity.scale(0.99);
+        // this.physicsData.velocity.scale(0.99);
         this.sprite.paths[1] = new Path2D;
         this.sprite.paths[1].moveTo(0, 0);
         this.sprite.paths[1].lineTo(1.75 * this.hitboxData.size * Math.cos(this.physicsData.velocity.angle), 1.75 * this.hitboxData.size * Math.sin(this.physicsData.velocity.angle));
