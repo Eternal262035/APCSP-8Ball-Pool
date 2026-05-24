@@ -1,5 +1,4 @@
 import { entityManager } from "../Entity/EntityManager.js";
-import Vector from "./Vector.js";
 /** currently it's the stupidest algo under the sun to do this
  * spatial hashing is overkill for something like this,
  * but it does need to be optimized.
@@ -28,19 +27,24 @@ export function checkForCollisions() {
                 b.positionData.x -= 0.5 * dx * overlap / dr;
                 a.positionData.y += 0.5 * dy * overlap / dr;
                 b.positionData.y -= 0.5 * dy * overlap / dr;
-                // momentum is a vector
-                const mom1 = a.physicsData.velocity.scale(a.physicsData.mass);
-                const mom2 = b.physicsData.velocity.scale(b.physicsData.mass);
-                const aoc = Math.atan2(// angle between the centers of the two entities
-                a.positionData.y - b.positionData.y, a.positionData.x - b.positionData.x);
-                const a1 = a.physicsData.velocity.angle; // angle of the first object's velocity
-                const a2 = b.physicsData.velocity.angle; // angle of the second object's velocity 
-                const da1 = aoc - a1; // angle between line formed between their centers and the velocity vector
-                const da2 = aoc - a2; // angle between line formed between their centers and the velocity vector
-                const netmx = mom1.x - mom2.x;
-                const netmy = mom1.y - mom2.y;
-                a.physicsData.velocity.add(new Vector(netmx * Math.cos(da1) / a.physicsData.mass, netmy * Math.cos(da1) / a.physicsData.mass));
-                b.physicsData.velocity.add(new Vector(netmx * Math.cos(da2) / b.physicsData.mass, netmy * Math.cos(da2) / b.physicsData.mass));
+                // now that the balls are separated we can apply impulse to them
+                const angle = Math.atan2(dy, dx); // angle of the line
+                const xComp = dx / dr; // component of the dr that is in the x or y dir. sqrt-ing the sum of the squares yields a unit vector. 
+                const yComp = dy / dr; // component of the dr that is in the x or y dir. sqrt-ing the sum of the squares yields a unit vector.
+                // this is finding the relative velocity between the balls (along the line formed by their centers)
+                const relvx = b.physicsData.velocity.x - a.physicsData.velocity.x;
+                const relvy = b.physicsData.velocity.y - a.physicsData.velocity.y;
+                // const relv = Math.sqrt(relvx**2+relvy**2);
+                const relv = relvx * xComp + relvy * yComp;
+                const restitution = 1; // resitution is like the elasticity of the collision
+                // when restitution is 1 that means the collision is perfectl elastic (both E_k and p conserved)
+                const impulse = -(1 + restitution) * relv / (1 / a.physicsData.mass + 1 / b.physicsData.mass); // skibidi
+                const ix = impulse * dx / dr; // component of impulse in the x direction
+                const iy = impulse * dy / dr; // component of impuls in the y direction
+                // divide by mass to get the delta v
+                // and then add that delta v to the current velocity
+                a.physicsData.velocity.subtract({ x: ix / a.physicsData.mass, y: iy / a.physicsData.mass });
+                b.physicsData.velocity.add({ x: ix / b.physicsData.mass, y: iy / b.physicsData.mass });
             }
         }
     }

@@ -23,7 +23,9 @@ const tickInterval = setInterval(()=>{
 }, 10);
 
 
-// new Entity(67,67,15);
+new Entity(167,167,15);
+new Entity(197,167,15);
+new Entity(217,167,15);
 // new Entity(67,77,20);
 
 // const mouseEntity = new Entity(67,77,20);
@@ -42,7 +44,8 @@ document.addEventListener('click', (event) => {
 new SpriteWorldBorder(containers[0], new PositionData(100, 100), 500, 500);
 
 
-const wasdEntity = new Entity(167, 167, 25);
+const wasdEntity = new Entity(107, 167, 25);
+wasdEntity.physicsData.mass = 1000;
 
 
 
