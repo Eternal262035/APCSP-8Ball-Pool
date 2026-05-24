@@ -23,14 +23,22 @@ export function checkForCollisions() {
                 // impulse is the change in momentum (p) and momentum must be conserved during the collision. 
 
                 // so first we separate the balls in the same tick so they dont double hit in the next tick
-                a.positionData.x+=
-                b.positionData.x+=
+                const overlap = hbSum - dr; // overlap between teh two hitboxes
+                
+                // move them out of the way
+                a.positionData.x+=0.5*dx*overlap/dr;
+                b.positionData.x-=0.5*dx*overlap/dr;
+                a.positionData.y+=0.5*dy*overlap/dr;
+                b.positionData.y-=0.5*dy*overlap/dr;
 
-                a.positionData.y+=
-                b.positionData.y+=
+                // now that the balls are separated we can apply impulse to them
 
+                // this is the relative velocity between the balls (along the line formed by their centers)
+                const rvx = b.physicsData.velocity.x - a.physicsData.velocity.x;
+                const rvy = b.physicsData.velocity.y - a.physicsData.velocity.y;
 
-
+                const angle = Math.atan2(dy, dx);
+                const relv = 
 
                 // momentum is a vector
                 const mom1:VectorAbstract = a.physicsData.velocity.scale(a.physicsData.mass);
