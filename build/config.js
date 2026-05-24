@@ -1,1 +1,1 @@
-export const mspt = 40;
+export const mspt = 10;

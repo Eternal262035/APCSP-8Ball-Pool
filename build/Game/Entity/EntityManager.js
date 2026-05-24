@@ -9,5 +9,10 @@ class EntityManager {
         this.idCounter++;
         this.entities.set(e.id, e);
     }
+    applyAllEntityPhysics() {
+        for (const e of this.entities.values()) {
+            e.applyPhysics();
+        }
+    }
 }
 export const entityManager = new EntityManager();

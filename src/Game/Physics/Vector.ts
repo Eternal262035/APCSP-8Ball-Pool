@@ -29,7 +29,7 @@ export default class Vector /* implements VectorAbstract */ {
     }
 
     /** construct a vector from mag and dir */
-    public fromPolar(r: number, theta: number): Vector {
+    public static fromPolar(r: number, theta: number): Vector {
         return new Vector(r*Math.cos(theta), r*Math.cos(theta));
     }
 

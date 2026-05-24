@@ -19,7 +19,7 @@ export default class Vector /* implements VectorAbstract */ {
         return Math.atan2(v.x, v.y);
     }
     /** construct a vector from mag and dir */
-    fromPolar(r, theta) {
+    static fromPolar(r, theta) {
         return new Vector(r * Math.cos(theta), r * Math.cos(theta));
     }
     /** set properties of the vecotr */
