@@ -1,5 +1,7 @@
 import { PI2 } from "../../Const/Constants.js";
+import { DrawType } from "../../Const/Enums.js";
 import Renderable from "../Renderable.js";
+import RenderablePath2D from "../RenderablePath2D.js";
 export default class SpriteBall extends Renderable {
     constructor(container, position, radius) {
         super(container, position); // call parent constructor with the required arguments
@@ -15,15 +17,12 @@ export default class SpriteBall extends Renderable {
         const directionArrow = new Path2D;
         directionArrow.moveTo(0, 0);
         directionArrow.lineTo(radius * 1.75, 0);
-        this.addPath(path1);
-        this.addPath(directionArrow);
-        this.addPath(new Path2D); // arrow
-        this.addPath(new Path2D); // arrow
-        // this.addPath(new Path2D); // momentum ig
+        this.addPath(new RenderablePath2D(path1, DrawType.Stroke));
+        this.addPath(new RenderablePath2D(directionArrow, DrawType.Stroke));
+        this.addPath(new RenderablePath2D(new Path2D, DrawType.Stroke)); // arrow
+        this.addPath(new RenderablePath2D(new Path2D, DrawType.Stroke)); // arrow
     }
     draw(thisCtx) {
         super.draw(thisCtx);
-    }
-    updateAngleArrow() {
     }
 }

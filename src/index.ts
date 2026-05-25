@@ -7,6 +7,7 @@ import renderFrameLoop from "./Render/RenderMain.js";
 import { containers, initRenderableContainers } from "./Render/RenderableContainer.js";
 import Circle from "./Render/Sprites/Circle.js";
 import SpriteWorldBorder from "./Render/Sprites/WorldBorder.js";
+import { mspt } from "./config.js";
 
 // alert("Load index");
 
@@ -16,16 +17,20 @@ initCanvas();
 initRenderableContainers();
 renderFrameLoop(ctx);
 const tickInterval = setInterval(()=>{
+    const start = Date.now();
     checkForCollisions();
     skibidiSixSevenTungTungSaheur();
     // mouseEntity.physicsData.velocity.scale(0);
     entityManager.applyAllEntityPhysics();
-}, 10);
+    // @ts-ignore
+    document.getElementById("debug-mspt").innerText = `mspt: ${Date.now()-start} ms | ${mspt} mspt (this|config)`;
+}, mspt);
 
+new SpriteWorldBorder(containers[0], new PositionData(100, 100), 500, 500);
 
-new Entity(167,167,15);
-new Entity(197,167,15);
-new Entity(217,167,15);
+new Entity(267,167,15);
+new Entity(297,167,15);
+new Entity(317,167,15);
 // new Entity(67,77,20);
 
 // const mouseEntity = new Entity(67,77,20);
@@ -41,11 +46,9 @@ document.addEventListener('click', (event) => {
     new Entity(event.clientX,event.clientY,20);
 });
 
-new SpriteWorldBorder(containers[0], new PositionData(100, 100), 500, 500);
 
 
 const wasdEntity = new Entity(107, 167, 25);
-wasdEntity.physicsData.mass = 1000;
 
 
 

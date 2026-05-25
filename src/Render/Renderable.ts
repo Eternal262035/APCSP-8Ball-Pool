@@ -1,5 +1,7 @@
+import { DrawType } from "../Const/Enums.js";
 import { PositionData } from "../Game/Datagroups/PositionData.js";
 import RenderableContainer from "./RenderableContainer.js";
+import RenderablePath2D from "./RenderablePath2D.js";
 
 
 /** the id that is assigned to each Renderable instance */
@@ -12,7 +14,7 @@ export var renderableId = 0;
 export default class Renderable {
     public positionData: PositionData;
     public container: RenderableContainer;
-    public paths: Path2D[] = [];
+    public paths: RenderablePath2D[] = [];
     private id: number;
 
     constructor(container: RenderableContainer, position: PositionData) {
@@ -24,16 +26,23 @@ export default class Renderable {
     }
 
     /** add a path to the array of paths */
-    public addPath(path: Path2D) {
+    public addPath(path: RenderablePath2D) {
         this.paths.push(path);
     }
 
     /** draws each Path2D given a ctx */
     public draw(ctx: CanvasRenderingContext2D) {
-        for (const path of this.paths) {
+        for (const rp2d of this.paths) {
             ctx.save();
             ctx.translate(1*this.positionData.x, 1*this.positionData.y);
-            ctx.stroke(path); // this is a default.
+            if (rp2d.type & DrawType.Fill) {
+                ctx.fillStyle = "#676767";
+                ctx.fill(rp2d.path);
+            }
+            if (rp2d.type & DrawType.Stroke) {
+                ctx.strokeStyle = "#000000";
+                ctx.stroke(rp2d.path);
+            }
             ctx.restore();
         }
     }

@@ -7,6 +7,11 @@
     </head>
     <body>
         <!-- <p>PAGE TOP</p> -->
+        <div class="debug">
+            <p id="debug-fps">debug-fps</p>
+            <p id="debug-renderTime">debug-renderTime</p>
+            <p id="debug-mspt">debug-mspt</p>
+        </div>
         <canvas id="mainCanvas"></canvas>
     </body>
     <style>
@@ -14,6 +19,7 @@
             padding: 0px;
             margin: 0px;
             /* overflow: hidden; */
+            font-family: "Calibri";
         }
         #mainCanvas {
             display: block;
@@ -21,6 +27,15 @@
             height: 100dvh;
             /* border: 6.7px solid rgb(0, 255, 0); */
             box-sizing: border-box;
+        }
+        .debug {
+            position:absolute;
+            border: 1px solid black;
+            padding: 12px;
+        }
+        .debug p {
+            margin-top: 2px;
+            margin-bottom: 2px;
         }
     </style>
 </html>

@@ -1,4 +1,6 @@
+import { DrawType } from "../../Const/Enums.js";
 import Renderable from "../Renderable.js";
+import RenderablePath2D from "../RenderablePath2D.js";
 export default class SpriteWorldBorder extends Renderable {
     constructor(container, position, width, height) {
         super(container, position);
@@ -7,7 +9,7 @@ export default class SpriteWorldBorder extends Renderable {
         // path1.rect(position.x-width/2, position.y-height/2, width, height);
         // path1.rect(position.x, position.y, width, height);
         path1.rect(0, 0, width, height);
-        this.addPath(path1);
+        this.addPath(new RenderablePath2D(path1, DrawType.Fill | DrawType.Stroke));
     }
     draw(thisCtx) {
         super.draw(thisCtx);

@@ -1,3 +1,4 @@
+import { DrawType } from "../Const/Enums.js";
 /** the id that is assigned to each Renderable instance */
 export var renderableId = 0;
 /** the basic class that exists for a renderable object.
@@ -22,10 +23,17 @@ export default class Renderable {
     }
     /** draws each Path2D given a ctx */
     draw(ctx) {
-        for (const path of this.paths) {
+        for (const rp2d of this.paths) {
             ctx.save();
             ctx.translate(1 * this.positionData.x, 1 * this.positionData.y);
-            ctx.stroke(path); // this is a default.
+            if (rp2d.type & DrawType.Fill) {
+                ctx.fillStyle = "#676767";
+                ctx.fill(rp2d.path);
+            }
+            if (rp2d.type & DrawType.Stroke) {
+                ctx.strokeStyle = "#000000";
+                ctx.stroke(rp2d.path);
+            }
             ctx.restore();
         }
     }

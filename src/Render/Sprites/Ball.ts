@@ -1,7 +1,9 @@
 import { PI2 } from "../../Const/Constants.js";
+import { DrawType } from "../../Const/Enums.js";
 import { PositionData } from "../../Game/Datagroups/PositionData.js";
 import Renderable from "../Renderable.js";
 import RenderableContainer from "../RenderableContainer.js";
+import RenderablePath2D from "../RenderablePath2D.js";
 
 export default class SpriteBall extends Renderable {
     constructor(container: RenderableContainer, position: PositionData, radius: number) {
@@ -20,18 +22,13 @@ export default class SpriteBall extends Renderable {
         directionArrow.moveTo(0,0);
         directionArrow.lineTo(radius*1.75, 0);
 
-        this.addPath(path1);     
-        this.addPath(directionArrow);     
-        this.addPath(new Path2D); // arrow
-        this.addPath(new Path2D); // arrow
-        // this.addPath(new Path2D); // momentum ig
+        this.addPath(new RenderablePath2D(path1, DrawType.Stroke));     
+        this.addPath(new RenderablePath2D(directionArrow, DrawType.Stroke));     
+        this.addPath(new RenderablePath2D(new Path2D, DrawType.Stroke)); // arrow
+        this.addPath(new RenderablePath2D(new Path2D, DrawType.Stroke)); // arrow
     }
 
     public draw(thisCtx: CanvasRenderingContext2D) {
         super.draw(thisCtx);
-    }
-
-    public updateAngleArrow() {
-
     }
 }
