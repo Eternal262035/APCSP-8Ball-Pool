@@ -11,5 +11,5 @@ export var Color;
     Color["Red"] = "#ff0000";
     Color["Green"] = "#00ff00";
     Color["Blue"] = "#0000ff";
-    Color["LightGray"] = "#d8d8d8";
+    Color["LightGray"] = "#e5e5e5";
 })(Color || (Color = {}));

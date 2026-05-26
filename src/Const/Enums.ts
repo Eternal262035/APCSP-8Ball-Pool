@@ -10,7 +10,7 @@ export enum Color {
     Red = "#ff0000",
     Green = "#00ff00",
     Blue = "#0000ff",
-    LightGray = "#d8d8d8"
+    LightGray = "#e5e5e5"
 }
 
 

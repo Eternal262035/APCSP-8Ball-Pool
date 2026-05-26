@@ -63,7 +63,7 @@ const httpServer = http.createServer(
     }
 );
 
-const PORT = 3067; // six seven
+const PORT = 3002; // six seven
 
 httpServer.listen(PORT, () => {
     console.log(`[HTTP] Now serving requests on ${PORT}`);

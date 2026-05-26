@@ -1,4 +1,4 @@
-import { DrawType } from "../Const/Enums.js";
+import { Color, DrawType } from "../Const/Enums.js";
 /** the id that is assigned to each Renderable instance */
 export var renderableId = 0;
 /** the basic class that exists for a renderable object.
@@ -27,11 +27,11 @@ export default class Renderable {
             ctx.save();
             ctx.translate(1 * this.positionData.x, 1 * this.positionData.y);
             if (rp2d.type & DrawType.Fill) {
-                ctx.fillStyle = "#676767";
+                ctx.fillStyle = Color.LightGray;
                 ctx.fill(rp2d.path);
             }
             if (rp2d.type & DrawType.Stroke) {
-                ctx.strokeStyle = "#000000";
+                ctx.strokeStyle = Color.Black;
                 ctx.stroke(rp2d.path);
             }
             ctx.restore();
