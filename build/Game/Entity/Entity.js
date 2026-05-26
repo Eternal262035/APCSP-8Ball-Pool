@@ -15,7 +15,7 @@ export default class Entity {
         this.positionData = new PositionData(x, y);
         this.hitboxData = new HitboxData(size);
         this.physicsData = new PhysicsData();
-        this.sprite = new SpriteBall(containers[0], this.positionData, this.hitboxData.size);
+        this.sprite = new SpriteBall(containers[1], this.positionData, this.hitboxData.size);
         entityManager.addNewEntity(this);
     }
     destroy() {

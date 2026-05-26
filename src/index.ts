@@ -24,6 +24,9 @@ const tickInterval = setInterval(()=>{
     entityManager.applyAllEntityPhysics();
     // @ts-ignore
     document.getElementById("debug-mspt").innerText = `mspt: ${Date.now()-start} ms | ${mspt} mspt (this|config)`;
+    // @ts-ignore
+    document.getElementById("debug-entityCounts").innerText = `Entities: ${entityManager.entities.size} | ${containers.length} (total|containers)`;
+    
 }, mspt);
 
 new SpriteWorldBorder(containers[0], new PositionData(100, 100), 500, 500);

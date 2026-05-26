@@ -15,7 +15,7 @@ export default function renderFrameLoop(ctx) {
             ctn.drawAll(ctx);
         }
         // @ts-ignore
-        document.getElementById("debug-fps").innerText = `fps: ${(1000 / delta).toFixed(1)} | ${(1000 / msprt).toFixed(1)} | (delta|config)`;
+        document.getElementById("debug-fps").innerText = `fps: ${(1000 / delta).toFixed(1)} | ${(1000 / msprt).toFixed(1)} (delta|config)`;
         // @ts-ignore
         document.getElementById("debug-renderTime").innerText = `frame render: ${Date.now() - renStart} ms`;
     }

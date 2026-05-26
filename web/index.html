@@ -7,10 +7,13 @@
     </head>
     <body>
         <!-- <p>PAGE TOP</p> -->
-        <div class="debug">
-            <p id="debug-fps">debug-fps</p>
-            <p id="debug-renderTime">debug-renderTime</p>
-            <p id="debug-mspt">debug-mspt</p>
+        <div class="debugcontainer">
+            <div class="debug">
+                <p id="debug-fps">debug-fps</p>
+                <p id="debug-renderTime">debug-renderTime</p>
+                <p id="debug-mspt">debug-mspt</p>
+                <p id="debug-entityCounts">debug-entityCounts</p>
+            </div>
         </div>
         <canvas id="mainCanvas"></canvas>
     </body>
@@ -28,10 +31,14 @@
             /* border: 6.7px solid rgb(0, 255, 0); */
             box-sizing: border-box;
         }
+        .debugcontainer {
+            position: absolute; /* Takes it out of the normal document flow */
+            backdrop-filter: blur(10px);
+        }
         .debug {
-            position:absolute;
             border: 1px solid black;
             padding: 12px;
+            /* background-color: white; */
         }
         .debug p {
             margin-top: 2px;
