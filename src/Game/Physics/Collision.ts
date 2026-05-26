@@ -26,10 +26,12 @@ export function checkForCollisions() {
                 const overlap = hbSum - dr; // overlap between teh two hitboxes
                 
                 // move them out of the way
-                a.positionData.x+=0.5*dx*overlap/dr;
+                // might add a little bit of randomness to each collision. This is because when two objects collide at high speed their htiboxes might overlap and "fuse" tpgether. 
+                // however, adding randomness no longer makes it deterministic (physics would be less accurate). 
                 b.positionData.x-=0.5*dx*overlap/dr;
                 a.positionData.y+=0.5*dy*overlap/dr;
                 b.positionData.y-=0.5*dy*overlap/dr;
+                a.positionData.x+=0.5*dx*overlap/dr;
                 
 
                 // now that the balls are separated we can apply impulse to them

@@ -5,6 +5,7 @@ export enum DrawType {
 }
 
 export enum Color {
+    Transparent = "rgba(0,0,0,0)",
     White = "#ffffff",
     Black = "#000000",
     Red = "#ff0000",

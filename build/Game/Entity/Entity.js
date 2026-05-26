@@ -40,16 +40,19 @@ export default class Entity {
             // this.physicsData.velocity.y *= -0.4;
             this.physicsData.velocity.y *= -wallMultiFactor;
         }
-        // if (Math.abs(this.positionData.x+this.physicsData.velocity.x) > 100) {
-        //     this.physicsData.velocity.x = 0;
-        // }
-        // if (Math.abs(this.positionData.y+this.physicsData.velocity.y) > 100) {
-        //     this.physicsData.velocity.y = 0;
-        // }
         this.positionData.x += this.physicsData.velocity.x;
         this.positionData.y += this.physicsData.velocity.y;
-        if (this.positionData.x >= 600 || this.positionData.x <= 100 || this.positionData.y >= 600 || this.positionData.y <= 100) {
-            // this.destroy();
+        if (this.positionData.x >= 600) {
+            this.positionData.x = 600;
+        }
+        if (this.positionData.x <= 100) {
+            this.positionData.x = 100;
+        }
+        if (this.positionData.y >= 600) {
+            this.positionData.y = 600;
+        }
+        if (this.positionData.y <= 100) {
+            this.positionData.y = 100;
         }
         this.physicsData.velocity.scale(0.9972);
         // update rendering for the arrows

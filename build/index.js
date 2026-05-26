@@ -28,14 +28,14 @@ new Entity(297, 167, 15);
 new Entity(317, 167, 15);
 // new Entity(67,77,20);
 // const mouseEntity = new Entity(67,77,20);
-// let mx = 0;
-// let my = 0;
-// document.addEventListener('mousemove', (event) => {
-//     mx = event.clientX;
-//     my = event.clientY;
-//     mouseEntity.positionData.x = mx;
-//     mouseEntity.positionData.y = my;
-// });
+let mx = 0;
+let my = 0;
+document.addEventListener('mousemove', (event) => {
+    mx = event.clientX;
+    my = event.clientY;
+    // mouseEntity.positionData.x = mx;
+    // mouseEntity.positionData.y = my;
+});
 document.addEventListener('click', (event) => {
     new Entity(event.clientX, event.clientY, 20);
 });

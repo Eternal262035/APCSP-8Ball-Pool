@@ -21,6 +21,8 @@ const tickInterval = setInterval(()=>{
     checkForCollisions();
     skibidiSixSevenTungTungSaheur();
     // mouseEntity.physicsData.velocity.scale(0);
+
+
     entityManager.applyAllEntityPhysics();
     // @ts-ignore
     document.getElementById("debug-mspt").innerText = `mspt: ${Date.now()-start} ms | ${mspt} mspt (this|config)`;
@@ -37,14 +39,14 @@ new Entity(317,167,15);
 // new Entity(67,77,20);
 
 // const mouseEntity = new Entity(67,77,20);
-// let mx = 0;
-// let my = 0;
-// document.addEventListener('mousemove', (event) => {
-//     mx = event.clientX;
-//     my = event.clientY;
-//     mouseEntity.positionData.x = mx;
-//     mouseEntity.positionData.y = my;
-// });
+let mx = 0;
+let my = 0;
+document.addEventListener('mousemove', (event) => {
+    mx = event.clientX;
+    my = event.clientY;
+    // mouseEntity.positionData.x = mx;
+    // mouseEntity.positionData.y = my;
+});
 document.addEventListener('click', (event) => {
     new Entity(event.clientX,event.clientY,20);
 });
@@ -115,3 +117,4 @@ function skibidiSixSevenTungTungSaheur():void {
     if (currentInputs & InputFlags.Left) wasdEntity.physicsData.velocity.x -= 0.3;
     if (currentInputs & InputFlags.Right) wasdEntity.physicsData.velocity.x += 0.3;
 }
+

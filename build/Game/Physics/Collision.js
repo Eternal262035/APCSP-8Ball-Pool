@@ -23,10 +23,12 @@ export function checkForCollisions() {
                 // so first we separate the balls in the same tick so they dont double hit in the next tick
                 const overlap = hbSum - dr; // overlap between teh two hitboxes
                 // move them out of the way
-                a.positionData.x += 0.5 * dx * overlap / dr;
+                // might add a little bit of randomness to each collision. This is because when two objects collide at high speed their htiboxes might overlap and "fuse" tpgether. 
+                // however, adding randomness no longer makes it deterministic (physics would be less accurate). 
                 b.positionData.x -= 0.5 * dx * overlap / dr;
                 a.positionData.y += 0.5 * dy * overlap / dr;
                 b.positionData.y -= 0.5 * dy * overlap / dr;
+                a.positionData.x += 0.5 * dx * overlap / dr;
                 // now that the balls are separated we can apply impulse to them
                 const angle = Math.atan2(dy, dx); // angle of the line
                 const xComp = dx / dr; // component of the dr that is in the x or y dir. sqrt-ing the sum of the squares yields a unit vector. 

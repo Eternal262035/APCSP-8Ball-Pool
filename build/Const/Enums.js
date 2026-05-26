@@ -6,6 +6,7 @@ export var DrawType;
 })(DrawType || (DrawType = {}));
 export var Color;
 (function (Color) {
+    Color["Transparent"] = "rgba(0,0,0,0)";
     Color["White"] = "#ffffff";
     Color["Black"] = "#000000";
     Color["Red"] = "#ff0000";
