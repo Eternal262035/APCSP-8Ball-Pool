@@ -15,7 +15,7 @@ export default class Renderable {
     public positionData: PositionData;
     public container: RenderableContainer;
     public paths: RenderablePath2D[] = [];
-    private id: number;
+    public id: number;
 
     constructor(container: RenderableContainer, position: PositionData) {
         this.container = container;
