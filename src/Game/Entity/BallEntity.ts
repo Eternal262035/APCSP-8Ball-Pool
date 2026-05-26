@@ -1,3 +1,5 @@
+import { containers } from "../../Render/RenderableContainer.js";
+import SpriteBall from "../../Render/Sprites/Ball.js";
 import Entity from "./Entity.js";
 
 export default class BallEntity extends Entity {
@@ -8,8 +10,8 @@ export default class BallEntity extends Entity {
 
     constructor(x: number, y: number, ballNumber: number) {
         super(x, y, 20); // call parent constructor with xpos, ypos, and size (all balls are the same size)
-        
-
-
+        this.sprite = new SpriteBall(containers[0], this.positionData, 20);
     }
+
+    // public 
 }

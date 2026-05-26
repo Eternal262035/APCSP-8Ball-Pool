@@ -1,6 +1,7 @@
 import { PositionData } from "./Game/Datagroups/PositionData.js";
 import Entity from "./Game/Entity/Entity.js";
 import { entityManager } from "./Game/Entity/EntityManager.js";
+import TestEntity from "./Game/Entity/TestEntity.js";
 import { checkForCollisions } from "./Game/Physics/Collision.js";
 import initCanvas, { ctx } from "./Render/InitCanvas.js";
 import renderFrameLoop from "./Render/RenderMain.js";
@@ -33,9 +34,9 @@ const tickInterval = setInterval(()=>{
 
 new SpriteWorldBorder(containers[0], new PositionData(100, 100), 500, 500);
 
-new Entity(267,167,15);
-new Entity(297,167,15);
-new Entity(317,167,15);
+new TestEntity(267,167,15);
+new TestEntity(297,167,15);
+new TestEntity(317,167,15);
 // new Entity(67,77,20);
 
 // const mouseEntity = new Entity(67,77,20);
@@ -48,12 +49,12 @@ document.addEventListener('mousemove', (event) => {
     // mouseEntity.positionData.y = my;
 });
 document.addEventListener('click', (event) => {
-    new Entity(event.clientX,event.clientY,20);
+    new TestEntity(event.clientX, event.clientY, 20);
 });
 
 
 
-const wasdEntity = new Entity(107, 167, 25);
+const wasdEntity = new TestEntity(107, 167, 25);
 
 
 

@@ -66,11 +66,5 @@ export default class TestEntity extends Entity {
         this.sprite.paths[3].path = new Path2D;
         this.sprite.paths[3].path.moveTo(1.75 * this.hitboxData.size * Math.cos(this.physicsData.velocity.angle), 1.75 * this.hitboxData.size * Math.sin(this.physicsData.velocity.angle));
         this.sprite.paths[3].path.lineTo(1.35 * this.hitboxData.size * Math.cos(this.physicsData.velocity.angle + 0.24), 1.35 * this.hitboxData.size * Math.sin(this.physicsData.velocity.angle + 0.24));
-
-
-
-
-
-
     }
 }

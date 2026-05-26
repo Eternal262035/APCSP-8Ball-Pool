@@ -1,7 +1,10 @@
 /** binary flag that dictates what stroke type to use */
-export enum DrawType {
+export enum DrawType { // because javascript stores numbers as 32 bit integers, im prety sure there is a max of 32 bitflags, since each flag needs its own bit. 
     Stroke =  1 << 0, // flip byte at idx 0 to 1
     Fill = 1 << 1, // flip byte at idx 1 to 1
+    StrokeText = 1 << 2,
+    FillText = 1 << 3,
+    Image = 1 << 4,
 }
 
 export enum Color {
