@@ -42,7 +42,13 @@ const httpServer = http.createServer(
 
             // directory → index.html
             if (reqPath === "/" || reqPath.endsWith("/")) {
-                reqPath += "index.html";
+                reqPath += "web/index.html";
+            }
+
+            if (!(reqPath.startsWith("/build") || reqPath.startsWith("/web"))) {
+                res.writeHead(403);
+                res.end("403 Forbidden Access");
+                return;
             }
 
             const cleanPath = reqPath.replace(/^\//, "");
@@ -56,9 +62,9 @@ const httpServer = http.createServer(
             });
             res.end(data);
         } catch (e) {
-            console.log(e);
+            // console.log(e);
             res.writeHead(404);
-            res.end("Not found");
+            res.end("404 Not Found");
         }
     }
 );
