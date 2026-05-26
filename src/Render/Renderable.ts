@@ -43,7 +43,7 @@ export default class Renderable {
                 ctx.strokeStyle = rp2d.strokeColor;
                 ctx.stroke(rp2d.path);
             }
-            if (rp2d.type & DrawType.Text) {
+            if (rp2d.type & DrawType.StrokeText) {
                 ctx.strokeStyle = rp2d.strokeColor;
                 ctx.stroke(rp2d.path);
             }
