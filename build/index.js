@@ -53,7 +53,7 @@ function resizeMap() {
     mapBorderIndicator.positionData.y = mapTop;
     const newPath2D = new Path2D();
     newPath2D.rect(0, 0, mapWidth, mapHeight);
-    mapBorderIndicator.paths[0] = new RenderablePath2D(newPath2D, DrawType.Fill | DrawType.Stroke /* copy over the color args here */);
+    mapBorderIndicator.paths[0] = new RenderablePath2D(newPath2D, DrawType.Fill | DrawType.Stroke, mapBorderIndicator.paths[0].fillColor, mapBorderIndicator.paths[0].strokeColor);
     // console.log(mapLeft, mapRight, mapTop, mapBottom);
     return {
         dx: mapLeft - oldMapLeft,

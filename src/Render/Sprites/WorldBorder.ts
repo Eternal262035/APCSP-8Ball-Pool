@@ -1,5 +1,5 @@
 import { PI2 } from "../../Const/Constants.js";
-import { DrawType } from "../../Const/Enums.js";
+import { Color, DrawType } from "../../Const/Enums.js";
 import { PositionData } from "../../Game/Datagroups/PositionData.js";
 import Renderable from "../Renderable.js";
 import RenderableContainer from "../RenderableContainer.js";
@@ -14,7 +14,7 @@ export default class SpriteWorldBorder extends Renderable {
         // path1.rect(position.x, position.y, width, height);
         path1.rect(0,0, width, height);
         
-        this.addPath(new RenderablePath2D(path1, DrawType.Fill|DrawType.Stroke));     
+        this.addPath(new RenderablePath2D(path1, DrawType.Fill|DrawType.Stroke, Color.PoolTableGreen, Color.Wood));     
     }
 
     public draw(thisCtx: CanvasRenderingContext2D) {

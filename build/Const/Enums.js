@@ -18,4 +18,6 @@ export var Color;
     Color["Green"] = "#00ff00";
     Color["Blue"] = "#0000ff";
     Color["LightGray"] = "#e5e5e5";
+    Color["PoolTableGreen"] = "#31B94D";
+    Color["Wood"] = "#BA8C63";
 })(Color || (Color = {}));

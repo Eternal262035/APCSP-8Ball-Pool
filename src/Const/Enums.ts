@@ -16,7 +16,9 @@ export enum Color {
     Red = "#ff0000",
     Green = "#00ff00",
     Blue = "#0000ff",
-    LightGray = "#e5e5e5"
+    LightGray = "#e5e5e5",
+    PoolTableGreen = "#31B94D",
+    Wood = "#BA8C63",
 }
 
 
