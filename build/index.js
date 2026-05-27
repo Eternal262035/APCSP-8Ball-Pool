@@ -33,20 +33,37 @@ const tickInterval = setInterval(() => {
     document.getElementById("debug-entityCounts").innerText = `Entities: ${entityManager.entities.size} | ${containers.length} (total|containers)`;
 }, mspt);
 window.addEventListener("resize", (e) => {
-    resizeMap();
+    const delta = resizeMap();
+    relocateAllEntities(delta.dx, delta.dy);
 });
-export function resizeMap() {
-    // console.log("resizing map");
+/** resizes the map and returns the number of pixels everything was moved by (delta)
+ * useful in the relocateAllEntities() function, which runs right after.
+ */
+function resizeMap() {
+    // change the values of the map boundaries. 
+    const oldMapLeft = mapLeft;
+    const oldMapTop = mapTop;
     mapLeft = window.innerWidth / 2 - mapWidth / 2;
     mapRight = window.innerWidth / 2 + mapWidth / 2;
     mapBottom = window.innerHeight / 2 + mapHeight / 2;
     mapTop = window.innerHeight / 2 - mapHeight / 2;
+    // redefine the render path for the map border sprite
     mapBorderIndicator.positionData.x = mapLeft;
     mapBorderIndicator.positionData.y = mapTop;
     const newPath2D = new Path2D();
     newPath2D.rect(0, 0, mapWidth, mapHeight);
     mapBorderIndicator.paths[0] = new RenderablePath2D(newPath2D, DrawType.Fill | DrawType.Stroke /* copy over the color args here */);
     // console.log(mapLeft, mapRight, mapTop, mapBottom);
+    return {
+        dx: mapLeft - oldMapLeft,
+        dy: mapTop - oldMapTop,
+    };
+}
+function relocateAllEntities(dx, dy) {
+    for (const entity of entityManager.entities.values()) {
+        entity.positionData.x += dx;
+        entity.positionData.y += dy;
+    }
 }
 new TestEntity(267, 167, 15);
 new TestEntity(297, 167, 15);
