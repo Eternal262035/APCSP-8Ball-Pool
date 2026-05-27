@@ -1,5 +1,6 @@
 import Renderable from "../../Render/Renderable.js";
 import { containers } from "../../Render/RenderableContainer.js";
+import { mapToCanvasCoords } from "../../utils.js";
 import HitboxData from "../Datagroups/HitboxData.js";
 import PhysicsData from "../Datagroups/PhysicsData.js";
 import { PositionData } from "../Datagroups/PositionData.js";
@@ -13,8 +14,9 @@ export default class Entity {
     id = -1; // just set it to -1 as a default for now;
     wallVelocityMultiFactor = 0.98;
     passiveVelocityMultiFactor = 0.9972;
-    constructor(x, y, size) {
-        this.positionData = new PositionData(x, y);
+    constructor(mapx, mapy, size) {
+        const canvasCoords = mapToCanvasCoords(mapx, mapy);
+        this.positionData = new PositionData(canvasCoords.x, canvasCoords.y);
         this.hitboxData = new HitboxData(size);
         this.physicsData = new PhysicsData();
         // this.sprite = new SpriteDebugBall(containers[1], this.positionData, this.hitboxData.size);

@@ -9,6 +9,7 @@ import { containers, initRenderableContainers } from "./Render/RenderableContain
 import RenderablePath2D from "./Render/RenderablePath2D.js";
 import SpriteWorldBorder from "./Render/Sprites/WorldBorder.js";
 import { mapHeight, mapWidth, mspt } from "./config.js";
+import { canvasToMapCoords } from "./utils.js";
 // alert("Load index");
 // the screen coords of the map.
 export let mapLeft = 0;
@@ -78,7 +79,8 @@ document.addEventListener('mousemove', (event) => {
     // mouseEntity.positionData.y = my;
 });
 document.addEventListener('click', (event) => {
-    new TestEntity(event.clientX, event.clientY, 20);
+    const mapCoords = canvasToMapCoords(event.clientX, event.clientY);
+    new TestEntity(mapCoords.x, mapCoords.y, 20);
 });
 const wasdEntity = new TestEntity(107, 167, 25);
 var InputFlags;

@@ -11,6 +11,7 @@ import RenderablePath2D from "./Render/RenderablePath2D.js";
 import Circle from "./Render/Sprites/Circle.js";
 import SpriteWorldBorder from "./Render/Sprites/WorldBorder.js";
 import { mapHeight, mapWidth, mspt } from "./config.js";
+import { canvasToMapCoords, mapToCanvasCoords } from "./utils.js";
 
 // alert("Load index");
 
@@ -109,7 +110,8 @@ document.addEventListener('mousemove', (event) => {
     // mouseEntity.positionData.y = my;
 });
 document.addEventListener('click', (event) => {
-    new TestEntity(event.clientX, event.clientY, 20);
+    const mapCoords = canvasToMapCoords(event.clientX, event.clientY);
+    new TestEntity(mapCoords.x, mapCoords.y, 20);
 });
 
 

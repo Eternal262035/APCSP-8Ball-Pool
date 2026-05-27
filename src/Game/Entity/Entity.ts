@@ -1,6 +1,7 @@
 import Renderable from "../../Render/Renderable.js";
 import { containers } from "../../Render/RenderableContainer.js";
 import SpriteDebugBall from "../../Render/Sprites/DebugBall.js";
+import { mapToCanvasCoords } from "../../utils.js";
 import HitboxData from "../Datagroups/HitboxData.js";
 import PhysicsData from "../Datagroups/PhysicsData.js";
 import { PositionData } from "../Datagroups/PositionData.js";
@@ -20,8 +21,9 @@ export default class Entity {
     public passiveVelocityMultiFactor = 0.9972;
 
 
-    constructor(x: number, y: number, size: number) {
-        this.positionData = new PositionData(x, y);
+    constructor(mapx: number, mapy: number, size: number) {
+        const canvasCoords = mapToCanvasCoords(mapx, mapy);
+        this.positionData = new PositionData(canvasCoords.x, canvasCoords.y);
         this.hitboxData = new HitboxData(size);
         this.physicsData = new PhysicsData();
 
