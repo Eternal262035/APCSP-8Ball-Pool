@@ -1,3 +1,4 @@
+import { DrawType } from "./Const/Enums.js";
 import { PositionData } from "./Game/Datagroups/PositionData.js";
 import { entityManager } from "./Game/Entity/EntityManager.js";
 import TestEntity from "./Game/Entity/TestEntity.js";
@@ -5,12 +6,21 @@ import { checkForCollisions } from "./Game/Physics/Collision.js";
 import initCanvas, { ctx } from "./Render/InitCanvas.js";
 import renderFrameLoop from "./Render/RenderMain.js";
 import { containers, initRenderableContainers } from "./Render/RenderableContainer.js";
+import RenderablePath2D from "./Render/RenderablePath2D.js";
 import SpriteWorldBorder from "./Render/Sprites/WorldBorder.js";
-import { mspt } from "./config.js";
+import { mapHeight, mapWidth, mspt } from "./config.js";
 // alert("Load index");
+// the screen coords of the map.
+export let mapLeft = 0;
+export let mapRight = 0;
+export let mapBottom = 0;
+export let mapTop = 0;
 initCanvas();
 initRenderableContainers();
 renderFrameLoop(ctx);
+// the map border sprite (visual only, does not exist as an Entity)
+const mapBorderIndicator = new SpriteWorldBorder(containers[0], new PositionData(100, 100), 500, 500);
+resizeMap();
 const tickInterval = setInterval(() => {
     const start = Date.now();
     checkForCollisions();
@@ -18,18 +28,32 @@ const tickInterval = setInterval(() => {
     // mouseEntity.physicsData.velocity.scale(0);
     entityManager.applyAllEntityPhysics();
     // @ts-ignore
-    document.getElementById("debug-mspt").innerText = `mspt: ${Date.now() - start} ms | ${mspt} mspt (this|config)`;
+    document.getElementById("debug-mspt").innerText = `mspt: ${Date.now() - start} ms | ${Date.now() - start > mspt ? Date.now() - start : mspt} ms | ${mspt} mspt (finished|actual|config)`;
     // @ts-ignore
     document.getElementById("debug-entityCounts").innerText = `Entities: ${entityManager.entities.size} | ${containers.length} (total|containers)`;
 }, mspt);
-new SpriteWorldBorder(containers[0], new PositionData(100, 100), 500, 500);
+window.addEventListener("resize", (e) => {
+    resizeMap();
+});
+export function resizeMap() {
+    // console.log("resizing map");
+    mapLeft = window.innerWidth / 2 - mapWidth / 2;
+    mapRight = window.innerWidth / 2 + mapWidth / 2;
+    mapBottom = window.innerHeight / 2 + mapHeight / 2;
+    mapTop = window.innerHeight / 2 - mapHeight / 2;
+    mapBorderIndicator.positionData.x = mapLeft;
+    mapBorderIndicator.positionData.y = mapTop;
+    const newPath2D = new Path2D();
+    newPath2D.rect(0, 0, mapWidth, mapHeight);
+    mapBorderIndicator.paths[0] = new RenderablePath2D(newPath2D, DrawType.Fill | DrawType.Stroke /* copy over the color args here */);
+    // console.log(mapLeft, mapRight, mapTop, mapBottom);
+}
 new TestEntity(267, 167, 15);
 new TestEntity(297, 167, 15);
 new TestEntity(317, 167, 15);
-// new Entity(67,77,20);
-// const mouseEntity = new Entity(67,77,20);
 let mx = 0;
 let my = 0;
+// const mouseEntity = new Entity(67,77,20);
 document.addEventListener('mousemove', (event) => {
     mx = event.clientX;
     my = event.clientY;

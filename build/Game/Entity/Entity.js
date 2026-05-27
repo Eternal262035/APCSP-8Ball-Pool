@@ -3,6 +3,7 @@ import { containers } from "../../Render/RenderableContainer.js";
 import HitboxData from "../Datagroups/HitboxData.js";
 import PhysicsData from "../Datagroups/PhysicsData.js";
 import { PositionData } from "../Datagroups/PositionData.js";
+import Vector from "../Physics/Vector.js";
 import { entityManager } from "./EntityManager.js";
 export default class Entity {
     positionData;
@@ -36,5 +37,9 @@ export default class Entity {
         this.positionData.y += this.physicsData.velocity.y;
         // scale down the velocity a little bit to mimic friction.
         this.physicsData.velocity.scale(this.passiveVelocityMultiFactor);
+    }
+    approximateZeroVelocity() {
+        if (Vector.magnitude(this.physicsData.velocity) <= 0.055)
+            this.physicsData.velocity = new Vector(0, 0);
     }
 }

@@ -28,7 +28,7 @@ export default class SpriteDebugBall extends Renderable {
         this.addPath(new RenderablePath2D(new Path2D, DrawType.Stroke, Color.Red)); // arrow
         this.addPath(new RenderablePath2D(new Path2D, DrawType.Stroke, Color.Red)); // arrow
         this.addPath(new RenderablePath2D(new Path2D, DrawType.Stroke, Color.Red)); // arrow
-        this.addPath(new RenderableText("67", {x: -10, y: 7}, DrawTextType.Fill, "20px Arial", Color.Blue)); // arrow
+        this.addPath(new RenderableText("AA", {x: -10, y: 7}, DrawTextType.Fill, "20px Arial", Color.Blue)); // arrow
     }
 
     public draw(thisCtx: CanvasRenderingContext2D) {
