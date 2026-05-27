@@ -1,6 +1,6 @@
 import Renderable from "../../Render/Renderable.js";
 import { containers } from "../../Render/RenderableContainer.js";
-import SpriteBall from "../../Render/Sprites/Ball.js";
+import SpriteDebugBall from "../../Render/Sprites/DebugBall.js";
 import HitboxData from "../Datagroups/HitboxData.js";
 import PhysicsData from "../Datagroups/PhysicsData.js";
 import { PositionData } from "../Datagroups/PositionData.js";
@@ -24,7 +24,7 @@ export default class Entity {
         this.hitboxData = new HitboxData(size);
         this.physicsData = new PhysicsData();
 
-        // this.sprite = new SpriteBall(containers[1], this.positionData, this.hitboxData.size);
+        // this.sprite = new SpriteDebugBall(containers[1], this.positionData, this.hitboxData.size);
         
         /** Explanation:
          * the type union between Renderable and undefined gets messy especially for extended classes

@@ -16,7 +16,7 @@ export default class Entity {
         this.positionData = new PositionData(x, y);
         this.hitboxData = new HitboxData(size);
         this.physicsData = new PhysicsData();
-        // this.sprite = new SpriteBall(containers[1], this.positionData, this.hitboxData.size);
+        // this.sprite = new SpriteDebugBall(containers[1], this.positionData, this.hitboxData.size);
         /** Explanation:
          * the type union between Renderable and undefined gets messy especially for extended classes
          * this is why we set this.sprite to a temporary Renderable and remove it from the container immediately.

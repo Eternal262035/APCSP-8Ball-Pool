@@ -1,6 +1,6 @@
 import Renderable from "../../Render/Renderable.js";
 import { containers } from "../../Render/RenderableContainer.js";
-import SpriteBall from "../../Render/Sprites/Ball.js";
+import SpriteDebugBall from "../../Render/Sprites/DebugBall.js";
 import Entity from "./Entity.js";
 
 
@@ -13,7 +13,7 @@ export default class TestEntity extends Entity {
         super(x,y, size);
         
         // type assertion does not work here.
-        this.sprite = new SpriteBall(containers[1], this.positionData, this.hitboxData.size);
+        this.sprite = new SpriteDebugBall(containers[1], this.positionData, this.hitboxData.size);
 
     }
 

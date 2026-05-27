@@ -6,7 +6,7 @@ import RenderableContainer from "../RenderableContainer.js";
 import RenderablePath2D from "../RenderablePath2D.js";
 import RenderableText from "../RenderableText.js";
 
-export default class SpriteBall extends Renderable {
+export default class SpriteDebugBall extends Renderable {
     constructor(container: RenderableContainer, position: PositionData, radius: number) {
         super(container, position); // call parent constructor with the required arguments
         console.log(this);
@@ -28,7 +28,7 @@ export default class SpriteBall extends Renderable {
         this.addPath(new RenderablePath2D(new Path2D, DrawType.Stroke, Color.Red)); // arrow
         this.addPath(new RenderablePath2D(new Path2D, DrawType.Stroke, Color.Red)); // arrow
         this.addPath(new RenderablePath2D(new Path2D, DrawType.Stroke, Color.Red)); // arrow
-        this.addPath(new RenderableText("5", {x: -5, y: 6}, DrawTextType.Fill, "20px Arial", Color.Red)); // arrow
+        this.addPath(new RenderableText("67", {x: -10, y: 7}, DrawTextType.Fill, "20px Arial", Color.Blue)); // arrow
     }
 
     public draw(thisCtx: CanvasRenderingContext2D) {

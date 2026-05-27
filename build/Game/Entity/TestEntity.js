@@ -1,12 +1,12 @@
 import { containers } from "../../Render/RenderableContainer.js";
-import SpriteBall from "../../Render/Sprites/Ball.js";
+import SpriteDebugBall from "../../Render/Sprites/DebugBall.js";
 import Entity from "./Entity.js";
 export default class TestEntity extends Entity {
     // no additional properties I think
     constructor(x, y, size) {
         super(x, y, size);
         // type assertion does not work here.
-        this.sprite = new SpriteBall(containers[1], this.positionData, this.hitboxData.size);
+        this.sprite = new SpriteDebugBall(containers[1], this.positionData, this.hitboxData.size);
     }
     applyPhysics() {
         if (this.positionData.x + this.physicsData.velocity.x >= 600) {
