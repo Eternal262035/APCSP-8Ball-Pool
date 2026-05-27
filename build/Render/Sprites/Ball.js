@@ -1,7 +1,8 @@
 import { PI2 } from "../../Const/Constants.js";
-import { Color, DrawType } from "../../Const/Enums.js";
+import { Color, DrawTextType, DrawType } from "../../Const/Enums.js";
 import Renderable from "../Renderable.js";
 import RenderablePath2D from "../RenderablePath2D.js";
+import RenderableText from "../RenderableText.js";
 export default class SpriteBall extends Renderable {
     constructor(container, position, radius) {
         super(container, position); // call parent constructor with the required arguments
@@ -21,6 +22,8 @@ export default class SpriteBall extends Renderable {
         this.addPath(new RenderablePath2D(directionArrow, DrawType.Stroke, Color.Red));
         this.addPath(new RenderablePath2D(new Path2D, DrawType.Stroke, Color.Red)); // arrow
         this.addPath(new RenderablePath2D(new Path2D, DrawType.Stroke, Color.Red)); // arrow
+        this.addPath(new RenderablePath2D(new Path2D, DrawType.Stroke, Color.Red)); // arrow
+        this.addPath(new RenderableText("5", { x: -5, y: 6 }, DrawTextType.Fill, "20px Arial", Color.Red)); // arrow
     }
     draw(thisCtx) {
         super.draw(thisCtx);

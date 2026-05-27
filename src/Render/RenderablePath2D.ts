@@ -10,14 +10,13 @@ export default class RenderablePath2D {
     public type: DrawType;
     public fillColor: Color = Color.LightGray; 
     public strokeColor: Color = Color.Black;
-    public 
 
     constructor(path: Path2D, type: DrawType, ...customArgs: any[]) {
         this.path = path;
         this.type = type;
         this.strokeColor = customArgs[0]||Color.Black;
         this.fillColor = customArgs[1]||Color.LightGray;
-
+        
         // console.log(this);
     }
 }

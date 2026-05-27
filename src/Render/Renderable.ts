@@ -1,8 +1,13 @@
-import { Color, DrawType } from "../Const/Enums.js";
+import { Color, DrawTextType, DrawType } from "../Const/Enums.js";
 import { PositionData } from "../Game/Datagroups/PositionData.js";
 import RenderableContainer from "./RenderableContainer.js";
 import RenderablePath2D from "./RenderablePath2D.js";
+import RenderableText from "./RenderableText.js";
 
+
+
+/** type union */
+type RenderableTemplate = RenderablePath2D|RenderableText;
 
 /** the id that is assigned to each Renderable instance */
 export var renderableId = 0;
@@ -15,6 +20,7 @@ export default class Renderable {
     public positionData: PositionData;
     public container: RenderableContainer;
     public paths: RenderablePath2D[] = [];
+    public textPaths: RenderableText[] = [];
     public id: number;
 
     constructor(container: RenderableContainer, position: PositionData) {
@@ -26,26 +32,38 @@ export default class Renderable {
     }
 
     /** add a path to the array of paths */
-    public addPath(path: RenderablePath2D) {
-        this.paths.push(path);
+    public addPath(path: RenderableTemplate) {
+        if (path instanceof RenderablePath2D) this.paths.push(path);
+        if (path instanceof RenderableText) this.textPaths.push(path);
     }
 
     /** draws each Path2D given a ctx */
     public draw(ctx: CanvasRenderingContext2D) {
-        for (const rp2d of this.paths) {
+        for (const template of this.paths) {
             ctx.save();
             ctx.translate(1*this.positionData.x, 1*this.positionData.y);
-            if (rp2d.type & DrawType.Fill) {
-                ctx.fillStyle = rp2d.fillColor;
-                ctx.fill(rp2d.path);
+            if (template.type & DrawType.Fill) {
+                ctx.fillStyle = template.fillColor;
+                ctx.fill(template.path);
             }
-            if (rp2d.type & DrawType.Stroke) {
-                ctx.strokeStyle = rp2d.strokeColor;
-                ctx.stroke(rp2d.path);
+            if (template.type & DrawType.Stroke) {
+                ctx.strokeStyle = template.strokeColor;
+                ctx.stroke(template.path);
             }
-            if (rp2d.type & DrawType.StrokeText) {
-                ctx.strokeStyle = rp2d.strokeColor;
-                ctx.stroke(rp2d.path);
+            ctx.restore();
+        }
+        for (const template of this.textPaths) {
+            ctx.save();
+            ctx.translate(1 * this.positionData.x, 1 * this.positionData.y);
+            if (template.type & DrawTextType.Stroke) {
+                ctx.strokeStyle = template.strokeColor;
+                ctx.font = template.font;
+                ctx.strokeText(template.text, template.position.x, template.position.y);
+            }
+            if (template.type & DrawTextType.Fill) {
+                ctx.fillStyle = template.strokeColor;
+                ctx.font = template.font;
+                ctx.fillText(template.text, template.position.x, template.position.y);
             }
             ctx.restore();
         }

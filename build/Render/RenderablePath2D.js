@@ -9,7 +9,6 @@ export default class RenderablePath2D {
     type;
     fillColor = Color.LightGray;
     strokeColor = Color.Black;
-    public;
     constructor(path, type, ...customArgs) {
         this.path = path;
         this.type = type;

@@ -3,10 +3,12 @@ export var DrawType;
 (function (DrawType) {
     DrawType[DrawType["Stroke"] = 1] = "Stroke";
     DrawType[DrawType["Fill"] = 2] = "Fill";
-    DrawType[DrawType["StrokeText"] = 4] = "StrokeText";
-    DrawType[DrawType["FillText"] = 8] = "FillText";
-    DrawType[DrawType["Image"] = 16] = "Image";
 })(DrawType || (DrawType = {}));
+export var DrawTextType;
+(function (DrawTextType) {
+    DrawTextType[DrawTextType["Stroke"] = 1] = "Stroke";
+    DrawTextType[DrawTextType["Fill"] = 2] = "Fill";
+})(DrawTextType || (DrawTextType = {}));
 export var Color;
 (function (Color) {
     Color["Transparent"] = "rgba(0,0,0,0)";

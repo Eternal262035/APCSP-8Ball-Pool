@@ -5,6 +5,7 @@ import { entityManager } from "../Entity/EntityManager.js";
  */
 export function checkForCollisions() {
     let array = Array.from(entityManager.entities.values());
+    let collisionsThisTick = 0;
     for (let i = 0; i < entityManager.entities.size; i++) {
         for (let j = i + 1; j < entityManager.entities.size; j++) {
             const a = array[i];
@@ -16,6 +17,7 @@ export function checkForCollisions() {
             const dr = Math.sqrt(dx ** 2 + dy ** 2);
             const hbSum = a.hitboxData.size + b.hitboxData.size;
             if (dr < hbSum) {
+                collisionsThisTick++;
                 // first see how much the hitboxes are intersecting. 
                 // the strategy we're using here is to instantly "correct" the balls so theyu dont overlap anymore
                 // and then we apply impule
@@ -50,6 +52,8 @@ export function checkForCollisions() {
             }
         }
     }
+    // @ts-ignore
+    document.getElementById("debug-collisions").innerText = `Collisions: ${collisionsThisTick} (this)`;
     // old
     // for (const firstEntity of entityManager.entities.values()) {
     //     for (const secondEntity of entityManager.entities.values()) {
