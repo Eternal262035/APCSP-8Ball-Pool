@@ -29,7 +29,7 @@ const tickInterval = setInterval(() => {
     // mouseEntity.physicsData.velocity.scale(0);
     entityManager.applyAllEntityPhysics();
     // @ts-ignore
-    document.getElementById("debug-mspt").innerText = `mspt: ${Date.now() - start} ms | ${Date.now() - start > mspt ? Date.now() - start : mspt} ms | ${mspt} mspt (finished|actual|config)`;
+    document.getElementById("debug-mspt").innerText = `mspt: ${Date.now() - start} ms | ${Date.now() - start > mspt ? Date.now() - start : mspt} ms | ${mspt} mspt | ${(1000 / (Date.now() - start > mspt ? Date.now() - start : mspt).toFixed(2))} (tick|actual|config|tps)`;
     // @ts-ignore
     document.getElementById("debug-entityCounts").innerText = `Entities: ${entityManager.entities.size} | ${containers.length} (total|containers)`;
 }, mspt);

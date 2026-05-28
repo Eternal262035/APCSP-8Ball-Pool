@@ -40,6 +40,7 @@ export default class Entity {
 
     public /* static */ destroy(): Entity { // might change this to void later
         entityManager.removeEntity(this);
+        // this.sprite.container.removeChild(this.sprite.id);
         // need to remove the sprite too
         return this;
     }

@@ -17,8 +17,8 @@ export enum Color {
     Green = "#00ff00",
     Blue = "#0000ff",
     LightGray = "#e5e5e5",
-    PoolTableGreen = "#31B94D",
-    Wood = "#BA8C63",
+    PoolTableGreen = Color.LightGray, //"#31B94D",
+    Wood = Color.LightGray, //"#BA8C63",
 }
 
 

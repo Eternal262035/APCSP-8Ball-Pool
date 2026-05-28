@@ -50,7 +50,7 @@ export function checkForCollisions() {
                 const relv = relvx*xComp + relvy*yComp;
 
 
-                const restitution = 0.99; // resitution is like the elasticity of the collision
+                const restitution = 1; // resitution is like the elasticity of the collision
                 // when restitution is 1 that means the collision is perfectl elastic (both E_k and p conserved)
                 const impulse = -(1 + restitution) * relv / (1 / a.physicsData.mass + 1 / b.physicsData.mass); // skibidi
                 
