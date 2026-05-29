@@ -12,7 +12,10 @@ export default class TestEntity extends Entity {
     // no additional properties I think
 
     constructor(x: number, y: number, size: number) {
+        console.log(x);
+        console.log(y);
         super(x,y, size);
+        console.log(this.positionData);
         
         // type assertion does not work here.
         this.sprite = new SpriteDebugBall(containers[1], this.positionData, this.hitboxData.size);

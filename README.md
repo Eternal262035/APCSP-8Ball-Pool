@@ -7,3 +7,7 @@
 - The entire website is static, so it can be also hosted on a CDN like Cloudflare Pages. 
 - the html file already points to the entry point in `/build`. 
 - you could also use a bundler like esbuild or whatever to cram everything into a single file. 
+
+## references
+- Pool table image: https://bargames101.com/pool-table-anatomy/
+- Rules: https://www.colorado.edu/umc/sites/default/files/attached-files/8-ball_rules_bca.pdf

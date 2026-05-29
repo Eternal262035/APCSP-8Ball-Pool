@@ -17,6 +17,7 @@ export default class Entity {
     passiveVelocityMultiFactor = 0.9972;
     constructor(mapx, mapy, size) {
         const canvasCoords = mapToCanvasCoords(mapx, mapy);
+        console.log("asdasdasd");
         this.positionData = new PositionData(canvasCoords.x, canvasCoords.y);
         this.hitboxData = new HitboxData(size);
         this.physicsData = new PhysicsData();

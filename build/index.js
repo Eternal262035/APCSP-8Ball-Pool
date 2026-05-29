@@ -1,12 +1,11 @@
-import { DrawType } from "./Const/Enums.js";
 import { PositionData } from "./Game/Datagroups/PositionData.js";
 import { entityManager } from "./Game/Entity/EntityManager.js";
 import TestEntity from "./Game/Entity/TestEntity.js";
+import GameInstance from "./Game/Instance/Game.js";
 import { checkForCollisions } from "./Game/Physics/Collision.js";
 import initCanvas, { ctx } from "./Render/InitCanvas.js";
 import renderFrameLoop from "./Render/RenderMain.js";
 import { containers, initRenderableContainers } from "./Render/RenderableContainer.js";
-import RenderablePath2D from "./Render/RenderablePath2D.js";
 import SpriteWorldBorder from "./Render/Sprites/WorldBorder.js";
 import { mapHeight, mapWidth, mspt } from "./config.js";
 import { canvasToMapCoords } from "./utils.js";
@@ -22,6 +21,7 @@ renderFrameLoop(ctx);
 // the map border sprite (visual only, does not exist as an Entity)
 const mapBorderIndicator = new SpriteWorldBorder(containers[0], new PositionData(100, 100), 500, 500);
 resizeMap();
+export let game = new GameInstance();
 const tickInterval = setInterval(() => {
     const start = Date.now();
     checkForCollisions();
@@ -49,12 +49,7 @@ function resizeMap() {
     mapBottom = window.innerHeight / 2 + mapHeight / 2;
     mapTop = window.innerHeight / 2 - mapHeight / 2;
     // redefine the render path for the map border sprite
-    mapBorderIndicator.positionData.x = mapLeft;
-    mapBorderIndicator.positionData.y = mapTop;
-    const newPath2D = new Path2D();
-    newPath2D.rect(0, 0, mapWidth, mapHeight);
-    mapBorderIndicator.paths[0] = new RenderablePath2D(newPath2D, DrawType.Fill | DrawType.Stroke, mapBorderIndicator.paths[0].fillColor, mapBorderIndicator.paths[0].strokeColor);
-    // console.log(mapLeft, mapRight, mapTop, mapBottom);
+    mapBorderIndicator.resize();
     return {
         dx: mapLeft - oldMapLeft,
         dy: mapTop - oldMapTop,
@@ -66,15 +61,18 @@ function relocateAllEntities(dx, dy) {
         entity.positionData.y += dy;
     }
 }
-new TestEntity(267, 167, 15);
-new TestEntity(297, 167, 15);
-new TestEntity(317, 167, 15);
+// new TestEntity(267,167,15);
+// new TestEntity(297,167,15);
+// new TestEntity(317,167,15);
 let mx = 0;
 let my = 0;
 // const mouseEntity = new Entity(67,77,20);
 document.addEventListener('mousemove', (event) => {
     mx = event.clientX;
     my = event.clientY;
+    const cc = canvasToMapCoords(mx, my);
+    // @ts-ignore
+    document.getElementById("debug-mousePos").innerText = `Mouse: window (${mx}, ${my}) | map (${cc.x}, ${cc.y})`;
     // mouseEntity.positionData.x = mx;
     // mouseEntity.positionData.y = my;
 });
