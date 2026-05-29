@@ -6,6 +6,7 @@ import PhysicsData from "../Datagroups/PhysicsData.js";
 import { PositionData } from "../Datagroups/PositionData.js";
 import Vector from "../Physics/Vector.js";
 import { entityManager } from "./EntityManager.js";
+//
 export default class Entity {
     positionData;
     hitboxData;
