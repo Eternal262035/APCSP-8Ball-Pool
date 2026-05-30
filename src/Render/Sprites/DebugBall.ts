@@ -32,7 +32,7 @@ export default class SpriteDebugBall extends Renderable {
         this.addPath(new RenderableText("AA", {x: -10, y: 7}, DrawTextType.Fill, "20px Arial", Color.Blue)); // arrow
         this.addPath(new RenderableImage(
             // 'https://i.ibb.co/RGsBGrVM/dynotransparent.png',
-            'https://cdn.discordapp.com/attachments/1317879882989965396/1510366979817607168/latest.png?ex=6a1c8e5d&is=6a1b3cdd&hm=7ec74bd04fc43fe759e3ee0c897d9137ef7e761ed121bfd2eb2e14b3df290821&',
+            '../../../assets/smash-hit-ball.png',
             { x: 0-radius, y: 0-radius},
             radius*2, 
             radius*2, 

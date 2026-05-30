@@ -45,7 +45,7 @@ const httpServer = http.createServer(
                 reqPath += "web/index.html";
             }
 
-            if (!(reqPath.startsWith("/build") || reqPath.startsWith("/web"))) {
+            if (!(reqPath.startsWith("/build") || reqPath.startsWith("/web") || reqPath.startsWith("/assets"))) {
                 res.writeHead(403);
                 res.end("403 Forbidden Access");
                 return;
