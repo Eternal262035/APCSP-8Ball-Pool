@@ -8,7 +8,7 @@ import RenderableText from "./RenderableText.js";
 
 
 /** type union */
-type RenderableTemplate = RenderablePath2D|RenderableText;
+type RenderableTemplate = RenderablePath2D|RenderableText|RenderableImage;
 
 /** the id that is assigned to each Renderable instance */
 export var renderableId = 0;
@@ -73,7 +73,7 @@ export default class Renderable {
         for (const template of this.imagePaths) {
             ctx.save();
             ctx.translate(1 * this.positionData.x, 1 * this.positionData.y);
-            ctx.drawImage(template.)
+            ctx.drawImage(document.getElementById(template.cacheId) as HTMLImageElement, template.position.x, template.position.y, template.width, template.height);
             ctx.restore();
         }
     }

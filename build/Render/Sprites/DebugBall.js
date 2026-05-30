@@ -1,6 +1,7 @@
 import { PI2 } from "../../Const/Constants.js";
 import { Color, DrawTextType, DrawType } from "../../Const/Enums.js";
 import Renderable from "../Renderable.js";
+import RenderableImage from "../RenderableImage.js";
 import RenderablePath2D from "../RenderablePath2D.js";
 import RenderableText from "../RenderableText.js";
 export default class SpriteDebugBall extends Renderable {
@@ -24,6 +25,9 @@ export default class SpriteDebugBall extends Renderable {
         this.addPath(new RenderablePath2D(new Path2D, DrawType.Stroke, Color.Red)); // arrow
         this.addPath(new RenderablePath2D(new Path2D, DrawType.Stroke, Color.Red)); // arrow
         this.addPath(new RenderableText("AA", { x: -10, y: 7 }, DrawTextType.Fill, "20px Arial", Color.Blue)); // arrow
+        this.addPath(new RenderableImage(
+        // 'https://i.ibb.co/RGsBGrVM/dynotransparent.png',
+        'https://cdn.discordapp.com/attachments/1317879882989965396/1510366979817607168/latest.png?ex=6a1c8e5d&is=6a1b3cdd&hm=7ec74bd04fc43fe759e3ee0c897d9137ef7e761ed121bfd2eb2e14b3df290821&', { x: 0 - radius, y: 0 - radius }, radius * 2, radius * 2)); // arrow
     }
     draw(thisCtx) {
         super.draw(thisCtx);

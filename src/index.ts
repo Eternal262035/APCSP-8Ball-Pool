@@ -12,7 +12,7 @@ import RenderablePath2D from "./Render/RenderablePath2D.js";
 import Circle from "./Render/Sprites/Circle.js";
 import SpriteWorldBorder from "./Render/Sprites/WorldBorder.js";
 import { mapHeight, mapWidth, mspt } from "./config.js";
-import { canvasToMapCoords, mapToCanvasCoords } from "./utils.js";
+import { cacheNewImage, canvasToMapCoords, mapToCanvasCoords } from "./utils.js";
 
 // alert("Load index");
 

@@ -10,3 +10,12 @@ export function mapToCanvasCoords(x, y) {
 export function canvasToMapCoords(x, y) {
     return new PositionData(x - mapLeft, y - mapTop);
 }
+export function cacheNewImage(url) {
+    const imageId = `cache_${crypto.randomUUID()}`;
+    const node = document.createElement("img");
+    node.setAttribute("src", url);
+    node.setAttribute("id", imageId);
+    // @ts-ignore
+    document.getElementById("imageCache").appendChild(node);
+    return imageId;
+}

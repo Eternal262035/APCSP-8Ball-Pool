@@ -1,5 +1,6 @@
 import { DrawTextType, DrawType } from "../Const/Enums.js";
 import RenderablePath2D from "./RenderablePath2D.js";
+import RenderableImage from "./RenderableImage.js";
 import RenderableText from "./RenderableText.js";
 /** the id that is assigned to each Renderable instance */
 export var renderableId = 0;
@@ -12,6 +13,7 @@ export default class Renderable {
     container;
     paths = [];
     textPaths = [];
+    imagePaths = [];
     id;
     constructor(container, position) {
         this.container = container;
@@ -26,6 +28,8 @@ export default class Renderable {
             this.paths.push(path);
         if (path instanceof RenderableText)
             this.textPaths.push(path);
+        if (path instanceof RenderableImage)
+            this.imagePaths.push(path);
     }
     /** draws each Path2D given a ctx */
     draw(ctx) {
@@ -55,6 +59,12 @@ export default class Renderable {
                 ctx.font = template.font;
                 ctx.fillText(template.text, template.position.x, template.position.y);
             }
+            ctx.restore();
+        }
+        for (const template of this.imagePaths) {
+            ctx.save();
+            ctx.translate(1 * this.positionData.x, 1 * this.positionData.y);
+            ctx.drawImage(document.getElementById(template.cacheId), template.position.x, template.position.y, template.width, template.height);
             ctx.restore();
         }
     }

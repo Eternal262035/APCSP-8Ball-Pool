@@ -25,6 +25,7 @@ export default class Entity {
         /** Explanation:
          * the type union between Renderable and undefined gets messy especially for extended classes
          * this is why we set this.sprite to a temporary Renderable and remove it from the container immediately.
+         * since it's not in a container it wont get rendered, which is the goal anyway.
          */
         this.sprite = new Renderable(containers[0], this.positionData);
         this.sprite.container.removeChild(this.sprite.id);
