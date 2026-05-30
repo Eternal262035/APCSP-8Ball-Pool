@@ -5,18 +5,12 @@ import Renderable from "../Renderable.js";
 import RenderableImage from "../RenderableImage.js";
 import RenderablePath2D from "../RenderablePath2D.js";
 import RenderableText from "../RenderableText.js";
-export default class SpriteDebugBall extends Renderable {
+export default class SpriteCueBall extends Renderable {
     constructor(container, position, radius) {
         super(container, position); // call parent constructor with the required arguments
         console.log(this);
         const path1 = new Path2D;
         path1.arc(0, 0, radius, 0, PI2);
-        // const path2 = new Path2D;
-        // path2.rect(-10, -10, 10, 10);
-        // path2.rect(5, -10, 10, 10);
-        // path2.rect(-7, 10, 17, 4);
-        // const path3 = new Path2D;
-        // path3.arc(0,0, radius*0.5, PI2, PI2);
         const directionArrow = new Path2D;
         directionArrow.moveTo(0, 0);
         directionArrow.lineTo(radius * 1.75, 0);
@@ -29,9 +23,8 @@ export default class SpriteDebugBall extends Renderable {
         this.addPath(new RenderableImage(
         // 'https://i.ibb.co/RGsBGrVM/dynotransparent.png',
         // '../../../assets/smash-hit-ball.png',
-        Assets.smashHitBall, 
-        // Assets.earthImage,
-        { x: 0 - radius, y: 0 - radius }, radius * 2, radius * 2)); // arrow
+        // Assets.smashHitBall,
+        Assets.earthImage, { x: 0 - radius, y: 0 - radius }, radius * 2, radius * 2)); // arrow
     }
     draw(thisCtx) {
         super.draw(thisCtx);

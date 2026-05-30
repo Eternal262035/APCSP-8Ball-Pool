@@ -33,7 +33,7 @@ export default class Entity {
     }
     destroy() {
         entityManager.removeEntity(this);
-        // this.sprite.container.removeChild(this.sprite.id);
+        this.sprite.container.removeChild(this.sprite.id);
         // need to remove the sprite too
         return this;
     }

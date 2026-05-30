@@ -5,8 +5,8 @@ export default class GameInstance {
     balls = [];
     constructor() {
         for (let i = 0; i < 15; i++) {
-            const b = new BallEntity(15);
-            this.balls.push();
+            const b = new BallEntity(100, 300 + Math.random(), 15);
+            this.balls.push(b);
         }
     }
     reset() {

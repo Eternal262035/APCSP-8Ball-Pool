@@ -34,8 +34,8 @@ export default class SpriteDebugBall extends Renderable {
         this.addPath(new RenderableImage(
             // 'https://i.ibb.co/RGsBGrVM/dynotransparent.png',
             // '../../../assets/smash-hit-ball.png',
-            // Assets.smashHitBall,
-            Assets.earthImage,
+            Assets.smashHitBall,
+            // Assets.earthImage,
             { x: 0-radius, y: 0-radius},
             radius*2, 
             radius*2, 
