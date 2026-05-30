@@ -18,6 +18,17 @@ export var Color;
     Color["Green"] = "#00ff00";
     Color["Blue"] = "#0000ff";
     Color["LightGray"] = "#e5e5e5";
-    Color["PoolTableGreen"] = "#e5e5e5";
-    Color["Wood"] = "#e5e5e5";
+    Color["DarkGray"] = "#929292";
+    Color["PoolTableGreen"] = "#06b69f";
+    Color["Wood"] = "#BA8C63";
+    // Ball colors
+    // S stands for solid and T means stripe
+    // fyi if you add 8 to the number on a solid ball, the resulting stripe ball with that number will have the same color as that solid ball
+    Color["BallS1T9"] = "#ffff00";
+    Color["BallS2T10"] = "#0000fe";
+    Color["BallS3T11"] = "#fe0000";
+    Color["BallS4T12"] = "#bf00c0";
+    Color["BallS5T13"] = "#ff7f00";
+    Color["BallS6T14"] = "#01c000";
+    Color["BallS7T15"] = "#bf0000";
 })(Color || (Color = {}));

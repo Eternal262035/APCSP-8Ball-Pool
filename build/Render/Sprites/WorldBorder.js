@@ -22,7 +22,7 @@ export default class SpriteWorldBorder extends Renderable {
             markingPaths2.moveTo(i / 4 * width, 0);
             markingPaths2.arc(i / 4 * width, 0, 5, 0, PI2);
         }
-        this.addPath(new RenderablePath2D(path1, DrawType.Fill | DrawType.Stroke, Color.PoolTableGreen, Color.Wood));
+        this.addPath(new RenderablePath2D(path1, DrawType.Fill | DrawType.Stroke, Color.Wood, Color.PoolTableGreen));
         this.addPath(new RenderablePath2D(markingPaths1, DrawType.Stroke, Color.Red, Color.Red));
         this.addPath(new RenderablePath2D(markingPaths2, DrawType.Stroke, Color.Red, Color.Red));
     }
@@ -34,18 +34,18 @@ export default class SpriteWorldBorder extends Renderable {
         this.positionData.y = mapTop;
         const newPath2D = new Path2D();
         newPath2D.rect(0, 0, mapWidth, mapHeight);
-        this.paths[0] = new RenderablePath2D(newPath2D, DrawType.Fill | DrawType.Stroke, this.paths[0].fillColor, this.paths[0].strokeColor);
+        this.paths[0] = new RenderablePath2D(newPath2D, DrawType.Fill | DrawType.Stroke, this.paths[0].strokeColor, this.paths[0].fillColor);
         const markingPaths = new Path2D;
         for (let i = 0; i < 8; i++) {
             markingPaths.moveTo(0, i / 8 * mapHeight);
             markingPaths.arc(0, i / 8 * mapHeight, 5, 0, PI2);
         }
-        this.paths[1] = new RenderablePath2D(markingPaths, DrawType.Fill | DrawType.Stroke, this.paths[1].fillColor, this.paths[1].strokeColor);
+        this.paths[1] = new RenderablePath2D(markingPaths, DrawType.Fill | DrawType.Stroke, this.paths[1].strokeColor, this.paths[1].fillColor);
         const markingPaths2 = new Path2D;
         for (let i = 0; i < 4; i++) {
             markingPaths2.moveTo(i / 4 * mapWidth, 0);
             markingPaths2.arc(i / 4 * mapWidth, 0, 5, 0, PI2);
         }
-        this.paths[2] = new RenderablePath2D(markingPaths2, DrawType.Fill | DrawType.Stroke, this.paths[2].fillColor, this.paths[2].strokeColor);
+        this.paths[2] = new RenderablePath2D(markingPaths2, DrawType.Fill | DrawType.Stroke, this.paths[2].strokeColor, this.paths[2].fillColor);
     }
 }

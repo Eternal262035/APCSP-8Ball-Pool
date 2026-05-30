@@ -23,7 +23,7 @@ export default class Entity {
 
     constructor(mapx: number, mapy: number, size: number) {
         const canvasCoords = mapToCanvasCoords(mapx, mapy);
-        console.log("asdasdasd");
+        // console.log("asdasdasd");
         this.positionData = new PositionData(canvasCoords.x, canvasCoords.y);
         this.hitboxData = new HitboxData(size);
         this.physicsData = new PhysicsData();

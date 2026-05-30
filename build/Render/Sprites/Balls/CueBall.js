@@ -9,6 +9,6 @@ export default class SpriteCueBall extends Renderable {
         console.log(this);
         const testPath = new Path2D();
         testPath.arc(0, 0, radius, 0, PI2);
-        this.addPath(new RenderablePath2D(testPath, DrawType.Fill, Color.White));
+        this.addPath(new RenderablePath2D(testPath, DrawType.Fill, Color.White, Color.White));
     }
 }
