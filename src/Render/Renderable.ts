@@ -2,6 +2,7 @@ import { Color, DrawTextType, DrawType } from "../Const/Enums.js";
 import { PositionData } from "../Game/Datagroups/PositionData.js";
 import RenderableContainer from "./RenderableContainer.js";
 import RenderablePath2D from "./RenderablePath2D.js";
+import RenderableImage from "./RenderableImage.js";
 import RenderableText from "./RenderableText.js";
 
 
@@ -21,6 +22,7 @@ export default class Renderable {
     public container: RenderableContainer;
     public paths: RenderablePath2D[] = [];
     public textPaths: RenderableText[] = [];
+    public imagePaths: RenderableImage[] = [];
     public id: number;
 
     constructor(container: RenderableContainer, position: PositionData) {
@@ -35,6 +37,7 @@ export default class Renderable {
     public addPath(path: RenderableTemplate) {
         if (path instanceof RenderablePath2D) this.paths.push(path);
         if (path instanceof RenderableText) this.textPaths.push(path);
+        if (path instanceof RenderableImage) this.imagePaths.push(path);
     }
 
     /** draws each Path2D given a ctx */
@@ -65,6 +68,12 @@ export default class Renderable {
                 ctx.font = template.font;
                 ctx.fillText(template.text, template.position.x, template.position.y);
             }
+            ctx.restore();
+        }
+        for (const template of this.imagePaths) {
+            ctx.save();
+            ctx.translate(1 * this.positionData.x, 1 * this.positionData.y);
+            ctx.drawImage(template.)
             ctx.restore();
         }
     }
