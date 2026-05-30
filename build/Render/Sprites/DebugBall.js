@@ -1,5 +1,6 @@
 import { PI2 } from "../../Const/Constants.js";
 import { Color, DrawTextType, DrawType } from "../../Const/Enums.js";
+import { Assets } from "../../load.js";
 import Renderable from "../Renderable.js";
 import RenderableImage from "../RenderableImage.js";
 import RenderablePath2D from "../RenderablePath2D.js";
@@ -27,7 +28,9 @@ export default class SpriteDebugBall extends Renderable {
         this.addPath(new RenderableText("AA", { x: -10, y: 7 }, DrawTextType.Fill, "20px Arial", Color.Blue)); // arrow
         this.addPath(new RenderableImage(
         // 'https://i.ibb.co/RGsBGrVM/dynotransparent.png',
-        '../../../assets/smash-hit-ball.png', { x: 0 - radius, y: 0 - radius }, radius * 2, radius * 2)); // arrow
+        // '../../../assets/smash-hit-ball.png',
+        // Assets.smashHitBall,
+        Assets.earthImage, { x: 0 - radius, y: 0 - radius }, radius * 2, radius * 2)); // arrow
     }
     draw(thisCtx) {
         super.draw(thisCtx);

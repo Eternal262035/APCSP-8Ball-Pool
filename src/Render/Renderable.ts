@@ -73,7 +73,8 @@ export default class Renderable {
         for (const template of this.imagePaths) {
             ctx.save();
             ctx.translate(1 * this.positionData.x, 1 * this.positionData.y);
-            ctx.drawImage(document.getElementById(template.cacheId) as HTMLImageElement, template.position.x, template.position.y, template.width, template.height);
+            // using a type assertion here seems really sketchy to me but whatever
+            ctx.drawImage(template.src as CanvasImageSource, template.position.x, template.position.y, template.width, template.height);
             ctx.restore();
         }
     }
