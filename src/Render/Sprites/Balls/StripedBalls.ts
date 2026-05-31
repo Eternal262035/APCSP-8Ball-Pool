@@ -1,6 +1,7 @@
 import { PI, PI2 } from "../../../Const/Constants.js";
 import { Color, DrawTextType, DrawType } from "../../../Const/Enums.js";
 import { PositionData } from "../../../Game/Datagroups/PositionData.js";
+import { Assets } from "../../../load.js";
 import Renderable from "../../Renderable.js";
 import RenderableContainer from "../../RenderableContainer.js";
 import RenderableImage from "../../RenderableImage.js";
@@ -32,6 +33,7 @@ export class Sprite9Ball extends Renderable {
         this.addPath(new RenderablePath2D(bottomMask, DrawType.Fill, Color.White, Color.White));
         this.addPath(new RenderablePath2D(numberBkg, DrawType.Fill|DrawType.Stroke, Color.DarkGray, Color.White));
         this.addPath(new RenderableText("9", {x: -6, y: 7}, DrawTextType.Fill, "20px Arial", Color.Black));
+        this.addPath(new RenderableImage(Assets.overlayShine, {x: -2*radius-1, y: -2*radius-2}, 4*radius, 4*radius));
     }
 }
 
@@ -54,6 +56,7 @@ export class Sprite10Ball extends Renderable {
         this.addPath(new RenderablePath2D(bottomMask, DrawType.Fill, Color.White, Color.White));
         this.addPath(new RenderablePath2D(numberBkg, DrawType.Fill|DrawType.Stroke, Color.DarkGray, Color.White));
         this.addPath(new RenderableText("10", {x: -10, y: 7}, DrawTextType.Fill, "17px Arial", Color.Black));        
+        this.addPath(new RenderableImage(Assets.overlayShine, {x: -2*radius-1, y: -2*radius-2}, 4*radius, 4*radius));
     }
 }
 
@@ -76,6 +79,7 @@ export class Sprite11Ball extends Renderable {
         this.addPath(new RenderablePath2D(bottomMask, DrawType.Fill, Color.White, Color.White));
         this.addPath(new RenderablePath2D(numberBkg, DrawType.Fill|DrawType.Stroke, Color.DarkGray, Color.White));
         this.addPath(new RenderableText("11", {x: -10, y: 7}, DrawTextType.Fill, "17px Arial", Color.Black));        
+        this.addPath(new RenderableImage(Assets.overlayShine, {x: -2*radius-1, y: -2*radius-2}, 4*radius, 4*radius));
     }
 }
 
@@ -98,6 +102,7 @@ export class Sprite12Ball extends Renderable {
         this.addPath(new RenderablePath2D(bottomMask, DrawType.Fill, Color.White, Color.White));
         this.addPath(new RenderablePath2D(numberBkg, DrawType.Fill|DrawType.Stroke, Color.DarkGray, Color.White));
         this.addPath(new RenderableText("12", {x: -10, y: 7}, DrawTextType.Fill, "17px Arial", Color.Black));        
+        this.addPath(new RenderableImage(Assets.overlayShine, {x: -2*radius-1, y: -2*radius-2}, 4*radius, 4*radius));
     }
 }
 
@@ -120,6 +125,7 @@ export class Sprite13Ball extends Renderable {
         this.addPath(new RenderablePath2D(bottomMask, DrawType.Fill, Color.White, Color.White));
         this.addPath(new RenderablePath2D(numberBkg, DrawType.Fill|DrawType.Stroke, Color.DarkGray, Color.White));
         this.addPath(new RenderableText("13", {x: -10, y: 7}, DrawTextType.Fill, "17px Arial", Color.Black));        
+        this.addPath(new RenderableImage(Assets.overlayShine, {x: -2*radius-1, y: -2*radius-2}, 4*radius, 4*radius));
     }
 }
 
@@ -142,6 +148,7 @@ export class Sprite14Ball extends Renderable {
         this.addPath(new RenderablePath2D(bottomMask, DrawType.Fill, Color.White, Color.White));
         this.addPath(new RenderablePath2D(numberBkg, DrawType.Fill|DrawType.Stroke, Color.DarkGray, Color.White));
         this.addPath(new RenderableText("14", {x: -10, y: 7}, DrawTextType.Fill, "17px Arial", Color.Black));        
+        this.addPath(new RenderableImage(Assets.overlayShine, {x: -2*radius-1, y: -2*radius-2}, 4*radius, 4*radius));
     }
 }
 
@@ -164,6 +171,7 @@ export class Sprite15Ball extends Renderable {
         this.addPath(new RenderablePath2D(bottomMask, DrawType.Fill, Color.White, Color.White));
         this.addPath(new RenderablePath2D(numberBkg, DrawType.Fill|DrawType.Stroke, Color.DarkGray, Color.White));
         this.addPath(new RenderableText("15", {x: -10, y: 7}, DrawTextType.Fill, "17px Arial", Color.Black));    
+        this.addPath(new RenderableImage(Assets.overlayShine, {x: -2*radius-1, y: -2*radius-2}, 4*radius, 4*radius));
     }
 }
 

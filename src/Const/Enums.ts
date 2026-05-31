@@ -12,7 +12,7 @@ export enum DrawTextType {
 
 export enum Color {
     Transparent = "rgba(0,0,0,0)",
-    White = "#ffffff",
+    White = "#fffff1",
     Black = "#000000",
     Red = "#ff0000",
     Green = "#00ff00",
