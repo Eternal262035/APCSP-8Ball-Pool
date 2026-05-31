@@ -95,3 +95,16 @@ export class Sprite7Ball extends Renderable {
         this.addPath(new RenderableText("7", { x: -6, y: 7 }, DrawTextType.Fill, "20px Arial", Color.Black));
     }
 }
+export class Sprite8Ball extends Renderable {
+    constructor(container, position, radius) {
+        super(container, position);
+        console.log(this);
+        const bkgPath = new Path2D();
+        bkgPath.arc(0, 0, radius, 0, PI2);
+        const numberBkg = new Path2D();
+        numberBkg.arc(0, 0, radius * 0.55, 0, PI2);
+        this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.Black));
+        this.addPath(new RenderablePath2D(numberBkg, DrawType.Fill | DrawType.Stroke, Color.DarkGray, Color.White));
+        this.addPath(new RenderableText("8", { x: -6, y: 7 }, DrawTextType.Fill, "20px Arial", Color.Black));
+    }
+}

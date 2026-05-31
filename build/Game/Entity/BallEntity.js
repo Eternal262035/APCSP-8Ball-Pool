@@ -2,7 +2,8 @@ import { ballSize } from "../../config.js";
 import { mapBottom, mapLeft, mapRight, mapTop } from "../../index.js";
 import { containers } from "../../Render/RenderableContainer.js";
 import SpriteCueBall from "../../Render/Sprites/Balls/CueBall.js";
-import { Sprite1Ball, Sprite2Ball, Sprite3Ball, Sprite4Ball, Sprite5Ball, Sprite6Ball, Sprite7Ball } from "../../Render/Sprites/Balls/SolidBalls.js";
+import { Sprite1Ball, Sprite2Ball, Sprite3Ball, Sprite4Ball, Sprite5Ball, Sprite6Ball, Sprite7Ball, Sprite8Ball } from "../../Render/Sprites/Balls/SolidBalls.js";
+import { Sprite10Ball, Sprite9Ball } from "../../Render/Sprites/Balls/StripedBalls.js";
 import SpriteCircle from "../../Render/Sprites/Circle.js";
 import Entity from "./Entity.js";
 export default class BallEntity extends Entity {
@@ -43,6 +44,15 @@ export default class BallEntity extends Entity {
                 break;
             case 7:
                 this.sprite = new Sprite7Ball(containers[0], this.positionData, ballSize);
+                break;
+            case 8:
+                this.sprite = new Sprite8Ball(containers[0], this.positionData, ballSize);
+                break;
+            case 9:
+                this.sprite = new Sprite9Ball(containers[0], this.positionData, ballSize);
+                break;
+            case 10:
+                this.sprite = new Sprite10Ball(containers[0], this.positionData, ballSize);
                 break;
         }
     }
