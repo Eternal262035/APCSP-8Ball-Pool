@@ -16,6 +16,10 @@ export class Sprite9Ball extends Renderable {
         topMask.arc(0, 0, radius, PI / 5, 4 * PI / 5);
         const bottomMask = new Path2D();
         bottomMask.arc(0, 0, radius, 6 * PI / 5, 9 * PI / 5);
+        const shadow = new Path2D();
+        // shadow.arc(radius*0.2, radius*-0.1, radius*1.1, 0, PI2);
+        shadow.arc(0, 0, radius * 0.7, 0, PI2);
+        this.addPath(new RenderablePath2D(shadow, DrawType.Shadow, Color.Black, Color.DarkGray));
         this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.BallS1T9));
         this.addPath(new RenderablePath2D(topMask, DrawType.Fill, Color.White, Color.White));
         this.addPath(new RenderablePath2D(bottomMask, DrawType.Fill, Color.White, Color.White));

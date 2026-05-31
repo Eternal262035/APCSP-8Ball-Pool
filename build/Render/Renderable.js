@@ -44,6 +44,13 @@ export default class Renderable {
                 ctx.strokeStyle = template.strokeColor;
                 ctx.stroke(template.path);
             }
+            if (template.type & DrawType.Shadow) {
+                ctx.shadowColor = template.strokeColor;
+                ctx.shadowBlur = 20;
+                ctx.shadowOffsetX = 2;
+                ctx.shadowOffsetY = -2;
+                ctx.fill(template.path);
+            }
             ctx.restore();
         }
         for (const template of this.textPaths) {
