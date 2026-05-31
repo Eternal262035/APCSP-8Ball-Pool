@@ -24,8 +24,7 @@ export class Sprite9Ball extends Renderable {
         bottomMask.arc(0,0,radius, 6*PI/5, 9*PI/5);
 
         const shadow = new Path2D();
-        // shadow.arc(radius*0.2, radius*-0.1, radius*1.1, 0, PI2);
-        shadow.arc(0, 0, radius*0.7, 0, PI2);
+        shadow.arc(0, 0, radius*0.85, 0, PI2);
         
         this.addPath(new RenderablePath2D(shadow, DrawType.Shadow, Color.Black, Color.DarkGray));
         this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.BallS1T9));
@@ -51,6 +50,10 @@ export class Sprite10Ball extends Renderable {
         const bottomMask = new Path2D();
         bottomMask.arc(0,0,radius, 6*PI/5, 9*PI/5);
         
+        const shadow = new Path2D();
+        shadow.arc(0, 0, radius*0.85, 0, PI2);
+        
+        this.addPath(new RenderablePath2D(shadow, DrawType.Shadow, Color.Black, Color.DarkGray));
         this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.BallS2T10));
         this.addPath(new RenderablePath2D(topMask, DrawType.Fill, Color.White, Color.White));
         this.addPath(new RenderablePath2D(bottomMask, DrawType.Fill, Color.White, Color.White));
@@ -73,7 +76,11 @@ export class Sprite11Ball extends Renderable {
         topMask.arc(0,0,radius, PI/5, 4*PI/5);
         const bottomMask = new Path2D();
         bottomMask.arc(0,0,radius, 6*PI/5, 9*PI/5);
-        
+                
+        const shadow = new Path2D();
+        shadow.arc(0, 0, radius*0.85, 0, PI2);
+
+        this.addPath(new RenderablePath2D(shadow, DrawType.Shadow, Color.Black, Color.DarkGray));
         this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.BallS3T11));
         this.addPath(new RenderablePath2D(topMask, DrawType.Fill, Color.White, Color.White));
         this.addPath(new RenderablePath2D(bottomMask, DrawType.Fill, Color.White, Color.White));
@@ -96,7 +103,11 @@ export class Sprite12Ball extends Renderable {
         topMask.arc(0,0,radius, PI/5, 4*PI/5);
         const bottomMask = new Path2D();
         bottomMask.arc(0,0,radius, 6*PI/5, 9*PI/5);
-        
+                
+        const shadow = new Path2D();
+        shadow.arc(0, 0, radius*0.85, 0, PI2);
+
+        this.addPath(new RenderablePath2D(shadow, DrawType.Shadow, Color.Black, Color.DarkGray));
         this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.BallS4T12));
         this.addPath(new RenderablePath2D(topMask, DrawType.Fill, Color.White, Color.White));
         this.addPath(new RenderablePath2D(bottomMask, DrawType.Fill, Color.White, Color.White));
@@ -119,7 +130,11 @@ export class Sprite13Ball extends Renderable {
         topMask.arc(0,0,radius, PI/5, 4*PI/5);
         const bottomMask = new Path2D();
         bottomMask.arc(0,0,radius, 6*PI/5, 9*PI/5);
-        
+                
+        const shadow = new Path2D();
+        shadow.arc(0, 0, radius*0.85, 0, PI2);
+
+        this.addPath(new RenderablePath2D(shadow, DrawType.Shadow, Color.Black, Color.DarkGray));
         this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.BallS5T13));
         this.addPath(new RenderablePath2D(topMask, DrawType.Fill, Color.White, Color.White));
         this.addPath(new RenderablePath2D(bottomMask, DrawType.Fill, Color.White, Color.White));
@@ -142,7 +157,11 @@ export class Sprite14Ball extends Renderable {
         topMask.arc(0,0,radius, PI/5, 4*PI/5);
         const bottomMask = new Path2D();
         bottomMask.arc(0,0,radius, 6*PI/5, 9*PI/5);
-        
+                
+        const shadow = new Path2D();
+        shadow.arc(0, 0, radius*0.85, 0, PI2);
+
+        this.addPath(new RenderablePath2D(shadow, DrawType.Shadow, Color.Black, Color.DarkGray));
         this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.BallS6T14));
         this.addPath(new RenderablePath2D(topMask, DrawType.Fill, Color.White, Color.White));
         this.addPath(new RenderablePath2D(bottomMask, DrawType.Fill, Color.White, Color.White));
@@ -165,7 +184,11 @@ export class Sprite15Ball extends Renderable {
         topMask.arc(0,0,radius, PI/5, 4*PI/5);
         const bottomMask = new Path2D();
         bottomMask.arc(0,0,radius, 6*PI/5, 9*PI/5);
-        
+                
+        const shadow = new Path2D();
+        shadow.arc(0, 0, radius*0.85, 0, PI2);
+
+        this.addPath(new RenderablePath2D(shadow, DrawType.Shadow, Color.Black, Color.DarkGray));
         this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.BallS7T15));
         this.addPath(new RenderablePath2D(topMask, DrawType.Fill, Color.White, Color.White));
         this.addPath(new RenderablePath2D(bottomMask, DrawType.Fill, Color.White, Color.White));

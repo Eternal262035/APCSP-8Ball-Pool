@@ -55,8 +55,8 @@ export default class Renderable {
             }
             if (template.type & DrawType.Shadow) {
                 ctx.shadowColor = template.strokeColor;
-                ctx.shadowBlur = 20;
-                ctx.shadowOffsetX = 2;
+                ctx.shadowBlur = 10;
+                ctx.shadowOffsetX = 4;
                 ctx.shadowOffsetY = -2;
                 ctx.fill(template.path);
             }
