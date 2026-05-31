@@ -3,7 +3,7 @@ import { mapBottom, mapLeft, mapRight, mapTop } from "../../index.js";
 import { containers } from "../../Render/RenderableContainer.js";
 import SpriteCueBall from "../../Render/Sprites/Balls/CueBall.js";
 import { Sprite1Ball, Sprite2Ball, Sprite3Ball, Sprite4Ball, Sprite5Ball, Sprite6Ball, Sprite7Ball, Sprite8Ball } from "../../Render/Sprites/Balls/SolidBalls.js";
-import { Sprite10Ball, Sprite9Ball } from "../../Render/Sprites/Balls/StripedBalls.js";
+import { Sprite10Ball, Sprite11Ball, Sprite12Ball, Sprite13Ball, Sprite14Ball, Sprite15Ball, Sprite9Ball } from "../../Render/Sprites/Balls/StripedBalls.js";
 import SpriteCircle from "../../Render/Sprites/Circle.js";
 import Entity from "./Entity.js";
 export default class BallEntity extends Entity {
@@ -53,6 +53,21 @@ export default class BallEntity extends Entity {
                 break;
             case 10:
                 this.sprite = new Sprite10Ball(containers[0], this.positionData, ballSize);
+                break;
+            case 11:
+                this.sprite = new Sprite11Ball(containers[0], this.positionData, ballSize);
+                break;
+            case 12:
+                this.sprite = new Sprite12Ball(containers[0], this.positionData, ballSize);
+                break;
+            case 13:
+                this.sprite = new Sprite13Ball(containers[0], this.positionData, ballSize);
+                break;
+            case 14:
+                this.sprite = new Sprite14Ball(containers[0], this.positionData, ballSize);
+                break;
+            case 15:
+                this.sprite = new Sprite15Ball(containers[0], this.positionData, ballSize);
                 break;
         }
     }
