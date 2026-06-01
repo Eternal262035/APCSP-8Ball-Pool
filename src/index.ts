@@ -37,6 +37,7 @@ export let game = new GameInstance();
 game.rackBalls();
 
 
+
 const tickInterval = setInterval(()=>{
     const start = Date.now();
     checkForCollisions();
@@ -187,3 +188,6 @@ function skibidiSixSevenTungTungSaheur():void {
     if (currentInputs & InputFlags.Right) wasdEntity.physicsData.velocity.x += 0.3;
 }
 
+
+
+// window.console.log = ()=>{}

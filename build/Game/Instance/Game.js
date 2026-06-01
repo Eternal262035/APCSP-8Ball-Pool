@@ -1,8 +1,10 @@
+import { ballSize } from "../../config.js";
 import BallEntity from "../Entity/BallEntity.js";
 /** the general class for a game instance. */
 export default class GameInstance {
     /** the array containing all the balls. Index 0 is going to be the cue ball, and the rest are index 1-15. */
     balls = [];
+    coordinatesX = [0, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4];
     constructor() {
     }
     deleteAllBalls() {
@@ -21,14 +23,21 @@ export default class GameInstance {
         // always ensure that the 8 ball is in the fourth index
         this.indexSwap(ballOrder, ballOrder.indexOf(8), 4);
         // console.log(ballOrder);
-        let counter = 0;
+        let colNum = 0;
+        let rowNum = 0;
         for (const ballNumber of ballOrder) {
-            this.ballAt({ x: 200, y: counter * 50 }, ballNumber);
-            counter++;
+            console.log(rowNum, colNum);
+            // this.ballAt(mapWidth*0.5, mapHeight*0.25, ballNumber);
+            this.ballAt(rowNum * ballSize * 2 + 200, colNum * ballSize * 2 + 200, ballNumber);
+            rowNum++;
+            if (rowNum > colNum) {
+                colNum++;
+                rowNum = 0;
+            }
         }
     }
-    ballAt(position, number) {
-        const b = new BallEntity(position.x, position.y, number);
+    ballAt(x, y, number) {
+        const b = new BallEntity(x, y, number);
         this.balls.push(b);
         // return b;
     }

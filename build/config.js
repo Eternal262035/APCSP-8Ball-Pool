@@ -7,5 +7,5 @@ export const mapWidth = 1118 * 0.35;
 export const mapHeight = 2235 * 0.35;
 // export const consoleLogs: boolean = true;
 /** the size of a pool ball */
-export const ballSize = 57.15 * 0.35; //*0.96;
+export const ballSize = 57.15 * 0.35; //*0.96;   // = 20.0025
 // shoudl probably make this smaller. 

@@ -1,3 +1,4 @@
+import { ballSize, mapHeight, mapWidth } from "../../config.js";
 import { PositionData } from "../Datagroups/PositionData.js";
 import BallEntity from "../Entity/BallEntity.js";
 import { entityManager } from "../Entity/EntityManager.js";
@@ -7,7 +8,9 @@ import TestEntity from "../Entity/TestEntity.js";
 export default class GameInstance {
     /** the array containing all the balls. Index 0 is going to be the cue ball, and the rest are index 1-15. */
     public balls: BallEntity[] = [];
+    
 
+    private coordinatesX: number[] = [0, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4];
 
     constructor() {
 
@@ -35,15 +38,24 @@ export default class GameInstance {
         
         // console.log(ballOrder);
 
-        let counter = 0;
+        let colNum = 0;
+        let rowNum = 0;
         for (const ballNumber of ballOrder) {
-            this.ballAt({x: 200, y: counter*50}, ballNumber);
-            counter++;
+            console.log(rowNum, colNum)
+            // this.ballAt(mapWidth*0.5, mapHeight*0.25, ballNumber);
+            this.ballAt(rowNum*ballSize*2+200, colNum*ballSize*2+200, ballNumber);
+            
+
+            rowNum++;
+            if (rowNum>colNum) {
+                colNum++;
+                rowNum = 0;
+            }
         }
     } 
 
-    public ballAt(position: PositionData, number: number):void {
-        const b = new BallEntity(position.x, position.y, number);
+    public ballAt(x: number, y: number, number: number):void {
+        const b = new BallEntity(x, y, number);
         this.balls.push(b);
         // return b;
     }

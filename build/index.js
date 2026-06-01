@@ -136,3 +136,4 @@ function skibidiSixSevenTungTungSaheur() {
     if (currentInputs & InputFlags.Right)
         wasdEntity.physicsData.velocity.x += 0.3;
 }
+// window.console.log = ()=>{}
