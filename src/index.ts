@@ -191,3 +191,11 @@ function skibidiSixSevenTungTungSaheur():void {
 
 
 // window.console.log = ()=>{}
+
+
+
+
+// @ts-ignore
+document.getElementById("debug-resetBalls").addEventListener("click", ()=>{
+    game.rackBalls();
+});
