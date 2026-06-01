@@ -19,5 +19,11 @@ export default class GameInstance {
         for (const ball of this.balls) {
             ball.destroy();
         }
+        
     }
+
+    /** reset all the balls into their initial triangle position. */
+    public rackBalls() {
+        const list 
+    } 
 }

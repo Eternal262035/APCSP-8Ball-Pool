@@ -3,8 +3,10 @@ import { PI2 } from "../../Const/Constants.js";
 import { Color, DrawType } from "../../Const/Enums.js";
 import { PositionData } from "../../Game/Datagroups/PositionData.js";
 import { mapLeft, mapTop } from "../../index.js";
+import { Assets } from "../../load.js";
 import Renderable from "../Renderable.js";
 import RenderableContainer from "../RenderableContainer.js";
+import RenderableImage from "../RenderableImage.js";
 import RenderablePath2D from "../RenderablePath2D.js";
 
 export default class SpriteWorldBorder extends Renderable {
@@ -29,8 +31,9 @@ export default class SpriteWorldBorder extends Renderable {
         }
         
         this.addPath(new RenderablePath2D(path1, DrawType.Fill|DrawType.Stroke, Color.Wood, Color.PoolTableGreen));     
-        this.addPath(new RenderablePath2D(markingPaths1, DrawType.Stroke, Color.Red, Color.Red))
-        this.addPath(new RenderablePath2D(markingPaths2, DrawType.Stroke, Color.Red, Color.Red))
+        this.addPath(new RenderablePath2D(markingPaths1, DrawType.Stroke, Color.Red, Color.Red));
+        this.addPath(new RenderablePath2D(markingPaths2, DrawType.Stroke, Color.Red, Color.Red));
+        // this.addPath(new RenderableImage(Assets.poolTableFelt, {x: 0, y: 0,}, width*0.78, height*2));
     }
 
     public draw(thisCtx: CanvasRenderingContext2D) {
@@ -57,5 +60,7 @@ export default class SpriteWorldBorder extends Renderable {
             markingPaths2.arc(i/4*mapWidth, 0, 5, 0, PI2);
         }
         this.paths[2] = new RenderablePath2D(markingPaths2, DrawType.Fill | DrawType.Stroke, this.paths[2].strokeColor, this.paths[2].fillColor);
+    
+        // this.imagePaths[0] = new RenderableImage(Assets.poolTableFelt, {x: 0, y: 0,}, this.imagePaths[0].width, this.imagePaths[0].height)
     }
 }

@@ -5,4 +5,5 @@ export const Assets = {
     // earthImage: cacheNewImage("https://i.ibb.co/0jsZ2PQj/image.png"),
     earthImage: cacheNewImage("../assets/earth-clear-bkg.png"),
     overlayShine: cacheNewImage("../assets/glass-sphere-overlay-1.png"),
+    poolTableFelt: cacheNewImage("../assets/table-felt-1.png"),
 };

@@ -25,6 +25,7 @@ export default class SpriteWorldBorder extends Renderable {
         this.addPath(new RenderablePath2D(path1, DrawType.Fill | DrawType.Stroke, Color.Wood, Color.PoolTableGreen));
         this.addPath(new RenderablePath2D(markingPaths1, DrawType.Stroke, Color.Red, Color.Red));
         this.addPath(new RenderablePath2D(markingPaths2, DrawType.Stroke, Color.Red, Color.Red));
+        // this.addPath(new RenderableImage(Assets.poolTableFelt, {x: 0, y: 0,}, width*0.78, height*2));
     }
     draw(thisCtx) {
         super.draw(thisCtx);
@@ -47,5 +48,6 @@ export default class SpriteWorldBorder extends Renderable {
             markingPaths2.arc(i / 4 * mapWidth, 0, 5, 0, PI2);
         }
         this.paths[2] = new RenderablePath2D(markingPaths2, DrawType.Fill | DrawType.Stroke, this.paths[2].strokeColor, this.paths[2].fillColor);
+        // this.imagePaths[0] = new RenderableImage(Assets.poolTableFelt, {x: 0, y: 0,}, this.imagePaths[0].width, this.imagePaths[0].height)
     }
 }
