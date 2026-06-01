@@ -22,7 +22,7 @@ renderFrameLoop(ctx);
 const mapBorderIndicator = new SpriteWorldBorder(containers[0], new PositionData(100, 100), 500, 500);
 resizeMap();
 export let game = new GameInstance();
-// game.reset();
+game.rackBalls();
 const tickInterval = setInterval(() => {
     const start = Date.now();
     checkForCollisions();

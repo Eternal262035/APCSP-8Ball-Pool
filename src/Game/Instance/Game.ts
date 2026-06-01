@@ -1,3 +1,4 @@
+import { PositionData } from "../Datagroups/PositionData.js";
 import BallEntity from "../Entity/BallEntity.js";
 import { entityManager } from "../Entity/EntityManager.js";
 import TestEntity from "../Entity/TestEntity.js";
@@ -9,13 +10,10 @@ export default class GameInstance {
 
 
     constructor() {
-        for (let i=0; i<=15; i++) {
-            const b = new BallEntity(100,300+Math.random(),i);
-            this.balls.push(b);
-        }
+
     }
 
-    public reset() {
+    public deleteAllBalls() {
         for (const ball of this.balls) {
             ball.destroy();
         }
@@ -24,6 +22,53 @@ export default class GameInstance {
 
     /** reset all the balls into their initial triangle position. */
     public rackBalls() {
-        const list 
+        this.deleteAllBalls(); // get rid of all the balls first
+        const ballOrder: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+        for (let i=0; i<67; i++) {
+            this.indexSwap(ballOrder, this.randIntIncl(0,ballOrder.length-1), this.randIntIncl(0,ballOrder.length-1))
+        }
+
+        // console.log(ballOrder);
+
+        // always ensure that the 8 ball is in the fourth index
+        this.indexSwap(ballOrder, ballOrder.indexOf(8), 4);
+        
+        // console.log(ballOrder);
+
+        let counter = 0;
+        for (const ballNumber of ballOrder) {
+            this.ballAt({x: 200, y: counter*50}, ballNumber);
+            counter++;
+        }
     } 
+
+    public ballAt(position: PositionData, number: number):void {
+        const b = new BallEntity(position.x, position.y, number);
+        this.balls.push(b);
+        // return b;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    // util stuff 
+    /** swap the values of two indexes in an array */
+    private indexSwap(list: any[], a: number, b: number):void {
+        const temp = Number(list[a]);
+        list[a] = Number(list[b]);
+        list[b] = temp;
+    }
+
+    /** get a random integer from a to b, inclusive */
+    private randIntIncl(a: number, b: number): number {
+        return Math.floor(Math.random() * (b - a + 1)) + a;
+    }
+
 }

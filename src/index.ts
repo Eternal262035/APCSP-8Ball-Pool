@@ -34,7 +34,7 @@ const mapBorderIndicator = new SpriteWorldBorder(containers[0], new PositionData
 resizeMap();
 
 export let game = new GameInstance();
-// game.reset();
+game.rackBalls();
 
 
 const tickInterval = setInterval(()=>{
