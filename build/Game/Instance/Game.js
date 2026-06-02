@@ -1,4 +1,5 @@
 import { ballSize } from "../../config.js";
+import { PI } from "../../Const/Constants.js";
 import BallEntity from "../Entity/BallEntity.js";
 /** the general class for a game instance. */
 export default class GameInstance {
@@ -16,21 +17,25 @@ export default class GameInstance {
     rackBalls() {
         this.deleteAllBalls(); // get rid of all the balls first
         const ballOrder = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-        for (let i = 0; i < 67; i++) {
-            this.indexSwap(ballOrder, this.randIntIncl(0, ballOrder.length - 1), this.randIntIncl(0, ballOrder.length - 1));
-        }
+        // for (let i=0; i<67; i++) {
+        //     this.indexSwap(ballOrder, this.randIntIncl(0,ballOrder.length-1), this.randIntIncl(0,ballOrder.length-1))
+        // }
         // console.log(ballOrder);
         // always ensure that the 8 ball is in the fourth index
         this.indexSwap(ballOrder, ballOrder.indexOf(8), 4);
         // console.log(ballOrder);
         let colNum = 0;
         let rowNum = 0;
+        let xOffset = 0;
+        let yOffset = 2 * ballSize * (1 - Math.sin(PI / 3));
+        console.log(yOffset);
         for (const ballNumber of ballOrder) {
             console.log(rowNum, colNum);
             // this.ballAt(mapWidth*0.5, mapHeight*0.25, ballNumber);
-            this.ballAt(rowNum * ballSize * 2 + 200, colNum * ballSize * 2 + 200, ballNumber);
+            this.ballAt(200 + rowNum * ballSize * 2 + xOffset, 200 + colNum * ballSize * 2 - yOffset * colNum, ballNumber);
             rowNum++;
             if (rowNum > colNum) {
+                xOffset -= ballSize;
                 colNum++;
                 rowNum = 0;
             }

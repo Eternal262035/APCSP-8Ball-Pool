@@ -2,7 +2,6 @@ import { PositionData } from "./Game/Datagroups/PositionData.js";
 import { entityManager } from "./Game/Entity/EntityManager.js";
 import TestEntity from "./Game/Entity/TestEntity.js";
 import GameInstance from "./Game/Instance/Game.js";
-import { checkForCollisions } from "./Game/Physics/Collision.js";
 import initCanvas, { ctx } from "./Render/InitCanvas.js";
 import renderFrameLoop from "./Render/RenderMain.js";
 import { containers, initRenderableContainers } from "./Render/RenderableContainer.js";
@@ -25,7 +24,7 @@ export let game = new GameInstance();
 game.rackBalls();
 const tickInterval = setInterval(() => {
     const start = Date.now();
-    checkForCollisions();
+    // checkForCollisions();
     skibidiSixSevenTungTungSaheur();
     // mouseEntity.physicsData.velocity.scale(0);
     entityManager.applyAllEntityPhysics();
@@ -140,4 +139,10 @@ function skibidiSixSevenTungTungSaheur() {
 // @ts-ignore
 document.getElementById("debug-resetBalls").addEventListener("click", () => {
     game.rackBalls();
+});
+// @ts-ignore
+document.getElementById("debug-zeroAllVelocity").addEventListener("click", () => {
+    for (const e of entityManager.entities.values()) {
+        e.physicsData.velocity.scale(0);
+    }
 });

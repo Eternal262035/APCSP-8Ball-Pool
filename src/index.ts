@@ -40,7 +40,7 @@ game.rackBalls();
 
 const tickInterval = setInterval(()=>{
     const start = Date.now();
-    checkForCollisions();
+    // checkForCollisions();
     skibidiSixSevenTungTungSaheur();
     // mouseEntity.physicsData.velocity.scale(0);
     
@@ -198,4 +198,11 @@ function skibidiSixSevenTungTungSaheur():void {
 // @ts-ignore
 document.getElementById("debug-resetBalls").addEventListener("click", ()=>{
     game.rackBalls();
+});
+
+// @ts-ignore
+document.getElementById("debug-zeroAllVelocity").addEventListener("click", ()=>{
+    for (const e of entityManager.entities.values()) {
+        e.physicsData.velocity.scale(0);
+    }
 });

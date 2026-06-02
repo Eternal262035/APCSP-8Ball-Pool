@@ -16,6 +16,7 @@
                 <p id="debug-collisions">debug-collisions</p>
                 <p id="debug-mousePos">debug-mousePos</p>
                 <button id="debug-resetBalls">Reset Balls</button>
+                <button id="debug-zeroAllVelocity">Zero all velocity</button>
             </div>
         </div>
         <canvas id="mainCanvas"></canvas>
@@ -40,6 +41,7 @@
         .debugcontainer {
             position: absolute; /* Takes it out of the normal document flow */
             backdrop-filter: blur(10px);
+            pointer-events:all;
         }
         .debug {
             border: 1px solid black;
