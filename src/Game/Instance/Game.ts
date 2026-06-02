@@ -62,6 +62,9 @@ export default class GameInstance {
                 rowNum = 0;
             }
         }
+
+        // spawn in the cue ball
+        this.ballAt(mapWidth/2, 6/8*mapHeight, 0);
     } 
 
     public ballAt(x: number, y: number, number: number):void {
