@@ -50,7 +50,7 @@ export default class GameInstance {
             // this.ballAt(mapWidth*0.5, mapHeight*0.25, ballNumber);
             this.ballAt(
                 mapWidth/2 + rowNum*ballSize*2+xOffset,
-                mapHeight/4 - /* correction factor to center the 8ball --> */ 6*ballSize+2*yOffset + /* get rid of extra space between rows */ colNum*ballSize*2-yOffset*colNum,
+                mapHeight/4 - /* correction factor to center the apex ball --> */ 9*ballSize+2*yOffset + /* get rid of extra space between rows */ colNum*ballSize*2-yOffset*colNum,
                 ballNumber
             );
             
