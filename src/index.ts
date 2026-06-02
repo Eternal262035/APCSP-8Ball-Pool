@@ -40,7 +40,7 @@ game.rackBalls();
 
 const tickInterval = setInterval(()=>{
     const start = Date.now();
-    // checkForCollisions();
+    checkForCollisions();
     skibidiSixSevenTungTungSaheur();
     // mouseEntity.physicsData.velocity.scale(0);
     
