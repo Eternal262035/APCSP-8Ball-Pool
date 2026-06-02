@@ -28,9 +28,9 @@ export default class GameInstance {
     public rackBalls() {
         this.deleteAllBalls(); // get rid of all the balls first
         const ballOrder: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-        // for (let i=0; i<67; i++) {
-        //     this.indexSwap(ballOrder, this.randIntIncl(0,ballOrder.length-1), this.randIntIncl(0,ballOrder.length-1))
-        // }
+        for (let i=0; i<67; i++) {
+            this.indexSwap(ballOrder, this.randIntIncl(0,ballOrder.length-1), this.randIntIncl(0,ballOrder.length-1))
+        }
 
         // console.log(ballOrder);
 
@@ -39,7 +39,7 @@ export default class GameInstance {
         
         // console.log(ballOrder);
 
-        let colNum = 0;
+        let colNum = 5;
         let rowNum = 0;
         let xOffset = 0;
         let yOffset = 2*ballSize*(1-Math.sin(PI/3));
@@ -49,16 +49,16 @@ export default class GameInstance {
 
             // this.ballAt(mapWidth*0.5, mapHeight*0.25, ballNumber);
             this.ballAt(
-                200+ rowNum*ballSize*2+xOffset,
-                200+ colNum*ballSize*2-yOffset*colNum,
+                mapWidth/2 + rowNum*ballSize*2+xOffset,
+                mapHeight/4 - 6*ballSize+2*yOffset + colNum*ballSize*2-yOffset*colNum,
                 ballNumber
             );
             
             
             rowNum++;
-            if (rowNum>colNum) {
+            if (rowNum>5-colNum) {
                 xOffset -=ballSize;
-                colNum++;
+                colNum--;
                 rowNum = 0;
             }
         }
