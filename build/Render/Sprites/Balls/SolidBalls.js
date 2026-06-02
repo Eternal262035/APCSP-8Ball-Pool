@@ -1,3 +1,4 @@
+import { ballSize, ballSizeUncorrected } from "../../../config.js";
 import { PI2 } from "../../../Const/Constants.js";
 import { Color, DrawTextType, DrawType } from "../../../Const/Enums.js";
 import { Assets } from "../../../load.js";
@@ -19,7 +20,7 @@ export class Sprite1Ball extends Renderable {
         this.addPath(new RenderablePath2D(shadow, DrawType.Shadow, Color.Black, Color.DarkGray));
         this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.BallS1T9));
         this.addPath(new RenderablePath2D(numberBkg, DrawType.Fill | DrawType.Stroke, Color.DarkGray, Color.White));
-        this.addPath(new RenderableText("1", { x: -6, y: 7 }, DrawTextType.Fill, "20px Arial", Color.Black));
+        this.addPath(new RenderableText("1", { x: -5, y: 6 }, DrawTextType.Fill, `${20 * ballSize / ballSizeUncorrected}px Arial`, Color.Black));
         this.addPath(new RenderableImage(Assets.overlayShine, { x: -2 * radius - 1, y: -2 * radius - 2 }, 4 * radius, 4 * radius));
     }
 }
@@ -36,7 +37,7 @@ export class Sprite2Ball extends Renderable {
         this.addPath(new RenderablePath2D(shadow, DrawType.Shadow, Color.Black, Color.DarkGray));
         this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.BallS2T10));
         this.addPath(new RenderablePath2D(numberBkg, DrawType.Fill | DrawType.Stroke, Color.DarkGray, Color.White));
-        this.addPath(new RenderableText("2", { x: -6, y: 7 }, DrawTextType.Fill, "20px Arial", Color.Black));
+        this.addPath(new RenderableText("2", { x: -5, y: 6 }, DrawTextType.Fill, `${20 * ballSize / ballSizeUncorrected}px Arial`, Color.Black));
         this.addPath(new RenderableImage(Assets.overlayShine, { x: -2 * radius - 1, y: -2 * radius - 2 }, 4 * radius, 4 * radius));
     }
 }
@@ -53,7 +54,7 @@ export class Sprite3Ball extends Renderable {
         this.addPath(new RenderablePath2D(shadow, DrawType.Shadow, Color.Black, Color.DarkGray));
         this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.BallS3T11));
         this.addPath(new RenderablePath2D(numberBkg, DrawType.Fill | DrawType.Stroke, Color.DarkGray, Color.White));
-        this.addPath(new RenderableText("3", { x: -6, y: 7 }, DrawTextType.Fill, "20px Arial", Color.Black));
+        this.addPath(new RenderableText("3", { x: -5, y: 6 }, DrawTextType.Fill, `${20 * ballSize / ballSizeUncorrected}px Arial`, Color.Black));
         this.addPath(new RenderableImage(Assets.overlayShine, { x: -2 * radius - 1, y: -2 * radius - 2 }, 4 * radius, 4 * radius));
     }
 }
@@ -70,7 +71,7 @@ export class Sprite4Ball extends Renderable {
         this.addPath(new RenderablePath2D(shadow, DrawType.Shadow, Color.Black, Color.DarkGray));
         this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.BallS4T12));
         this.addPath(new RenderablePath2D(numberBkg, DrawType.Fill | DrawType.Stroke, Color.DarkGray, Color.White));
-        this.addPath(new RenderableText("4", { x: -6, y: 7 }, DrawTextType.Fill, "20px Arial", Color.Black));
+        this.addPath(new RenderableText("4", { x: -5, y: 6 }, DrawTextType.Fill, `${20 * ballSize / ballSizeUncorrected}px Arial`, Color.Black));
         this.addPath(new RenderableImage(Assets.overlayShine, { x: -2 * radius - 1, y: -2 * radius - 2 }, 4 * radius, 4 * radius));
     }
 }
@@ -87,7 +88,7 @@ export class Sprite5Ball extends Renderable {
         this.addPath(new RenderablePath2D(shadow, DrawType.Shadow, Color.Black, Color.DarkGray));
         this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.BallS5T13));
         this.addPath(new RenderablePath2D(numberBkg, DrawType.Fill | DrawType.Stroke, Color.DarkGray, Color.White));
-        this.addPath(new RenderableText("5", { x: -6, y: 7 }, DrawTextType.Fill, "20px Arial", Color.Black));
+        this.addPath(new RenderableText("5", { x: -5, y: 6 }, DrawTextType.Fill, `${20 * ballSize / ballSizeUncorrected}px Arial`, Color.Black));
         this.addPath(new RenderableImage(Assets.overlayShine, { x: -2 * radius - 1, y: -2 * radius - 2 }, 4 * radius, 4 * radius));
     }
 }
@@ -104,7 +105,7 @@ export class Sprite6Ball extends Renderable {
         this.addPath(new RenderablePath2D(shadow, DrawType.Shadow, Color.Black, Color.DarkGray));
         this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.BallS6T14));
         this.addPath(new RenderablePath2D(numberBkg, DrawType.Fill | DrawType.Stroke, Color.DarkGray, Color.White));
-        this.addPath(new RenderableText("6", { x: -6, y: 7 }, DrawTextType.Fill, "20px Arial", Color.Black));
+        this.addPath(new RenderableText("6", { x: -5, y: 6 }, DrawTextType.Fill, `${20 * ballSize / ballSizeUncorrected}px Arial`, Color.Black));
         this.addPath(new RenderableImage(Assets.overlayShine, { x: -2 * radius - 1, y: -2 * radius - 2 }, 4 * radius, 4 * radius));
     }
 }
@@ -121,7 +122,7 @@ export class Sprite7Ball extends Renderable {
         this.addPath(new RenderablePath2D(shadow, DrawType.Shadow, Color.Black, Color.DarkGray));
         this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.BallS7T15));
         this.addPath(new RenderablePath2D(numberBkg, DrawType.Fill | DrawType.Stroke, Color.DarkGray, Color.White));
-        this.addPath(new RenderableText("7", { x: -6, y: 7 }, DrawTextType.Fill, "20px Arial", Color.Black));
+        this.addPath(new RenderableText("7", { x: -5, y: 6 }, DrawTextType.Fill, `${20 * ballSize / ballSizeUncorrected}px Arial`, Color.Black));
         this.addPath(new RenderableImage(Assets.overlayShine, { x: -2 * radius - 1, y: -2 * radius - 2 }, 4 * radius, 4 * radius));
     }
 }
@@ -138,7 +139,7 @@ export class Sprite8Ball extends Renderable {
         this.addPath(new RenderablePath2D(shadow, DrawType.Shadow, Color.Black, Color.DarkGray));
         this.addPath(new RenderablePath2D(bkgPath, DrawType.Fill, Color.White, Color.Black));
         this.addPath(new RenderablePath2D(numberBkg, DrawType.Fill | DrawType.Stroke, Color.DarkGray, Color.White));
-        this.addPath(new RenderableText("8", { x: -6, y: 7 }, DrawTextType.Fill, "20px Arial", Color.Black));
+        this.addPath(new RenderableText("8", { x: -5, y: 6 }, DrawTextType.Fill, `${20 * ballSize / ballSizeUncorrected}px Arial`, Color.Black));
         this.addPath(new RenderableImage(Assets.overlayShine, { x: -2 * radius - 1, y: -2 * radius - 2 }, 4 * radius, 4 * radius));
     }
 }
