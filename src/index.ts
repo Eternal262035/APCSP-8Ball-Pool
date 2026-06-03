@@ -5,6 +5,7 @@ import { entityManager } from "./Game/Entity/EntityManager.js";
 import TestEntity from "./Game/Entity/TestEntity.js";
 import GameInstance from "./Game/Instance/Game.js";
 import { checkForCollisions } from "./Game/Physics/Collision.js";
+import initHudListeners from "./Game/UI/UI.js";
 import initCanvas, { ctx } from "./Render/InitCanvas.js";
 import renderFrameLoop from "./Render/RenderMain.js";
 import { containers, initRenderableContainers } from "./Render/RenderableContainer.js";
@@ -27,6 +28,7 @@ export let mapTop: number = 0;
 initCanvas();
 initRenderableContainers();
 renderFrameLoop(ctx);
+initHudListeners();
 
 // the map border sprite (visual only, does not exist as an Entity)
 const mapBorderIndicator = new SpriteWorldBorder(containers[0], new PositionData(100, 100), 500, 500);
@@ -41,7 +43,7 @@ game.rackBalls();
 const tickInterval = setInterval(()=>{
     const start = Date.now();
     checkForCollisions();
-    skibidiSixSevenTungTungSaheur();
+    // skibidiSixSevenTungTungSaheur();
     // mouseEntity.physicsData.velocity.scale(0);
     
     
@@ -130,63 +132,63 @@ document.addEventListener('click', (event) => {
 
 
 
-const wasdEntity = new TestEntity(107, 167, 25);
+// const wasdEntity = new TestEntity(107, 167, 25);
 
 
 
-enum InputFlags {
-    LeftClick   = 1 << 0,
-    RightClick  = 1 << 1,
-    Up          = 1 << 2,
-    Left        = 1 << 3,
-    Down        = 1 << 4,
-    Right       = 1 << 5,
-}
+// enum InputFlags {
+//     LeftClick   = 1 << 0,
+//     RightClick  = 1 << 1,
+//     Up          = 1 << 2,
+//     Left        = 1 << 3,
+//     Down        = 1 << 4,
+//     Right       = 1 << 5,
+// }
 
-let currentInputs = 0;
+// let currentInputs = 0;
 
-/** match a keycode to an input flag */
-function matchToInput(keyCode:number):InputFlags|undefined { // matches keycodes to input flags
-    switch (keyCode) {
-        case 87: // w
-        case 38: // arrowUp
-            return InputFlags.Up;
-        case 83: // s
-        case 40: // arrowDown
-            return InputFlags.Down;
-        case 65: // a
-        case 37: // arrowLeft
-            return InputFlags.Left;
-        case 68: // d
-        case 39: // arrowRight
-            return InputFlags.Right
-    }
-}
+// /** match a keycode to an input flag */
+// function matchToInput(keyCode:number):InputFlags|undefined { // matches keycodes to input flags
+//     switch (keyCode) {
+//         case 87: // w
+//         case 38: // arrowUp
+//             return InputFlags.Up;
+//         case 83: // s
+//         case 40: // arrowDown
+//             return InputFlags.Down;
+//         case 65: // a
+//         case 37: // arrowLeft
+//             return InputFlags.Left;
+//         case 68: // d
+//         case 39: // arrowRight
+//             return InputFlags.Right
+//     }
+// }
 
 
-// key down
-window.addEventListener("keydown", (e) => {
-    const input = matchToInput(e.keyCode);
-    if (input) {
-        currentInputs |= input;
-    }
-});
+// // key down
+// window.addEventListener("keydown", (e) => {
+//     const input = matchToInput(e.keyCode);
+//     if (input) {
+//         currentInputs |= input;
+//     }
+// });
 
-// key up
-window.addEventListener("keyup", (e) => {
-    const input = matchToInput(e.keyCode);
-    if (input) {
-        // remove flag
-        currentInputs &= ~input;
-    }
-});
+// // key up
+// window.addEventListener("keyup", (e) => {
+//     const input = matchToInput(e.keyCode);
+//     if (input) {
+//         // remove flag
+//         currentInputs &= ~input;
+//     }
+// });
 
-function skibidiSixSevenTungTungSaheur():void {
-    if (currentInputs & InputFlags.Down) wasdEntity.physicsData.velocity.y += 0.3;
-    if (currentInputs & InputFlags.Up) wasdEntity.physicsData.velocity.y -= 0.3;
-    if (currentInputs & InputFlags.Left) wasdEntity.physicsData.velocity.x -= 0.3;
-    if (currentInputs & InputFlags.Right) wasdEntity.physicsData.velocity.x += 0.3;
-}
+// function skibidiSixSevenTungTungSaheur():void {
+//     if (currentInputs & InputFlags.Down) wasdEntity.physicsData.velocity.y += 0.3;
+//     if (currentInputs & InputFlags.Up) wasdEntity.physicsData.velocity.y -= 0.3;
+//     if (currentInputs & InputFlags.Left) wasdEntity.physicsData.velocity.x -= 0.3;
+//     if (currentInputs & InputFlags.Right) wasdEntity.physicsData.velocity.x += 0.3;
+// }
 
 
 
@@ -197,6 +199,9 @@ function skibidiSixSevenTungTungSaheur():void {
 
 // @ts-ignore
 document.getElementById("debug-resetBalls").addEventListener("click", ()=>{
+    for (const e of entityManager.entities.values()) {
+        e.destroy();
+    }
     game.rackBalls();
 });
 
