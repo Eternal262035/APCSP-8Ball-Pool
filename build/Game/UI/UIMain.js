@@ -1,10 +1,12 @@
-import { CueHudBkg } from "./RenderHud.js";
+import { CueHudBkg, CueHudIntensity } from "./RenderHud.js";
 export var showHud = false;
 export function initHudListeners() {
     const canvasEle = document.getElementById("mainCanvas");
     var hudBkg = new CueHudBkg(0, 0);
+    var hudIntensityDisplay = new CueHudIntensity(0, 0);
     function updateHudPosition(position) {
         hudBkg.positionData = position;
+        hudIntensityDisplay.positionData = position;
     }
     canvasEle?.addEventListener("mousedown", (e) => {
         console.log("SHOWING HUD");
@@ -14,10 +16,15 @@ export function initHudListeners() {
         updateHudPosition({ x: mx, y: my });
     });
     canvasEle?.addEventListener("mouseup", (e) => {
+        console.log("HIDING HUD");
         showHud = false;
     });
     canvasEle?.addEventListener("mousemove", (e) => {
-        // something
+        const mx = e.clientX;
+        const my = e.clientY;
+        if (showHud) {
+            hudIntensityDisplay.updateIntensity(Math.random());
+        }
     });
     canvasEle?.addEventListener("wheel", (e) => {
         // @ts-ignore

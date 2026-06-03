@@ -25,4 +25,24 @@ export class CueHudBkg extends Renderable {
 
 }
 
-export class 
+export class CueHudIntensity extends Renderable {
+    public intensityRatio: number = 0.5;
+    
+    constructor(x: number, y: number) {
+        super(containers[2], {x: x, y: y});
+        const path1 = new Path2D();
+        path1.arc(0,0,67*this.intensityRatio, 0, PI2);
+        
+        
+        this.addPath(new RenderablePath2D(path1, DrawType.Fill, Color.HudBkgMain, Color.HudBkgMain))
+    }
+
+    public updateIntensity(newIntensity: number) {
+        this.intensityRatio = newIntensity;
+        
+        const newPath1 = new Path2D();
+        newPath1.arc(0,0,67*this.intensityRatio, 0, PI2);
+        
+        this.paths[0] = new RenderablePath2D(newPath1, DrawType.Fill, Color.HudBkgMain, Color.HudBkgMain)
+    }
+}
