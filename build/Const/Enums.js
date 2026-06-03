@@ -22,6 +22,7 @@ export var Color;
     Color["DarkGray"] = "#929292";
     Color["PoolTableGreen"] = "#06b69f";
     Color["Wood"] = "#BA8C63";
+    Color["HudBkgMain"] = "#00ffae80";
     // Ball colors
     // S stands for solid and T means stripe
     // fyi if you add 8 to the number on a solid ball, the resulting stripe ball with that number will have the same color as that solid ball

@@ -3,7 +3,7 @@ import { entityManager } from "./Game/Entity/EntityManager.js";
 import TestEntity from "./Game/Entity/TestEntity.js";
 import GameInstance from "./Game/Instance/Game.js";
 import { checkForCollisions } from "./Game/Physics/Collision.js";
-import initHudListeners from "./Game/UI/UI.js";
+import { initHudListeners } from "./Game/UI/UIMain.js";
 import initCanvas, { ctx } from "./Render/InitCanvas.js";
 import renderFrameLoop from "./Render/RenderMain.js";
 import { containers, initRenderableContainers } from "./Render/RenderableContainer.js";

@@ -30,6 +30,7 @@ export default class RenderableContainer {
 
 export const containers: RenderableContainer[] = [];
 export function initRenderableContainers() {
-    containers.push(new RenderableContainer()); // pool table and background
-    containers.push(new RenderableContainer()); // entities
+    containers.push(new RenderableContainer()); // [0] pool table and background
+    containers.push(new RenderableContainer()); // [1] entities
+    containers.push(new RenderableContainer()); // [2] hud
 }
