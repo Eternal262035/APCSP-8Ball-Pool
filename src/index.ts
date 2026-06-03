@@ -120,7 +120,7 @@ document.addEventListener('mousemove', (event) => {
 });
 document.addEventListener('click', (event) => {
     const mapCoords = canvasToMapCoords(event.clientX, event.clientY);
-    new TestEntity(mapCoords.x, mapCoords.y, 20);
+    // new TestEntity(mapCoords.x, mapCoords.y, 20);
     
     // const e = new TestEntity(mapCoords.x, mapCoords.y, 20);
     // setTimeout(()=>{e.destroy();}, 5000);
