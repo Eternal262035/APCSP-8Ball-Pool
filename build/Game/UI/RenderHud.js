@@ -9,7 +9,7 @@ export class CueHudBkg extends Renderable {
         super(containers[2], { x: x, y: y });
         const bkgCircle = new Path2D();
         bkgCircle.arc(0, 0, 67, 0, PI2);
-        this.addPath(new RenderablePath2D(bkgCircle, DrawType.Fill, Color.HudBkgMain, Color.HudBkgMain));
+        this.addPath(new RenderablePath2D(bkgCircle, DrawType.Fill | DrawType.Stroke, Color.LightGray, Color.HudBkgMain));
     }
 }
 export class CueHudIntensity extends Renderable {

@@ -20,7 +20,7 @@ export class CueHudBkg extends Renderable {
 
 
 
-        this.addPath(new RenderablePath2D(bkgCircle, DrawType.Fill, Color.HudBkgMain, Color.HudBkgMain));
+        this.addPath(new RenderablePath2D(bkgCircle, DrawType.Fill|DrawType.Stroke, Color.LightGray, Color.HudBkgMain));
     }
 
 

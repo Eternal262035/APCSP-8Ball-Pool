@@ -5,7 +5,6 @@ import BallEntity from "../Entity/BallEntity.js";
 export default class GameInstance {
     /** the array containing all the balls. Index 0 is going to be the cue ball, and the rest are index 1-15. */
     balls = [];
-    coordinatesX = [0, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4];
     constructor() {
     }
     deleteAllBalls() {
@@ -47,6 +46,14 @@ export default class GameInstance {
         const b = new BallEntity(x, y, number);
         this.balls.push(b);
         // return b;
+    }
+    getBallByNumber(n) {
+        for (const ball of this.balls) {
+            if (ball.ballNumber == n) {
+                return ball;
+            }
+        }
+        return null;
     }
     // util stuff 
     /** swap the values of two indexes in an array */

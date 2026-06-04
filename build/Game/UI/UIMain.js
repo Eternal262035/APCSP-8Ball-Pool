@@ -1,3 +1,5 @@
+import { game } from "../../index.js";
+import Vector from "../Physics/Vector.js";
 import { CueHudBkg, CueHudIntensity } from "./RenderHud.js";
 export var showHud = false;
 export function initHudListeners() {
@@ -13,8 +15,9 @@ export function initHudListeners() {
     canvasEle?.addEventListener("mousedown", (e) => {
         console.log("SHOWING HUD");
         showHud = true;
-        const mx = e.clientX;
-        const my = e.clientY;
+        const cueBallPosition = game.getBallByNumber(0);
+        const mx = cueBallPosition.positionData.x; // e.clientX;
+        const my = cueBallPosition.positionData.y; // e.clientY;
         hudCx = mx;
         hudCy = my;
         updateHudPosition({ x: mx, y: my });
@@ -22,6 +25,10 @@ export function initHudListeners() {
     canvasEle?.addEventListener("mouseup", (e) => {
         console.log("HIDING HUD");
         showHud = false;
+        const mx = e.clientX;
+        const my = e.clientY;
+        const cueBall = game.getBallByNumber(0);
+        cueBall.physicsData.velocity.add(new Vector(hudCx - mx, hudCy - my).scale(1 * hudIntensityDisplay.intensityRatio));
     });
     canvasEle?.addEventListener("mousemove", (e) => {
         const mx = e.clientX;
@@ -36,3 +43,5 @@ export function initHudListeners() {
         console.log(e.wheelDeltaY);
     });
 }
+// type assertions galore
+//  fahhhhhhhh

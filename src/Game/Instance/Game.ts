@@ -10,9 +10,6 @@ export default class GameInstance {
     /** the array containing all the balls. Index 0 is going to be the cue ball, and the rest are index 1-15. */
     public balls: BallEntity[] = [];
     
-
-    private coordinatesX: number[] = [0, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4];
-
     constructor() {
 
     }
@@ -71,6 +68,15 @@ export default class GameInstance {
         const b = new BallEntity(x, y, number);
         this.balls.push(b);
         // return b;
+    }
+
+    public getBallByNumber(n: number): BallEntity|null {
+        for (const ball of this.balls) {
+            if (ball.ballNumber == n) {
+                return ball;
+            }
+        }
+        return null;
     }
 
 
