@@ -2,6 +2,8 @@ import { CueHudBkg, CueHudIntensity } from "./RenderHud.js";
 export var showHud = false;
 export function initHudListeners() {
     const canvasEle = document.getElementById("mainCanvas");
+    var hudCx = 0; // hud center x
+    var hudCy = 0; // hud center y
     var hudBkg = new CueHudBkg(0, 0);
     var hudIntensityDisplay = new CueHudIntensity(0, 0);
     function updateHudPosition(position) {
@@ -13,6 +15,8 @@ export function initHudListeners() {
         showHud = true;
         const mx = e.clientX;
         const my = e.clientY;
+        hudCx = mx;
+        hudCy = my;
         updateHudPosition({ x: mx, y: my });
     });
     canvasEle?.addEventListener("mouseup", (e) => {
@@ -23,7 +27,8 @@ export function initHudListeners() {
         const mx = e.clientX;
         const my = e.clientY;
         if (showHud) {
-            hudIntensityDisplay.updateIntensity(Math.random());
+            const d = Math.sqrt((mx - hudCx) ** 2 + (my - hudCy) ** 2) / (2 * 67);
+            hudIntensityDisplay.updateIntensity(d <= 1 ? d : 1);
         }
     });
     canvasEle?.addEventListener("wheel", (e) => {

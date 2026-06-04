@@ -21,7 +21,8 @@ export enum Color {
     DarkGray = "#929292",
     PoolTableGreen = "#06b69f", //"#31B94D",
     Wood = "#BA8C63",
-    HudBkgMain = "#00ffae80",
+    HudBkgMain = "rgb(180, 180, 180)",
+    HudBkgIndicator = "#008cff80",
 
     // Ball colors
     // S stands for solid and T means stripe
