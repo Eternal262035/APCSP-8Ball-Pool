@@ -20,6 +20,8 @@ export default class Entity {
     public wallVelocityMultiFactor = 0.98;
     public passiveVelocityMultiFactor = 0.9972;
 
+    public onCollisionCallback: (...args: any[]) => any;
+
 
     constructor(mapx: number, mapy: number, size: number) {
         const canvasCoords = mapToCanvasCoords(mapx, mapy);
@@ -60,4 +62,7 @@ export default class Entity {
         if (Vector.magnitude(this.physicsData.velocity) <= 0.055) this.physicsData.velocity = new Vector(0,0);
     }
 
+    public onCollision(callback: (...args: any[]) => any) {
+        this.onCollisionCallback = callback;
+    }
 }

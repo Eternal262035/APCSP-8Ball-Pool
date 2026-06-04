@@ -1,3 +1,4 @@
+import BallEntity from "../Entity/BallEntity.js";
 import { entityManager } from "../Entity/EntityManager.js";
 /** currently it's the stupidest algo under the sun to do this
  * spatial hashing is overkill for something like this,
@@ -49,6 +50,10 @@ export function checkForCollisions() {
                 // and then add that delta v to the current velocity
                 a.physicsData.velocity.subtract({ x: ix / a.physicsData.mass, y: iy / a.physicsData.mass });
                 b.physicsData.velocity.add({ x: ix / b.physicsData.mass, y: iy / b.physicsData.mass });
+                if (a instanceof BallEntity) {
+                    if (b instanceof )
+                        ;
+                }
             }
         }
     }

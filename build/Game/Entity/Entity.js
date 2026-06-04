@@ -15,6 +15,7 @@ export default class Entity {
     id = -1; // just set it to -1 as a default for now;
     wallVelocityMultiFactor = 0.98;
     passiveVelocityMultiFactor = 0.9972;
+    onCollisionCallback;
     constructor(mapx, mapy, size) {
         const canvasCoords = mapToCanvasCoords(mapx, mapy);
         // console.log("asdasdasd");
@@ -47,5 +48,8 @@ export default class Entity {
     approximateZeroVelocity() {
         if (Vector.magnitude(this.physicsData.velocity) <= 0.055)
             this.physicsData.velocity = new Vector(0, 0);
+    }
+    onCollision(callback) {
+        this.onCollisionCallback = callback;
     }
 }
