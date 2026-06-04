@@ -28,7 +28,7 @@ export function initHudListeners() {
         const mx = e.clientX;
         const my = e.clientY;
         const cueBall = game.getBallByNumber(0);
-        cueBall.physicsData.velocity.set(Vector.fromPolar(24 * hudIntensityDisplay.intensityRatio, new Vector(-mx + hudCx, -my + hudCy).angle));
+        cueBall.physicsData.velocity.set(Vector.fromPolar(15 * hudIntensityDisplay.intensityRatio, new Vector(-mx + hudCx, -my + hudCy).angle));
     });
     canvasEle?.addEventListener("mousemove", (e) => {
         const mx = e.clientX;

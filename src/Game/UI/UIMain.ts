@@ -36,7 +36,7 @@ export function initHudListeners() {
         const my = e.clientY;
         const cueBall = game.getBallByNumber(0) as BallEntity;
         cueBall.physicsData.velocity.set(
-            Vector.fromPolar(24*hudIntensityDisplay.intensityRatio, new Vector(-mx+hudCx, -my+hudCy).angle)
+            Vector.fromPolar(15*hudIntensityDisplay.intensityRatio, new Vector(-mx+hudCx, -my+hudCy).angle)
         );
     });
     

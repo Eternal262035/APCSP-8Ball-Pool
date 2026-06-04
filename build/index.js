@@ -146,3 +146,5 @@ document.getElementById("debug-zeroAllVelocity").addEventListener("click", () =>
         e.physicsData.velocity.scale(0);
     }
 });
+document.addEventListener("mousemove", (e) => {
+});

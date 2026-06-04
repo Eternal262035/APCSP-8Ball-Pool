@@ -5,66 +5,91 @@
     <title>8-Ball Pool (Singleplayer)</title>
     <meta charset="UTF-8">
 
+    <!-- [begin] i imported the roboto mono fonts via google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet">
+    <!-- [end] -->
+
+    <!-- can alternatively point to a bundle file -->
     <script defer src="../build/index.js" type="module" onerror="alert('script load error')"></script>
+    <!-- putting defer on this script makes it so that it loads AFTER all the html content has loaded. -->
 </head>
 
 <body>
     <!-- <p>PAGE TOP</p> -->
+    <div class="bkgImage"></div>
     <div class="debugcontainer">
         <div class="debug">
             <p id="debug-fps">debug-fps</p>
             <p id="debug-renderTime">debug-renderTime</p>
             <p id="debug-mspt">debug-mspt</p>
             <p id="debug-entityCounts">debug-entityCounts</p>
-                <p id="debug-collisions">debug-collisions</p>
-                <p id="debug-mousePos">debug-mousePos</p>
-                <button id="debug-resetBalls">Reset Balls</button>
-                <button id="debug-zeroAllVelocity">Zero all velocity</button>
-            </div>
+            <p id="debug-collisions">debug-collisions</p>
+            <p id="debug-mousePos">debug-mousePos</p>
+            <button id="debug-resetBalls">Reset Balls</button>
+            <button id="debug-zeroAllVelocity">Zero all velocity</button>
         </div>
-        <canvas id="mainCanvas"></canvas>
-        <div id="hud-cueControls">
-            <!-- < -->
-        </div>
-        <div id="imageCache" style="display:none;">
-            <!-- trying this as a way to keep images loaded.  -->
-        </div>
-    </body>
-    <style>
-        body {
-            padding: 0px;
-            margin: 0px;
-            /* overflow: hidden; */
-            font-family: "Calibri";
-            background-color: #313338
-        }
-        #mainCanvas {
-            display: block;
-            width: 100dvw;
-            height: 100dvh;
-            /* border: 6.7px solid rgb(0, 255, 0); */
-            box-sizing: border-box;
-        }
-        .debugcontainer {
-            position: absolute; /* Takes it out of the normal document flow */
-            backdrop-filter: blur(10px);
-            /* pointer-events: none; */
-            color: white;
-            border: 1px solid white;
-            min-width: 150px;
-        }
-        .debug {
-            border: 1px solid black;
-            padding: 12px;
-            /* background-color: white; */
-        }
-        .debug p {
-            margin-top: 2px;
-            margin-bottom: 2px;
-        }
-    </style>
+    </div>
+    <canvas id="mainCanvas"></canvas>
+    <div id="hud-cueControls">
+        <!-- < -->
+    </div>
+    <div id="imageCache" style="display:none;">
+        <!-- trying this as a way to keep images loaded.  -->
+    </div>
+</body>
+<style>
+    body {
+        padding: 0px;
+        margin: 0px;
+        /* overflow: hidden; */
+        font-family: "Calibri";
+        background-color: #ffffff
+        /* background-color: #313338 */
+
+    }
+
+    .background{
+        width: 100dvw; /* means 100% of the dynamic viewport width */
+        height: 100dvh;
+        position: fixed;
+        filter: blur(1px); /* blur the image */
+        transform: scale(1.1); /* to make the image a little bit zoomed in so we dont run out of image to pan over **/
+        background: url("../assets/iamaturtle.png");
+        z-index: -1; /* put it al the way in the background */
+        inset: 0px;
+    }
+
+    #mainCanvas {
+        display: block;
+        width: 100dvw;
+        height: 100dvh;
+        /* border: 6.7px solid rgb(0, 255, 0); */
+        box-sizing: border-box;
+    }
+
+    .debugcontainer {
+        position: absolute;
+        /* Takes it out of the normal document flow */
+        backdrop-filter: blur(10px);
+        /* pointer-events: none; */
+        color: white;
+        border: 1px solid white;
+        min-width: 150px;
+    }
+
+    .debug {
+        border: 1px solid black;
+        padding: 12px;
+        /* background-color: white; */
+    }
+
+    .debug p {
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+</style>
+
 </html>
