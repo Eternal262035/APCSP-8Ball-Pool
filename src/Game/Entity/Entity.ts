@@ -20,7 +20,7 @@ export default class Entity {
     public wallVelocityMultiFactor = 0.98;
     public passiveVelocityMultiFactor = 0.9972;
 
-    public onCollisionCallback: (...args: any[]) => any;
+    // public onCollisionCallback: (otherEntity: Entity, ...args: any[]) => any;
 
 
     constructor(mapx: number, mapy: number, size: number) {
@@ -39,6 +39,11 @@ export default class Entity {
          */
         this.sprite = new Renderable(containers[0], this.positionData);
         this.sprite.container.removeChild(this.sprite.id); 
+        // this.onCollisionCallback = (otherEntity: Entity, ...args: any[]) => {
+        //     console.log("default callback. literally nothing.");
+        //     console.log(args);
+        // }
+
         entityManager.addNewEntity(this);
     }
 
@@ -62,7 +67,7 @@ export default class Entity {
         if (Vector.magnitude(this.physicsData.velocity) <= 0.055) this.physicsData.velocity = new Vector(0,0);
     }
 
-    public onCollision(callback: (...args: any[]) => any) {
-        this.onCollisionCallback = callback;
-    }
+    // public onCollision(callback: (otherEntity: Entity, ...args: any[]) => any) {
+    //     this.onCollisionCallback = callback;
+    // }
 }

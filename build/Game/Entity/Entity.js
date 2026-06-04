@@ -15,7 +15,7 @@ export default class Entity {
     id = -1; // just set it to -1 as a default for now;
     wallVelocityMultiFactor = 0.98;
     passiveVelocityMultiFactor = 0.9972;
-    onCollisionCallback;
+    // public onCollisionCallback: (otherEntity: Entity, ...args: any[]) => any;
     constructor(mapx, mapy, size) {
         const canvasCoords = mapToCanvasCoords(mapx, mapy);
         // console.log("asdasdasd");
@@ -30,6 +30,10 @@ export default class Entity {
          */
         this.sprite = new Renderable(containers[0], this.positionData);
         this.sprite.container.removeChild(this.sprite.id);
+        // this.onCollisionCallback = (otherEntity: Entity, ...args: any[]) => {
+        //     console.log("default callback. literally nothing.");
+        //     console.log(args);
+        // }
         entityManager.addNewEntity(this);
     }
     destroy() {
@@ -48,8 +52,5 @@ export default class Entity {
     approximateZeroVelocity() {
         if (Vector.magnitude(this.physicsData.velocity) <= 0.055)
             this.physicsData.velocity = new Vector(0, 0);
-    }
-    onCollision(callback) {
-        this.onCollisionCallback = callback;
     }
 }
