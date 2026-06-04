@@ -59,4 +59,5 @@ export default class Entity {
     public approximateZeroVelocity() {
         if (Vector.magnitude(this.physicsData.velocity) <= 0.055) this.physicsData.velocity = new Vector(0,0);
     }
+
 }

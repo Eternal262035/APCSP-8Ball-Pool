@@ -19,7 +19,7 @@ export function initHudListeners() {
     }
     
     canvasEle?.addEventListener("mousedown", (e)=>{
-        console.log("SHOWING HUD");
+        // console.log("SHOWING HUD");
         showHud = true;
         const cueBallPosition = game.getBallByNumber(0) as BallEntity;
         const mx = cueBallPosition.positionData.x; // e.clientX;
@@ -30,13 +30,13 @@ export function initHudListeners() {
     });
     
     canvasEle?.addEventListener("mouseup", (e)=>{
-        console.log("HIDING HUD");
+        // console.log("HIDING HUD");
         showHud = false;
         const mx = e.clientX;
         const my = e.clientY;
         const cueBall = game.getBallByNumber(0) as BallEntity;
-        cueBall.physicsData.velocity.add(
-            new Vector(hudCx-mx, hudCy-my).scale(1*hudIntensityDisplay.intensityRatio)
+        cueBall.physicsData.velocity.set(
+            Vector.fromPolar(24*hudIntensityDisplay.intensityRatio, new Vector(-mx+hudCx, -my+hudCy).angle)
         );
     });
     

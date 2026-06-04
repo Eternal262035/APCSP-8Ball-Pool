@@ -25,12 +25,12 @@ export default class Vector /* implements VectorAbstract */ {
      * uses atan2 --> 
     */
     public static direction(v: VectorAbstract) {
-        return Math.atan2(v.x, v.y);
+        return Math.atan2(v.y, v.x);
     }
 
     /** construct a vector from mag and dir */
     public static fromPolar(r: number, theta: number): Vector {
-        return new Vector(r*Math.cos(theta), r*Math.cos(theta));
+        return new Vector(r*Math.cos(theta), r*Math.sin(theta));
     }
 
     /** set properties of the vecotr */

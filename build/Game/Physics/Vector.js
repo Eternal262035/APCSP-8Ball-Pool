@@ -16,11 +16,11 @@ export default class Vector /* implements VectorAbstract */ {
      * uses atan2 -->
     */
     static direction(v) {
-        return Math.atan2(v.x, v.y);
+        return Math.atan2(v.y, v.x);
     }
     /** construct a vector from mag and dir */
     static fromPolar(r, theta) {
-        return new Vector(r * Math.cos(theta), r * Math.cos(theta));
+        return new Vector(r * Math.cos(theta), r * Math.sin(theta));
     }
     /** set properties of the vecotr */
     set(v) {
