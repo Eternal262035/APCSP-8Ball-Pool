@@ -10,5 +10,7 @@ export default class PocketEntity extends Entity {
     }
     // make it bounce off the walls just like the TestEntity
     applyPhysics() {
+        // absolutely nothing, no physics to be applied here. 
+        // this entity literally does not move;
     }
 }

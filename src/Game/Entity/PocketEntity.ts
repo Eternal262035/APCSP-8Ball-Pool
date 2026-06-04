@@ -18,12 +18,14 @@ export default class PocketEntity extends Entity {
         super(x, y, ballSize*1.2); // call parent constructor with xpos, ypos, and size (all balls are the same size)
         
 
-
+        
     }
 
     // make it bounce off the walls just like the TestEntity
     public applyPhysics(): void {
-        
+        // absolutely nothing, no physics to be applied here. 
+
+        // this entity literally does not move;
     }
     
 }
