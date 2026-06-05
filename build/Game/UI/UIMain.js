@@ -1,6 +1,6 @@
 import { game } from "../../index.js";
 import Vector from "../Physics/Vector.js";
-import { CueHudBkg, CueHudIntensity } from "./RenderHud.js";
+import { CueHudBkg, CueHudIntensity, CueHudTracerArrow } from "./RenderHud.js";
 export var showHud = false;
 export function initHudListeners() {
     const canvasEle = document.getElementById("mainCanvas");
@@ -8,9 +8,11 @@ export function initHudListeners() {
     var hudCy = 0; // hud center y
     var hudBkg = new CueHudBkg(0, 0);
     var hudIntensityDisplay = new CueHudIntensity(0, 0);
+    var hudTracerArrow = new CueHudTracerArrow(0, 0);
     function updateHudPosition(position) {
         hudBkg.positionData = position;
         hudIntensityDisplay.positionData = position;
+        hudTracerArrow.positionData = position;
     }
     canvasEle?.addEventListener("mousedown", (e) => {
         // console.log("SHOWING HUD");
@@ -38,10 +40,10 @@ export function initHudListeners() {
             hudIntensityDisplay.updateIntensity(d <= 1 ? d : 1);
         }
     });
-    canvasEle?.addEventListener("wheel", (e) => {
-        // @ts-ignore
-        console.log(e.wheelDeltaY);
-    });
+    // canvasEle?.addEventListener("wheel", (e)=>{ // not "scroll" because we arent actually scrolling the element, only givingg the input
+    //     // @ts-ignore
+    //     console.log(e.wheelDeltaY); 
+    // });
 }
 // type assertions galore
 //  fahhhhhhhh

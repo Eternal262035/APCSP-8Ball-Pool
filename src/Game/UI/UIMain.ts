@@ -2,7 +2,7 @@ import { game } from "../../index.js";
 import { PositionData } from "../Datagroups/PositionData.js";
 import BallEntity from "../Entity/BallEntity.js";
 import Vector from "../Physics/Vector.js";
-import { CueHudBkg, CueHudIntensity } from "./RenderHud.js";
+import { CueHudBkg, CueHudIntensity, CueHudTracerArrow } from "./RenderHud.js";
 
 export var showHud: Boolean = false;
 export function initHudListeners() {
@@ -13,9 +13,11 @@ export function initHudListeners() {
     var hudCy = 0; // hud center y
     var hudBkg = new CueHudBkg(0, 0);
     var hudIntensityDisplay = new CueHudIntensity(0, 0);
+    var hudTracerArrow = new CueHudTracerArrow(0,0);
     function updateHudPosition(position: PositionData) {
         hudBkg.positionData = position;
         hudIntensityDisplay.positionData = position;
+        hudTracerArrow.positionData = position;
     }
     
     canvasEle?.addEventListener("mousedown", (e)=>{
@@ -47,13 +49,14 @@ export function initHudListeners() {
         if (showHud) {
             const d = Math.sqrt((mx-hudCx)**2 + (my-hudCy)**2)/(4*67);
             hudIntensityDisplay.updateIntensity(d<=1?d:1);
+
         }
     });
     
-    canvasEle?.addEventListener("wheel", (e)=>{ // not "scroll" because we arent actually scrolling the element, only givingg the input
-        // @ts-ignore
-        console.log(e.wheelDeltaY); 
-    });
+    // canvasEle?.addEventListener("wheel", (e)=>{ // not "scroll" because we arent actually scrolling the element, only givingg the input
+    //     // @ts-ignore
+    //     console.log(e.wheelDeltaY); 
+    // });
 
     
 }

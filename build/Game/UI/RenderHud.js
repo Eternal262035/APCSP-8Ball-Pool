@@ -1,9 +1,11 @@
+import { ballSize } from "../../config.js";
 import { PI2 } from "../../Const/Constants.js";
 import { Color, DrawTextType, DrawType } from "../../Const/Enums.js";
 import Renderable from "../../Render/Renderable.js";
 import { containers } from "../../Render/RenderableContainer.js";
 import RenderablePath2D from "../../Render/RenderablePath2D.js";
 import RenderableText from "../../Render/RenderableText.js";
+import Vector from "../Physics/Vector.js";
 export class CueHudBkg extends Renderable {
     constructor(x, y) {
         super(containers[2], { x: x, y: y });
@@ -28,5 +30,19 @@ export class CueHudIntensity extends Renderable {
         newPath1.arc(0, 0, 67 * this.intensityRatio, 0, PI2);
         this.paths[0] = new RenderablePath2D(newPath1, DrawType.Fill, Color.HudBkgIndicator, Color.HudBkgIndicator);
         this.textPaths[0] = new RenderableText(`${(newIntensity * 100).toFixed(2)}%`, { x: -24, y: 9 }, DrawTextType.Fill, "20px Roboto Mono");
+    }
+}
+export class CueHudTracerArrow extends Renderable {
+    length = 150;
+    angle = 0;
+    startRadius = ballSize * 2;
+    vector;
+    constructor(x, y) {
+        super(containers[2], { x: x, y: y });
+        this.vector = new Vector(0, 0);
+        const path1 = new Path2D();
+        path1.moveTo(0, 0);
+        path1.lineTo(this.vector.x, this.vector.y);
+        this.addPath(new RenderablePath2D(path1, DrawType.Stroke, Color.Black, Color.Black));
     }
 }
