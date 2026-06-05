@@ -20,6 +20,9 @@
 <body>
     <!-- <p>PAGE TOP</p> -->
     <div class="background"></div>
+    <div class="mainContainer">
+        <h1>8-Ball Pool game</h1>
+    </div>
     <div class="debugcontainer">
         <div class="debug">
             <p id="debug-fps">debug-fps</p>
@@ -49,6 +52,13 @@
         background-color: #ffffff
         /* background-color: #313338 */
         
+    }
+
+    .mainContainer {
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translateX(50%); /* classic way of centering a div with absolute pos mode */
     }
 
     .background{
