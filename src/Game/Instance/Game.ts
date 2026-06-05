@@ -84,7 +84,7 @@ export default class GameInstance {
 
 
     public spawnPocketEntities() {
-        new PocketEntity(667, 467);
+        new PocketEntity(100,200);
     }
 
 

@@ -1,5 +1,6 @@
 import BallEntity from "../Entity/BallEntity.js";
 import { entityManager } from "../Entity/EntityManager.js";
+import PocketEntity from "../Entity/PocketEntity.js";
 import Vector, { VectorAbstract } from "./Vector.js";
 
 /** currently it's the stupidest algo under the sun to do this
@@ -64,7 +65,8 @@ export function checkForCollisions() {
                 b.physicsData.velocity.add({x: ix/b.physicsData.mass, y: iy/b.physicsData.mass});
 
                 if (a instanceof BallEntity) a.checkPocketed(b);
-                if (b instanceof BallEntity) b.checkPocketed(a);
+                if (b instanceof BallEntity) b.checkPocketed(b);
+                if (a instanceof PocketEntity || b instanceof PocketEntity) console.log("ps")
                 
             }
         }

@@ -58,7 +58,7 @@ export default class GameInstance {
         return null;
     }
     spawnPocketEntities() {
-        new PocketEntity(667, 467);
+        new PocketEntity(100, 200);
     }
     // util stuff 
     /** swap the values of two indexes in an array */

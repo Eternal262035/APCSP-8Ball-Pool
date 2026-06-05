@@ -1,5 +1,6 @@
 import BallEntity from "../Entity/BallEntity.js";
 import { entityManager } from "../Entity/EntityManager.js";
+import PocketEntity from "../Entity/PocketEntity.js";
 /** currently it's the stupidest algo under the sun to do this
  * spatial hashing is overkill for something like this,
  * but it does need to be optimized.
@@ -53,7 +54,9 @@ export function checkForCollisions() {
                 if (a instanceof BallEntity)
                     a.checkPocketed(b);
                 if (b instanceof BallEntity)
-                    b.checkPocketed(a);
+                    b.checkPocketed(b);
+                if (a instanceof PocketEntity || b instanceof PocketEntity)
+                    console.log("ps");
             }
         }
     }
