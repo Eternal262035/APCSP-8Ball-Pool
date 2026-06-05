@@ -39,4 +39,7 @@ export enum Color {
     BallS7T15 = "#bf0000",
 }
 
-
+export enum BallType {
+    Solid = 1 << 0,
+    Stripe = 1 << 1,
+}

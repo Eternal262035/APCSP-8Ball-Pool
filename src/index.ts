@@ -41,6 +41,9 @@ resizeMap();
 
 export let game = new GameInstance();
 game.rackBalls();
+setTimeout(()=>{
+    game.doSelectionModal();
+}, 5000);
 
 
 

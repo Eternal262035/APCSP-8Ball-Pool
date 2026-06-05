@@ -1,5 +1,6 @@
 import { ballSize, mapHeight, mapWidth } from "../../config.js";
 import { PI } from "../../Const/Constants.js";
+import { BallType } from "../../Const/Enums.js";
 import { PositionData } from "../Datagroups/PositionData.js";
 import BallEntity from "../Entity/BallEntity.js";
 import { entityManager } from "../Entity/EntityManager.js";
@@ -10,6 +11,7 @@ import TestEntity from "../Entity/TestEntity.js";
 export default class GameInstance {
     /** the array containing all the balls. Index 0 is going to be the cue ball, and the rest are index 1-15. */
     public balls: BallEntity[] = [];
+    public allowedBallTypes: BallType = BallType.Solid|BallType.Stripe;
     
     constructor() {
         // literally nothing, I guess.
@@ -91,6 +93,34 @@ export default class GameInstance {
         
         new PocketEntity(mapWidth, mapHeight/2);
         new PocketEntity(0, mapHeight/2);
+    }
+
+    public doSelectionModal() {
+        // @ts-ignore
+        document.getElementById("mainCanvas").style.pointerEvents = "none"; // so you cant try to hit while on the modal
+        // @ts-ignore
+        document.getElementById("selectBallTypeModal").classList.remove("hidden"); // so you cant try to hit while on the modal
+        // @ts-ignore
+        document.getElementById("selectBallTypeModal").classList.add("shown"); // so you cant try to hit while on the modal
+        // @ts-ignore
+        const solidBtnListener = document.getElementById("selectBallTypeModal-btn-solids").addEventListener("click", ()=>{
+            this.allowedBallTypes = BallType.Solid;
+            hideStuff();
+        });
+        // @ts-ignore
+        const stripeBtnListener = document.getElementById("selectBallTypeModal-btn-stripes").addEventListener("click", ()=>{
+            this.allowedBallTypes = BallType.Stripe;
+            hideStuff();
+        });
+        
+        function hideStuff() {
+            // @ts-ignore
+            document.getElementById("selectBallTypeModal").classList.remove("shown"); // so you cant try to hit while on the modal
+            // @ts-ignore
+            document.getElementById("selectBallTypeModal").classList.add("hidden"); // so you cant try to hit while on the modal
+            // @ts-ignore
+            document.getElementById("mainCanvas").style.pointerEvents = "all"; // so you cant try to hit while on the modal
+        }
     }
 
 

@@ -42,7 +42,7 @@ export function initHudListeners() {
         const mx = e.clientX;
         const my = e.clientY;
         if (showHud) {
-            const d = Math.sqrt((mx - hudCx) ** 2 + (my - hudCy) ** 2) / (4 * 67);
+            const d = Math.sqrt((mx - hudCx) ** 2 + (my - hudCy) ** 2) / (2.5 * 67);
             hudIntensityDisplay.updateIntensity(d <= 1 ? d : 1);
             hudTracerArrow.updateVector(Vector.fromPolar(hudTracerArrow.length * hudIntensityDisplay.intensityRatio, new Vector(-mx + hudCx, -my + hudCy).angle));
         }

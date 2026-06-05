@@ -21,20 +21,20 @@
     <!-- <p>PAGE TOP</p> -->
     <div class="background"></div>
     <div class="topContainer">
-        <h1>8-Ball Pool game</h1>
+        <h2>8-Ball Pool game</h2>
         <div class="content">
             <p>- Click, drag, and release to launch the cue ball.</p>
             <p>- </p>
         </div>
     </div>
-    <div class="modal shown" id="selectBallTypeModal">
+    <div class="modal hidden" id="selectBallTypeModal">
         <h3>Select a ball type</h1>
             <div class="content">
                 <p>- Once you choose a type, your goal is to hit all balls of that type into the pockets. The 8-ball must be hit in <i>last.</i></p>
                 <p>- Hitting the wrong type of ball into the pocket will cost you points</p>
                 <p>- Hitting in the cue ball will halve your score.</p>
                 <p>- Hitting in the 8-ball before you finish hitting in all of your own ball type will cause you to instantly lose.</p>
-                <p style="font-size: 6px;">These are not the official rules of 8-ball pool. I just made these up because this is singleplayer.</p>
+                <p style="font-size: 10px;">(These are not the official rules of 8-ball pool. I just made these up because this is singleplayer.)</p>
             </div>
         <hr>
         <button id="selectBallTypeModal-btn-solids">Solids</button>
@@ -104,7 +104,8 @@
         padding: 15px;
     }
     .modal.hidden {
-        transform: translate(-50%, -1000%);
+        /* transform: translate(-50%, -100%); */
+        top: -100%;
     }
     .modal.shown {
         transform: translate(-50%, -50%);
@@ -155,6 +156,7 @@
     }
 
     .debugcontainer {
+        /* filter: opacity(0.99); */
         font-size: 10px;
         position: absolute;
         /* Takes it out of the normal document flow */

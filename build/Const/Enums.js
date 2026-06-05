@@ -38,3 +38,8 @@ export var Color;
     Color["BallS6T14"] = "#01c000";
     Color["BallS7T15"] = "#bf0000";
 })(Color || (Color = {}));
+export var BallType;
+(function (BallType) {
+    BallType[BallType["Solid"] = 1] = "Solid";
+    BallType[BallType["Stripe"] = 2] = "Stripe";
+})(BallType || (BallType = {}));

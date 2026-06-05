@@ -27,6 +27,9 @@ const mapBorderIndicator = new SpriteWorldBorder(containers[0], new PositionData
 resizeMap();
 export let game = new GameInstance();
 game.rackBalls();
+setTimeout(() => {
+    game.doSelectionModal();
+}, 5000);
 const tickInterval = setInterval(() => {
     const start = Date.now();
     checkForCollisions();
