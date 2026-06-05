@@ -1,4 +1,4 @@
-import { DrawType } from "./Const/Enums.js";
+import { DrawType, GameOutcome } from "./Const/Enums.js";
 import { PositionData } from "./Game/Datagroups/PositionData.js";
 import Entity from "./Game/Entity/Entity.js";
 import { entityManager } from "./Game/Entity/EntityManager.js";
@@ -42,10 +42,13 @@ resizeMap();
 
 export let game = new GameInstance();
 game.rackBalls();
+// setTimeout(()=>{
+//     game.endGame(GameOutcome.Win);
+// }, 3000);
 
 
 
-const tickInterval = setInterval(()=>{
+export const tickInterval = setInterval(()=>{
     const start = Date.now();
     checkForCollisions();
     // skibidiSixSevenTungTungSaheur();

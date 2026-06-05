@@ -91,6 +91,7 @@ export default class BallEntity extends Entity {
         if (otherEntity instanceof PocketEntity) {
             // alert("ball pocketed.");
             this.destroy();
+            game.processDeletedBall(this.ballNumber);
         }
     }
 

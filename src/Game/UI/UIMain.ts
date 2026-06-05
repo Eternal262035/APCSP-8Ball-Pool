@@ -51,6 +51,7 @@ export function initHudListeners() {
         if (firstShot == -1) {
             firstShot++;
         }
+        game.totalHits++;
         
     });
     
@@ -79,7 +80,7 @@ export function initHudListeners() {
     
 }
 
-function checkAllZeroVelocity(): boolean {
+export function checkAllZeroVelocity(): boolean {
     // makes sure to only show hud when all balls are at rest
     for (const ball of game.balls) {
         if (ball.physicsData.velocity.magnitude !=0) return false;

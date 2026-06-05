@@ -11,6 +11,8 @@ export default class SpriteWorldBorder extends Renderable {
         // path1.rect(position.x-width/2, position.y-height/2, width, height);
         // path1.rect(position.x, position.y, width, height);
         path1.rect(0, 0, width, height);
+        // const pathBkg = new Path2D();
+        // pathBkg.rect(-10, -10, width + 10, height+ 10);
         // const markingPaths1 = new Path2D;
         // for (let i=0; i<8; i++) {
         //     markingPaths1.moveTo(0, i/8*height);
@@ -21,7 +23,8 @@ export default class SpriteWorldBorder extends Renderable {
         //     markingPaths2.moveTo(i/4*width, 0);
         //     markingPaths2.arc(i/4*width, 0, 5, 0, PI2);
         // }
-        this.addPath(new RenderablePath2D(path1, DrawType.Fill | DrawType.Stroke, Color.Wood, Color.PoolTableGreen));
+        // this.addPath(new RenderablePath2D(pathBkg, DrawType.Fill, Color.Wood, Color.Wood));     
+        this.addPath(new RenderablePath2D(path1, DrawType.Fill | DrawType.ThickStroke, Color.Wood, Color.PoolTableGreen));
         // this.addPath(new RenderablePath2D(markingPaths1, DrawType.Stroke, Color.Red, Color.Red));
         // this.addPath(new RenderablePath2D(markingPaths2, DrawType.Stroke, Color.Red, Color.Red));
     }

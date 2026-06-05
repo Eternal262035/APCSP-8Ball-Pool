@@ -27,7 +27,10 @@ const mapBorderIndicator = new SpriteWorldBorder(containers[0], new PositionData
 resizeMap();
 export let game = new GameInstance();
 game.rackBalls();
-const tickInterval = setInterval(() => {
+// setTimeout(()=>{
+//     game.endGame(GameOutcome.Win);
+// }, 3000);
+export const tickInterval = setInterval(() => {
     const start = Date.now();
     checkForCollisions();
     // skibidiSixSevenTungTungSaheur();

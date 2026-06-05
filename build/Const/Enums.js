@@ -43,3 +43,9 @@ export var BallType;
     BallType[BallType["Solid"] = 1] = "Solid";
     BallType[BallType["Stripe"] = 2] = "Stripe";
 })(BallType || (BallType = {}));
+export var GameOutcome;
+(function (GameOutcome) {
+    GameOutcome[GameOutcome["Win"] = 1] = "Win";
+    GameOutcome[GameOutcome["Lose"] = 2] = "Lose";
+    GameOutcome[GameOutcome["InstantDeath"] = 3] = "InstantDeath";
+})(GameOutcome || (GameOutcome = {}));

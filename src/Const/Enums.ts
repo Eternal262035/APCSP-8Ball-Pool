@@ -43,3 +43,9 @@ export enum BallType {
     Solid = 1 << 0,
     Stripe = 1 << 1,
 }
+
+export enum GameOutcome {
+    Win = 1, // yes
+    Lose = 2, // you hit all the other balls in first bruh
+    InstantDeath = 3, // lol rip
+}

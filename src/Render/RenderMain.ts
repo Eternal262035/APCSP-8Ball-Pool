@@ -11,7 +11,7 @@ let bkgYcurrent = 0;
 
 let lastTick = Date.now();
 let thisTick = Date.now();
-export default function renderFrameLoop(ctx: CanvasRenderingContext2D) {
+export default function renderFrameLoop(ctx: CanvasRenderingContext2D) { // lalalala theres no stopping this
     requestAnimationFrame(()=>{renderFrameLoop(ctx);});// must wrap in anonymous function cuz otherwise it eats the call stack
 
     

@@ -43,6 +43,7 @@ export function initHudListeners() {
         if (firstShot == -1) {
             firstShot++;
         }
+        game.totalHits++;
     });
     canvasEle?.addEventListener("mousemove", (e) => {
         if (!checkAllZeroVelocity())
@@ -60,7 +61,7 @@ export function initHudListeners() {
     //     console.log(e.wheelDeltaY); 
     // });
 }
-function checkAllZeroVelocity() {
+export function checkAllZeroVelocity() {
     // makes sure to only show hud when all balls are at rest
     for (const ball of game.balls) {
         if (ball.physicsData.velocity.magnitude != 0)
