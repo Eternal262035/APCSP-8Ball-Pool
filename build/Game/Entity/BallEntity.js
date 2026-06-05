@@ -6,6 +6,7 @@ import { Sprite1Ball, Sprite2Ball, Sprite3Ball, Sprite4Ball, Sprite5Ball, Sprite
 import { Sprite10Ball, Sprite11Ball, Sprite12Ball, Sprite13Ball, Sprite14Ball, Sprite15Ball, Sprite9Ball } from "../../Render/Sprites/Balls/StripedBalls.js";
 import SpriteCircle from "../../Render/Sprites/Circle.js";
 import Entity from "./Entity.js";
+import PocketEntity from "./PocketEntity.js";
 export default class BallEntity extends Entity {
     /** this is the number that dictates what number the ball is.
      * it is numbered from 0 to 15 inclusive, where 0 is the cue ball and 1-15 are the normal numbered balls.
@@ -106,8 +107,9 @@ export default class BallEntity extends Entity {
     }
     checkPocketed(otherEntity) {
         // console.log(`checking other id: ${otherEntity.id}`);
-        // if (otherEntity instanceof PocketEntity) {
-        //     alert("ball pocketed.");
-        // }        
+        if (otherEntity instanceof PocketEntity) {
+            // alert("ball pocketed.");
+            this.destroy();
+        }
     }
 }

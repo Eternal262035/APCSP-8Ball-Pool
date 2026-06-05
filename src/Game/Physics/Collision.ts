@@ -66,7 +66,7 @@ export function checkForCollisions() {
 
                 if (a instanceof BallEntity) a.checkPocketed(b);
                 if (b instanceof BallEntity) b.checkPocketed(b);
-                if (a instanceof PocketEntity || b instanceof PocketEntity) console.log("ps")
+                // if (a instanceof PocketEntity || b instanceof PocketEntity) console.log("ps")
                 
             }
         }

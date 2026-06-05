@@ -21,6 +21,8 @@ export enum Color {
     DarkGray = "#929292",
     PoolTableGreen = "#06b69f", //"#31B94D",
     Wood = "#BA8C63",
+    Wood1 = "#7a5d44",
+    Wood2 = "#4c3622",
     HudBkgMain = "rgba(255, 255, 255, 0.7)",
     HudBkgIndicator = "#00ff9d80",
 

@@ -84,7 +84,13 @@ export default class GameInstance {
 
 
     public spawnPocketEntities() {
-        new PocketEntity(100,200);
+        new PocketEntity(0+6,0+6);
+        new PocketEntity(mapWidth-6,0+6);
+        new PocketEntity(0+6,mapHeight-6);
+        new PocketEntity(mapWidth-6,mapHeight-6);
+        
+        new PocketEntity(mapWidth, mapHeight/2);
+        new PocketEntity(0, mapHeight/2);
     }
 
 

@@ -88,8 +88,9 @@ export default class BallEntity extends Entity {
 
     public checkPocketed(otherEntity: Entity) {
         // console.log(`checking other id: ${otherEntity.id}`);
-        // if (otherEntity instanceof PocketEntity) {
-        //     alert("ball pocketed.");
-        // }        
+        if (otherEntity instanceof PocketEntity) {
+            // alert("ball pocketed.");
+            this.destroy();
+        }
     }
 }
