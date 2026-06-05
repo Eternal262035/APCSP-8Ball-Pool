@@ -29,6 +29,7 @@ export let mapRight: number = 0;
 export let mapBottom: number = 0;
 export let mapTop: number = 0;
 
+
 initCanvas();
 initRenderableContainers();
 renderFrameLoop(ctx);
@@ -41,9 +42,6 @@ resizeMap();
 
 export let game = new GameInstance();
 game.rackBalls();
-setTimeout(()=>{
-    game.doSelectionModal();
-}, 5000);
 
 
 

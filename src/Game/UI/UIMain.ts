@@ -4,7 +4,8 @@ import BallEntity from "../Entity/BallEntity.js";
 import Vector from "../Physics/Vector.js";
 import { CueHudBkg, CueHudIntensity, CueHudTracerArrow } from "./RenderHud.js";
 
-export var showHud: Boolean = false;
+export var showHud: boolean = false;
+export let firstShot: number = -1;
 export function initHudListeners() {
     const canvasEle = document.getElementById("mainCanvas") as HTMLCanvasElement | null;
     
@@ -31,6 +32,10 @@ export function initHudListeners() {
         hudCx = mx;
         hudCy = my;
         updateHudPosition({x: mx, y: my});
+        if (firstShot == 0) {
+            game.doSelectionModal();
+            firstShot++;
+        }
     });
     
     canvasEle?.addEventListener("mouseup", (e)=>{
@@ -43,6 +48,10 @@ export function initHudListeners() {
         cueBall.physicsData.velocity.set(
             Vector.fromPolar(15*hudIntensityDisplay.intensityRatio, new Vector(-mx+hudCx, -my+hudCy).angle)
         );
+        if (firstShot == -1) {
+            firstShot++;
+        }
+        
     });
     
     canvasEle?.addEventListener("mousemove", (e)=>{

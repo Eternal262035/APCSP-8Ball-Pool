@@ -18,22 +18,21 @@ export default class SpriteWorldBorder extends Renderable {
         // path1.rect(position.x, position.y, width, height);
         path1.rect(0,0, width, height);
         
-        const markingPaths1 = new Path2D;
-        for (let i=0; i<8; i++) {
-            markingPaths1.moveTo(0, i/8*height);
-            markingPaths1.arc(0, i/8*height, 5, 0, PI2);
-        }
+        // const markingPaths1 = new Path2D;
+        // for (let i=0; i<8; i++) {
+        //     markingPaths1.moveTo(0, i/8*height);
+        //     markingPaths1.arc(0, i/8*height, 5, 0, PI2);
+        // }
 
-        const markingPaths2 = new Path2D;
-        for (let i=0; i<4; i++) {
-            markingPaths2.moveTo(i/4*width, 0);
-            markingPaths2.arc(i/4*width, 0, 5, 0, PI2);
-        }
+        // const markingPaths2 = new Path2D;
+        // for (let i=0; i<4; i++) {
+        //     markingPaths2.moveTo(i/4*width, 0);
+        //     markingPaths2.arc(i/4*width, 0, 5, 0, PI2);
+        // }
         
         this.addPath(new RenderablePath2D(path1, DrawType.Fill|DrawType.Stroke, Color.Wood, Color.PoolTableGreen));     
-        this.addPath(new RenderablePath2D(markingPaths1, DrawType.Stroke, Color.Red, Color.Red));
-        this.addPath(new RenderablePath2D(markingPaths2, DrawType.Stroke, Color.Red, Color.Red));
-        // this.addPath(new RenderableImage(Assets.poolTableFelt, {x: 0, y: 0,}, width*0.78, height*2));
+        // this.addPath(new RenderablePath2D(markingPaths1, DrawType.Stroke, Color.Red, Color.Red));
+        // this.addPath(new RenderablePath2D(markingPaths2, DrawType.Stroke, Color.Red, Color.Red));
     }
 
     public draw(thisCtx: CanvasRenderingContext2D) {
@@ -47,19 +46,19 @@ export default class SpriteWorldBorder extends Renderable {
         newPath2D.rect(0, 0, mapWidth, mapHeight);
         this.paths[0] = new RenderablePath2D(newPath2D, DrawType.Fill | DrawType.Stroke, this.paths[0].strokeColor, this.paths[0].fillColor);
         
-        const markingPaths = new Path2D;
-        for (let i=0; i<8; i++) {
-            markingPaths.moveTo(0, i/8*mapHeight);
-            markingPaths.arc(0, i/8*mapHeight, 5, 0, PI2);
-        }
-        this.paths[1] = new RenderablePath2D(markingPaths, DrawType.Fill | DrawType.Stroke, this.paths[1].strokeColor, this.paths[1].fillColor);
+        // const markingPaths = new Path2D;
+        // for (let i=0; i<8; i++) {
+        //     markingPaths.moveTo(0, i/8*mapHeight);
+        //     markingPaths.arc(0, i/8*mapHeight, 5, 0, PI2);
+        // }
+        // this.paths[1] = new RenderablePath2D(markingPaths, DrawType.Fill | DrawType.Stroke, this.paths[1].strokeColor, this.paths[1].fillColor);
         
-        const markingPaths2 = new Path2D;
-        for (let i=0; i<4; i++) {
-            markingPaths2.moveTo(i/4*mapWidth, 0);
-            markingPaths2.arc(i/4*mapWidth, 0, 5, 0, PI2);
-        }
-        this.paths[2] = new RenderablePath2D(markingPaths2, DrawType.Fill | DrawType.Stroke, this.paths[2].strokeColor, this.paths[2].fillColor);
+        // const markingPaths2 = new Path2D;
+        // for (let i=0; i<4; i++) {
+        //     markingPaths2.moveTo(i/4*mapWidth, 0);
+        //     markingPaths2.arc(i/4*mapWidth, 0, 5, 0, PI2);
+        // }
+        // this.paths[2] = new RenderablePath2D(markingPaths2, DrawType.Fill | DrawType.Stroke, this.paths[2].strokeColor, this.paths[2].fillColor);
     
         // this.imagePaths[0] = new RenderableImage(Assets.poolTableFelt, {x: 0, y: 0,}, this.imagePaths[0].width, this.imagePaths[0].height)
     }

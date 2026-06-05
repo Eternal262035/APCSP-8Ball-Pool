@@ -1,6 +1,7 @@
 import { ballSize, mapHeight, mapWidth } from "../../config.js";
 import { PI } from "../../Const/Constants.js";
 import { BallType } from "../../Const/Enums.js";
+import { game } from "../../index.js";
 import { PositionData } from "../Datagroups/PositionData.js";
 import BallEntity from "../Entity/BallEntity.js";
 import { entityManager } from "../Entity/EntityManager.js";
@@ -12,6 +13,8 @@ export default class GameInstance {
     /** the array containing all the balls. Index 0 is going to be the cue ball, and the rest are index 1-15. */
     public balls: BallEntity[] = [];
     public allowedBallTypes: BallType = BallType.Solid|BallType.Stripe;
+    public solidBallsPresent: number[] = [1, 2, 3, 4, 5, 6, 7];
+    public stripeBallsPresent: number[] = [9, 10, 11, 12, 13, 14, 15];
     
     constructor() {
         // literally nothing, I guess.
@@ -120,6 +123,26 @@ export default class GameInstance {
             document.getElementById("selectBallTypeModal").classList.add("hidden"); // so you cant try to hit while on the modal
             // @ts-ignore
             document.getElementById("mainCanvas").style.pointerEvents = "all"; // so you cant try to hit while on the modal
+        }
+    }
+
+    // this is where we process W/L ig
+    public processDeletedBall(n:number) {
+        if (n<8) {
+            this.solidBallsPresent.splice(this.solidBallsPresent.indexOf(n))
+        }
+        if (n>8) {
+
+        }
+        if (n==8) {
+
+        }
+
+        if (game.allowedBallTypes&BallType.Solid) {
+            
+        }
+        if (game.allowedBallTypes&BallType.Stripe) {
+
         }
     }
 
