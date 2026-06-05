@@ -17,7 +17,7 @@ export default class SpritePocketEntity extends Renderable {
         const path3 = new Path2D;
         path3.arc(0, 0, ballSize*0.35, 0, PI2);
 
-        this.addPath(new RenderablePath2D(path1, DrawType.Fill, Color.Wood, Color.Wood));
+        this.addPath(new RenderablePath2D(path1, DrawType.Fill|DrawType.Stroke, Color.Wood2, Color.Wood));
         this.addPath(new RenderablePath2D(path2, DrawType.Fill, Color.Wood1, Color.Wood1));
         this.addPath(new RenderablePath2D(path3, DrawType.Fill, Color.Wood2, Color.Wood2));
 

@@ -22,6 +22,8 @@ export var Color;
     Color["DarkGray"] = "#929292";
     Color["PoolTableGreen"] = "#06b69f";
     Color["Wood"] = "#BA8C63";
+    Color["Wood1"] = "#7a5d44";
+    Color["Wood2"] = "#4c3622";
     Color["HudBkgMain"] = "rgba(255, 255, 255, 0.7)";
     Color["HudBkgIndicator"] = "#00ff9d80";
     // Ball colors
