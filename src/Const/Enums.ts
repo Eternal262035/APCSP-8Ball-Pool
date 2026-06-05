@@ -3,6 +3,7 @@ export enum DrawType { // because javascript stores numbers as 32 bit integers, 
     Stroke =  1 << 0, // flip byte at idx 0 to 1
     Fill = 1 << 1, // flip byte at idx 1 to 1
     Shadow = 1 << 2, // flip byte at idx 2 to 1 // shadow uses the fill color because lazy
+    ThickStroke = 1 << 3, // this is pretty uch only used for the hud indicator. 
 }
 
 export enum DrawTextType {

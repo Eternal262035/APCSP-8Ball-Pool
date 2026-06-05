@@ -2,6 +2,7 @@ import { DrawType } from "./Const/Enums.js";
 import { PositionData } from "./Game/Datagroups/PositionData.js";
 import Entity from "./Game/Entity/Entity.js";
 import { entityManager } from "./Game/Entity/EntityManager.js";
+import PocketEntity from "./Game/Entity/PocketEntity.js";
 import TestEntity from "./Game/Entity/TestEntity.js";
 import GameInstance from "./Game/Instance/Game.js";
 import { checkForCollisions } from "./Game/Physics/Collision.js";
@@ -98,6 +99,7 @@ function relocateAllEntities(dx: number, dy: number) {
     for (const entity of entityManager.entities.values()) {
         entity.positionData.x += dx;
         entity.positionData.y += dy;
+        // if (entity instanceof PocketEntity) console.log("pkc moved");
     }
 }
 

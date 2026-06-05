@@ -12,7 +12,7 @@ export default class GameInstance {
     public balls: BallEntity[] = [];
     
     constructor() {
-
+        // literally nothing, I guess.
     }
 
     public deleteAllBalls() {

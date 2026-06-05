@@ -20,7 +20,7 @@ export default class Entity {
     public id: number = -1; // just set it to -1 as a default for now;
 
     public wallVelocityMultiFactor = 0.98;
-    public passiveVelocityMultiFactor = 0.9972;
+    public passiveVelocityMultiFactor = 0.9968;
 
     // public onCollisionCallback: (otherEntity: Entity, ...args: any[]) => any;
 
@@ -66,6 +66,7 @@ export default class Entity {
     }
 
     public approximateZeroVelocity() {
+        if (Vector.magnitude(this.physicsData.velocity) <= 0.5) this.physicsData.velocity.scale(this.passiveVelocityMultiFactor**2); // after this the velocity gets scaled down three times in one tick
         if (Vector.magnitude(this.physicsData.velocity) <= 0.055) this.physicsData.velocity = new Vector(0,0);
     }
 

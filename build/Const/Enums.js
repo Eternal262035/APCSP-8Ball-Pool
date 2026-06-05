@@ -4,6 +4,7 @@ export var DrawType;
     DrawType[DrawType["Stroke"] = 1] = "Stroke";
     DrawType[DrawType["Fill"] = 2] = "Fill";
     DrawType[DrawType["Shadow"] = 4] = "Shadow";
+    DrawType[DrawType["ThickStroke"] = 8] = "ThickStroke";
 })(DrawType || (DrawType = {}));
 export var DrawTextType;
 (function (DrawTextType) {

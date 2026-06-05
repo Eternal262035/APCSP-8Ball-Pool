@@ -1,5 +1,5 @@
 import { ballSize } from "../../config.js";
-import { mapBottom, mapLeft, mapRight, mapTop } from "../../index.js";
+import { game, mapBottom, mapLeft, mapRight, mapTop } from "../../index.js";
 import { containers } from "../../Render/RenderableContainer.js";
 import SpriteCueBall from "../../Render/Sprites/Balls/CueBall.js";
 import { Sprite1Ball, Sprite2Ball, Sprite3Ball, Sprite4Ball, Sprite5Ball, Sprite6Ball, Sprite7Ball, Sprite8Ball } from "../../Render/Sprites/Balls/SolidBalls.js";
@@ -92,5 +92,12 @@ export default class BallEntity extends Entity {
             // alert("ball pocketed.");
             this.destroy();
         }
+    }
+
+    // make sure to remove the ball from the game as well
+    public destroy(): Entity {
+        super.destroy();
+        game.balls.splice(game.balls.indexOf(this), 1);
+        return this;
     }
 }

@@ -60,6 +60,11 @@ export default class Renderable {
                 ctx.shadowOffsetY = -2;
                 ctx.fill(template.path);
             }
+            if (template.type & DrawType.ThickStroke) {
+                ctx.strokeStyle = template.strokeColor;
+                ctx.lineWidth = 5;
+                ctx.stroke(template.path);
+            }
             ctx.restore();
         }
         for (const template of this.textPaths) {

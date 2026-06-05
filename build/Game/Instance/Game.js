@@ -7,6 +7,7 @@ export default class GameInstance {
     /** the array containing all the balls. Index 0 is going to be the cue ball, and the rest are index 1-15. */
     balls = [];
     constructor() {
+        // literally nothing, I guess.
     }
     deleteAllBalls() {
         for (const ball of this.balls) {

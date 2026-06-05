@@ -14,7 +14,7 @@ export default class Entity {
     sprite; // or any extended class from it btw
     id = -1; // just set it to -1 as a default for now;
     wallVelocityMultiFactor = 0.98;
-    passiveVelocityMultiFactor = 0.9972;
+    passiveVelocityMultiFactor = 0.9968;
     // public onCollisionCallback: (otherEntity: Entity, ...args: any[]) => any;
     constructor(mapx, mapy, size) {
         const canvasCoords = mapToCanvasCoords(mapx, mapy);
@@ -50,6 +50,8 @@ export default class Entity {
         this.physicsData.velocity.scale(this.passiveVelocityMultiFactor);
     }
     approximateZeroVelocity() {
+        if (Vector.magnitude(this.physicsData.velocity) <= 0.5)
+            this.physicsData.velocity.scale(this.passiveVelocityMultiFactor ** 2); // after this the velocity gets scaled down three times in one tick
         if (Vector.magnitude(this.physicsData.velocity) <= 0.055)
             this.physicsData.velocity = new Vector(0, 0);
     }

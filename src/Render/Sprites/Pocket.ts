@@ -8,7 +8,7 @@ import RenderablePath2D from "../RenderablePath2D.js";
 
 export default class SpritePocketEntity extends Renderable {
     constructor(position: PositionData) {
-        super(containers[1], position); // call parent constructor with the required arguments
+        super(containers[0], position); // call parent constructor with the required arguments
         console.log(this);
         const path1 = new Path2D;
         path1.arc(0, 0, ballSize*1.2, 0, PI2);

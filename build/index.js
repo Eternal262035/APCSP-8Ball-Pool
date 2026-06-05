@@ -64,6 +64,7 @@ function relocateAllEntities(dx, dy) {
     for (const entity of entityManager.entities.values()) {
         entity.positionData.x += dx;
         entity.positionData.y += dy;
+        // if (entity instanceof PocketEntity) console.log("pkc moved");
     }
 }
 // new TestEntity(267,167,15);

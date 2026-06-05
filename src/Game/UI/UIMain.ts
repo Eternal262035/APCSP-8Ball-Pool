@@ -22,6 +22,8 @@ export function initHudListeners() {
     
     canvasEle?.addEventListener("mousedown", (e)=>{
         // console.log("SHOWING HUD");
+        if (!checkAllZeroVelocity()) return;
+        
         showHud = true;
         const cueBallPosition = game.getBallByNumber(0) as BallEntity;
         const mx = cueBallPosition.positionData.x; // e.clientX;
@@ -32,6 +34,7 @@ export function initHudListeners() {
     });
     
     canvasEle?.addEventListener("mouseup", (e)=>{
+        if (!checkAllZeroVelocity()) return;
         // console.log("HIDING HUD");
         showHud = false;
         const mx = e.clientX;
@@ -43,13 +46,19 @@ export function initHudListeners() {
     });
     
     canvasEle?.addEventListener("mousemove", (e)=>{
+        if (!checkAllZeroVelocity()) return;
         const mx = e.clientX;
         const my = e.clientY;
 
         if (showHud) {
             const d = Math.sqrt((mx-hudCx)**2 + (my-hudCy)**2)/(4*67);
             hudIntensityDisplay.updateIntensity(d<=1?d:1);
-
+            hudTracerArrow.updateVector(
+                Vector.fromPolar(
+                    hudTracerArrow.length*hudIntensityDisplay.intensityRatio,
+                    new Vector(-mx+hudCx, -my+hudCy).angle
+                )
+            )
         }
     });
     
@@ -61,7 +70,13 @@ export function initHudListeners() {
     
 }
 
-
+function checkAllZeroVelocity(): boolean {
+    // makes sure to only show hud when all balls are at rest
+    for (const ball of game.balls) {
+        if (ball.physicsData.velocity.magnitude !=0) return false;
+    }
+    return true;
+}
 
 // type assertions galore
 //  fahhhhhhhh
