@@ -3,6 +3,7 @@ import { PI } from "../../Const/Constants.js";
 import { PositionData } from "../Datagroups/PositionData.js";
 import BallEntity from "../Entity/BallEntity.js";
 import { entityManager } from "../Entity/EntityManager.js";
+import PocketEntity from "../Entity/PocketEntity.js";
 import TestEntity from "../Entity/TestEntity.js";
 
 /** the general class for a game instance. */
@@ -62,6 +63,8 @@ export default class GameInstance {
 
         // spawn in the cue ball
         this.ballAt(mapWidth/2, 6/8*mapHeight, 0);
+
+        this.spawnPocketEntities();
     } 
 
     public ballAt(x: number, y: number, number: number):void {
@@ -80,7 +83,9 @@ export default class GameInstance {
     }
 
 
-
+    public spawnPocketEntities() {
+        new PocketEntity(667, 467);
+    }
 
 
 

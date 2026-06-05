@@ -6,7 +6,9 @@ import HitboxData from "../Datagroups/HitboxData.js";
 import PhysicsData from "../Datagroups/PhysicsData.js";
 import { PositionData } from "../Datagroups/PositionData.js";
 import Vector from "../Physics/Vector.js";
+import BallEntity from "./BallEntity.js";
 import { entityManager } from "./EntityManager.js";
+import PocketEntity from "./PocketEntity.js";
 //
 
 export default class Entity {

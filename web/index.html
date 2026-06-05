@@ -19,7 +19,7 @@
 
 <body>
     <!-- <p>PAGE TOP</p> -->
-    <div class="bkgImage"></div>
+    <div class="background"></div>
     <div class="debugcontainer">
         <div class="debug">
             <p id="debug-fps">debug-fps</p>
@@ -48,18 +48,19 @@
         font-family: "Calibri";
         background-color: #ffffff
         /* background-color: #313338 */
-
+        
     }
 
     .background{
         width: 100dvw; /* means 100% of the dynamic viewport width */
         height: 100dvh;
         position: fixed;
-        filter: blur(1px); /* blur the image */
+        filter: blur(3px); /* blur the image */
         transform: scale(1.1); /* to make the image a little bit zoomed in so we dont run out of image to pan over **/
-        background: url("../assets/iamaturtle.png");
+        background-image: url("../assets/4x4g(s).png");
         z-index: -1; /* put it al the way in the background */
         inset: 0px;
+        opacity: 0.7;
     }
 
     #mainCanvas {

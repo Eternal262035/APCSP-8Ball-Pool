@@ -7,6 +7,7 @@ import { Sprite10Ball, Sprite11Ball, Sprite12Ball, Sprite13Ball, Sprite14Ball, S
 import SpriteCircle from "../../Render/Sprites/Circle.js";
 import SpriteDebugBall from "../../Render/Sprites/DebugBall.js";
 import Entity from "./Entity.js";
+import PocketEntity from "./PocketEntity.js";
 
 export default class BallEntity extends Entity {
     /** this is the number that dictates what number the ball is.
@@ -83,5 +84,12 @@ export default class BallEntity extends Entity {
             this.positionData.y = mapTop + this.hitboxData.size;
 
         }
+    }
+
+    public checkPocketed(otherEntity: Entity) {
+        console.log(`checking other id: ${otherEntity.id}`);
+        // if (otherEntity instanceof PocketEntity) {
+        //     alert("ball pocketed.");
+        // }        
     }
 }

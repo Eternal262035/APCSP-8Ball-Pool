@@ -6,6 +6,7 @@ import { Sprite1Ball, Sprite2Ball, Sprite3Ball, Sprite4Ball, Sprite5Ball, Sprite
 import { Sprite10Ball, Sprite11Ball, Sprite12Ball, Sprite13Ball, Sprite14Ball, Sprite15Ball, Sprite9Ball } from "../../Render/Sprites/Balls/StripedBalls.js";
 import SpriteCircle from "../../Render/Sprites/Circle.js";
 import SpriteDebugBall from "../../Render/Sprites/DebugBall.js";
+import SpritePocketEntity from "../../Render/Sprites/Pocket.js";
 import Entity from "./Entity.js";
 
 /** the entity that detects collisions between it and a BallEntity
@@ -18,13 +19,14 @@ export default class PocketEntity extends Entity {
         super(x, y, ballSize*1.2); // call parent constructor with xpos, ypos, and size (all balls are the same size)
         
 
-        
+        this.sprite = new SpritePocketEntity({x: x, y: y});
     }
 
     // make it bounce off the walls just like the TestEntity
     public applyPhysics(): void {
         // absolutely nothing, no physics to be applied here. 
-
+        super.applyPhysics();
+        super.approximateZeroVelocity();
         // this entity literally does not move;
     }
     

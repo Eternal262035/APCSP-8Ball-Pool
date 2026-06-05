@@ -18,6 +18,9 @@ import { cacheNewImage, canvasToMapCoords, mapToCanvasCoords } from "./utils.js"
 // alert("Load index");
 
 
+// background div variables
+export let bkgX = 0;
+export let bkgY = 0;
 
 // the screen coords of the map.
 export let mapLeft: number = 0;
@@ -109,7 +112,12 @@ let my = 0;
 document.addEventListener('mousemove', (event) => {
     mx = event.clientX;
     my = event.clientY;
-    
+
+    const x = event.clientX / window.innerWidth;
+    const y = event.clientY / window.innerHeight;
+    bkgX = (x - 0.5) * 40; // these are target positions at any given time the mouse moves
+    bkgY = (y - 0.5) * 40;
+    // updated in RenderMaint.ts
 
     const cc = canvasToMapCoords(mx, my)
     // @ts-ignore
@@ -213,12 +221,3 @@ document.getElementById("debug-zeroAllVelocity").addEventListener("click", ()=>{
 });
 
 
-
-
-
-
-
-
-document.addEventListener("mousemove", (e)=>{
-
-});

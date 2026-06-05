@@ -1,6 +1,7 @@
 import { ballSize, mapHeight, mapWidth } from "../../config.js";
 import { PI } from "../../Const/Constants.js";
 import BallEntity from "../Entity/BallEntity.js";
+import PocketEntity from "../Entity/PocketEntity.js";
 /** the general class for a game instance. */
 export default class GameInstance {
     /** the array containing all the balls. Index 0 is going to be the cue ball, and the rest are index 1-15. */
@@ -41,6 +42,7 @@ export default class GameInstance {
         }
         // spawn in the cue ball
         this.ballAt(mapWidth / 2, 6 / 8 * mapHeight, 0);
+        this.spawnPocketEntities();
     }
     ballAt(x, y, number) {
         const b = new BallEntity(x, y, number);
@@ -54,6 +56,9 @@ export default class GameInstance {
             }
         }
         return null;
+    }
+    spawnPocketEntities() {
+        new PocketEntity(667, 467);
     }
     // util stuff 
     /** swap the values of two indexes in an array */

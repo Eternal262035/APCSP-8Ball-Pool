@@ -104,4 +104,10 @@ export default class BallEntity extends Entity {
             this.positionData.y = mapTop + this.hitboxData.size;
         }
     }
+    checkPocketed(otherEntity) {
+        console.log(`checking other id: ${otherEntity.id}`);
+        // if (otherEntity instanceof PocketEntity) {
+        //     alert("ball pocketed.");
+        // }        
+    }
 }

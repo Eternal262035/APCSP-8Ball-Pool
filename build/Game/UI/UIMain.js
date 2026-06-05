@@ -34,7 +34,7 @@ export function initHudListeners() {
         const mx = e.clientX;
         const my = e.clientY;
         if (showHud) {
-            const d = Math.sqrt((mx - hudCx) ** 2 + (my - hudCy) ** 2) / (2 * 67);
+            const d = Math.sqrt((mx - hudCx) ** 2 + (my - hudCy) ** 2) / (4 * 67);
             hudIntensityDisplay.updateIntensity(d <= 1 ? d : 1);
         }
     });
