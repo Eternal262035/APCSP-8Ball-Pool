@@ -216,19 +216,19 @@ export default class GameInstance {
                 resultDescrEle.innerText = "You hit all your balls in!";
                 scoreEle.innerText = `Score ${this.score}`;
                 totalHits.innerText = `Total hits: ${this.totalHits}`;
-            }
+            } break;
             case GameOutcome.Lose: {
                 resultEle.innerText = "You lost!";
                 resultDescrEle.innerText = "You hit all the balls from the opposing type! (how did this even happen bruh)";
                 scoreEle.innerText = `Score ${this.score}`;
                 totalHits.innerText = `Total hits: ${this.totalHits}`;
-            }
+            } break;
             case GameOutcome.InstantDeath: {
                 resultEle.innerText = "You lost: Instant death!";
                 resultDescrEle.innerText = "You pocketed the 8-ball before clearing your set!";
                 scoreEle.innerText = `Score ${this.score}`;
                 totalHits.innerText = `Total hits: ${this.totalHits}`;
-            }
+            } break;
         }
     }
 

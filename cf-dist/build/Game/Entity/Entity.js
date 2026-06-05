@@ -1,0 +1,58 @@
+import Renderable from "../../Render/Renderable.js";
+import { containers } from "../../Render/RenderableContainer.js";
+import { mapToCanvasCoords } from "../../utils.js";
+import HitboxData from "../Datagroups/HitboxData.js";
+import PhysicsData from "../Datagroups/PhysicsData.js";
+import { PositionData } from "../Datagroups/PositionData.js";
+import Vector from "../Physics/Vector.js";
+import { entityManager } from "./EntityManager.js";
+//
+export default class Entity {
+    positionData;
+    hitboxData;
+    physicsData;
+    sprite; // or any extended class from it btw
+    id = -1; // just set it to -1 as a default for now;
+    wallVelocityMultiFactor = 0.98;
+    passiveVelocityMultiFactor = 0.9968;
+    // public onCollisionCallback: (otherEntity: Entity, ...args: any[]) => any;
+    constructor(mapx, mapy, size) {
+        const canvasCoords = mapToCanvasCoords(mapx, mapy);
+        // console.log("asdasdasd");
+        this.positionData = new PositionData(canvasCoords.x, canvasCoords.y);
+        this.hitboxData = new HitboxData(size);
+        this.physicsData = new PhysicsData();
+        // this.sprite = new SpriteDebugBall(containers[1], this.positionData, this.hitboxData.size);
+        /** Explanation:
+         * the type union between Renderable and undefined gets messy especially for extended classes
+         * this is why we set this.sprite to a temporary Renderable and remove it from the container immediately.
+         * since it's not in a container it wont get rendered, which is the goal anyway.
+         */
+        this.sprite = new Renderable(containers[0], this.positionData);
+        this.sprite.container.removeChild(this.sprite.id);
+        // this.onCollisionCallback = (otherEntity: Entity, ...args: any[]) => {
+        //     console.log("default callback. literally nothing.");
+        //     console.log(args);
+        // }
+        entityManager.addNewEntity(this);
+    }
+    destroy() {
+        entityManager.removeEntity(this);
+        this.sprite.container.removeChild(this.sprite.id);
+        // need to remove the sprite too
+        return this;
+    }
+    applyPhysics() {
+        // change the position by the velocity.
+        this.positionData.x += this.physicsData.velocity.x;
+        this.positionData.y += this.physicsData.velocity.y;
+        // scale down the velocity a little bit to mimic friction.
+        this.physicsData.velocity.scale(this.passiveVelocityMultiFactor);
+    }
+    approximateZeroVelocity() {
+        if (Vector.magnitude(this.physicsData.velocity) <= 0.5)
+            this.physicsData.velocity.scale(this.passiveVelocityMultiFactor ** 2); // after this the velocity gets scaled down three times in one tick
+        if (Vector.magnitude(this.physicsData.velocity) <= 0.055)
+            this.physicsData.velocity = new Vector(0, 0);
+    }
+}
