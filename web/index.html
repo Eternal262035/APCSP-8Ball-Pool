@@ -20,8 +20,25 @@
 <body>
     <!-- <p>PAGE TOP</p> -->
     <div class="background"></div>
-    <div class="mainContainer">
+    <div class="topContainer">
         <h1>8-Ball Pool game</h1>
+        <div class="content">
+            <p>- Click, drag, and release to launch the cue ball.</p>
+            <p>- </p>
+        </div>
+    </div>
+    <div class="modal shown" id="selectBallTypeModal">
+        <h3>Select a ball type</h1>
+            <div class="content">
+                <p>- Once you choose a type, your goal is to hit all balls of that type into the pockets. The 8-ball must be hit in <i>last.</i></p>
+                <p>- Hitting the wrong type of ball into the pocket will cost you points</p>
+                <p>- Hitting in the cue ball will halve your score.</p>
+                <p>- Hitting in the 8-ball before you finish hitting in all of your own ball type will cause you to instantly lose.</p>
+                <p style="font-size: 6px;">These are not the official rules of 8-ball pool. I just made these up because this is singleplayer.</p>
+            </div>
+        <hr>
+        <button id="selectBallTypeModal-btn-solids">Solids</button>
+        <button id="selectBallTypeModal-btn-stripes">Stripes</button>
     </div>
     <div class="debugcontainer">
         <div class="debug">
@@ -54,11 +71,66 @@
         
     }
 
-    .mainContainer {
+    .topContainer {
+        border: 3px solid white;
+        padding: 15px;
+        pointer-events: none; /* disble highlighting as to not interfere with gameplay */
+        text-align: center;
+        color: white;
         position: absolute;
         top: 0px;
+        right: 0%;
+        backdrop-filter: blur(10px); /* classic way of centering a div with absolute pos mode */
+    }
+    
+    .topContainer .content {
+        text-align: left;
+    }
+    
+    .modal {
+        /* pointer-events: none; */   
+        color: white;
+        background-color: #31333767;
+        backdrop-filter: blur(10px);     
+        position: absolute;
+        top: 50%;
         left: 50%;
-        transform: translateX(50%); /* classic way of centering a div with absolute pos mode */
+        transform: translate(-50%, 0px);
+        transition: 0.67s ease-in-out;
+        min-width: 676px;
+        min-height: 400px;
+        border: 3px solid white;
+        text-align: center;
+        padding: 15px;
+    }
+    .modal.hidden {
+        transform: translate(-50%, -1000%);
+    }
+    .modal.shown {
+        transform: translate(-50%, -50%);
+    }
+    .modal .content {
+        text-align: left;
+    }
+    .modal button {
+        font-size: 26px;
+        color: white;
+        transition: 0.2s ease-in-out;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        margin: 4px;
+        background-color: #00c4d5;
+        border: 0px solid white;
+        border-radius: 4px;
+        transform: scale(1);
+    }
+    .modal button:active {
+        transform: scale(0.95);
+    }
+    .modal button:hover {
+        transform: scale(1.05);
     }
 
     .background{
@@ -79,9 +151,11 @@
         height: 100dvh;
         /* border: 6.7px solid rgb(0, 255, 0); */
         box-sizing: border-box;
+        /* pointer-events: none; */ 
     }
 
     .debugcontainer {
+        font-size: 10px;
         position: absolute;
         /* Takes it out of the normal document flow */
         backdrop-filter: blur(10px);

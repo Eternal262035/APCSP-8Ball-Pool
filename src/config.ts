@@ -3,14 +3,14 @@ export const msprt:number = 14; // ms per render tick
 
 // these are the dimensions of a professional pool table (9 ft), according to google lol
 /** the width of the pool table */
-export const mapWidth: number = 1118*0.35;
+export const mapWidth: number = 1118*0.3;
 
 /** the height of the pool table */
-export const mapHeight: number = 2235*0.35;
+export const mapHeight: number = 2235*0.3;
 
 // export const consoleLogs: boolean = true;
 
 /** the size of a pool ball */
-export const ballSize: number = 57.15*0.35*0.82     //*0.96;   // = 20.0025
-export const ballSizeUncorrected: number = 57.15*0.35*1     //*0.96;   // = 20.0025
+export const ballSize: number = 57.15*0.3*0.82     //*0.96;   // = 20.0025
+export const ballSizeUncorrected: number = 57.15*0.3*1     //*0.96;   // = 20.0025
 // shoudl probably make this smaller. 
