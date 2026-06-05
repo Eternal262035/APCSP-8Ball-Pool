@@ -10,5 +10,5 @@
 
 ## references
 - Pool table image: https://bargames101.com/pool-table-anatomy/
-- Rules: https://www.colorado.edu/umc/sites/default/files/attached-files/8-ball_rules_bca.pdf
+- Rules: https://www.colorado.edu/umc/sites/default/files/attached-files/8-ball_rules_bca.pdf (jk i didnt really follow these)
 - Where I got the ball colors from: https://drdavepoolinfo.com/bd_articles/2017/may17.pdf
